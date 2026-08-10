@@ -5,6 +5,10 @@ import * as QRCode from 'qrcode'
 
 
 const whatsappNumber = '77781556699'
+const maxPhoneNumber = '+77055909091'
+const alibekPhoneNumber = '+77781556699'
+const maxPhoneLabel = '+7 705 590 9091 — Максим'
+const alibekPhoneLabel = '+7 778 155 6699 — Алибек'
 
 const translations = {
   ru: {
@@ -26,8 +30,8 @@ const translations = {
     startOrderAlt: 'Получить цену за 30 секунд',
     draftReminder: 'У вас есть незавершенная заявка',
     continueDraftShort: 'Продолжить',
-    installAppTitle: 'Установите приложение TransferPro',
-    installAppHint: 'Открывайте быстрее и работайте даже при слабом интернете.',
+    installAppTitle: 'Установите приложение MAX',
+    installAppHint: 'Открывайте быстрее и заказывайте поездку в два клика.',
     installAppButton: 'Установить',
     installAppLater: 'Позже',
     quickScenarios: 'Быстрые сценарии',
@@ -49,14 +53,14 @@ const translations = {
     progressStep2: '2. Услуга и дата',
     progressStep3: '3. Детали (опционально)',
     phoneInvalid: 'Введите корректный номер (+7XXXXXXXXXX)',
-    bookingTitle: 'Готовы оценить новый уровень комфорта?',
-    bookingSubtitle: 'Закажите разовый трансфер или оформите долгосрочный договор на обслуживание уже сегодня. Наш менеджер на связи 24/7.',
+    bookingTitle: 'Готовы к комфортной поездке?',
+    bookingSubtitle: 'Закажите такси по городу, трансфер в аэропорт или корпоративную поездку — мы на связи 24/7.',
     bookingSubtitleShort: 'Оставьте контакты и дату. Подтверждаем быстро в WhatsApp или по звонку.',
-    heroBadge: 'Астана · Премиальный трансфер',
-    heroTitle: 'Ваш персональный автопарк в столице',
-    heroP1: 'Мы не просто предоставляем автомобиль с водителем — мы берем на себя полную ответственность за ваш комфорт на дорогах столицы.',
-    heroP2: 'Transfer Pro — это синергия профессионального этикета, пунктуальности и глубокого понимания потребностей VIP-клиентов.',
-    heroP3: 'Мы работаем для того, чтобы вы могли сосредоточиться на своих делах, пока мы обеспечиваем идеальный маршрут.',
+    heroBadge: 'Астана · Таксопарк MAX · партнер Яндекс Такси',
+    heroTitle: 'Таксопарк MAX — комфортные поездки по Астане и за город',
+    heroP1: 'Мы оказываем услуги такси, трансферов и корпоративных поездок с акцентом на безопасность, комфорт и точность маршрута.',
+    heroP2: 'MAX — это современный таксопарк с водителями, готовыми обслуживать ваши поездки по Астане и за её пределами.',
+    heroP3: 'Независимо от того, нужен ли вам городской рейс, аэропорт или персональный трансфер — мы подберем удобный вариант.',
     standardsTitleDesktop: 'Стандарты',
     contactsHint: 'Позвоните или напишите в WhatsApp — мы на связи 24/7',
     nameLabel: 'Ваше имя *',
@@ -73,7 +77,7 @@ const translations = {
     favoriteAddressPrefix: 'Адрес',
     submitSuccess: 'Заявка открыта в WhatsApp. Мы также сохранили её в истории.',
     removeFavoriteAria: 'Удалить адрес',
-    waMessageTitle: 'Заявка TransferPro:',
+    waMessageTitle: 'Заявка MAX Taxi:',
     waName: 'Имя',
     waPhone: 'Телефон',
     waService: 'Услуга',
@@ -263,11 +267,11 @@ const translations = {
     priceFromTrip: 'от 10 000 ₸ за поездку',
     moreItems: 'ещё',
     callAriaLabel: 'Позвонить',
-    bottomBrand: 'Transfer Pro · Астана',
+    bottomBrand: 'MAX · Таксопарк',
     orderNowCta: 'Заказать сейчас ->',
     offlineDemo: 'Оффлайн демо',
     deleteTransferAria: 'Удалить трансфер',
-    footerTagline: 'Премиальный трансфер в Астане',
+    footerTagline: 'Таксопарк MAX в Астане: такси и трансферы',
     favNoteEdit: 'Заметка',
     favNotePlaceholder: 'Например: паркинг слева',
     reactivationTitle: 'Давно не заказывали?',
@@ -296,8 +300,8 @@ const translations = {
     startOrderAlt: '30 секундта баға алу',
     draftReminder: 'Сізде аяқталмаған өтінім бар',
     continueDraftShort: 'Жалғастыру',
-    installAppTitle: 'TransferPro қолданбасын орнатыңыз',
-    installAppHint: 'Тезірек ашылады және интернет әлсіз кезде де қолжетімді.',
+    installAppTitle: 'MAX қолданбасын орнатыңыз',
+    installAppHint: 'Тезірек ашыңыз және поездкаңызды екі рет басумен ұйымдастырыңыз.',
     installAppButton: 'Орнату',
     installAppLater: 'Кейінірек',
     quickScenarios: 'Жылдам сценарийлер',
@@ -319,14 +323,14 @@ const translations = {
     progressStep2: '2. Қызмет және күн',
     progressStep3: '3. Детальдар (міндетті емес)',
     phoneInvalid: 'Дұрыс нөмір енгізіңіз (+7XXXXXXXXXX)',
-    bookingTitle: 'Жаңа жайлылық деңгейін көргіңіз келе ме?',
-    bookingSubtitle: 'Бір реттік трансферге тапсырыс беріңіз немесе ұзақ мерзімді қызмет көрсету келісімін жасаңыз. Менеджер 24/7 байланыста.',
+    bookingTitle: 'Ыңғайлы сапарға дайынсыз ба?',
+    bookingSubtitle: 'Астана ішінде такси, әуежайға трансфер немесе корпоративтік сапарға тапсырыс беріңіз — біз 24/7 байланыстамыз.',
     bookingSubtitleShort: 'Байланыс пен күнді енгізіңіз. WhatsApp не қоңырау арқылы жылдам растаймыз.',
-    heroBadge: 'Астана · Премиум трансфер қызметі',
-    heroTitle: 'Елордадағы жеке автопаркіңіз',
-    heroP1: 'Біз жай ғана жүргізушісі бар көлік бермейміз — елорда жолдарындағы жайлылығыңыз үшін толық жауапкершілік аламыз.',
-    heroP2: 'Transfer Pro — кәсіби этикет, ұқыптылық және VIP клиент қажеттіліктерін терең түсінудің үйлесімі.',
-    heroP3: 'Сіз өз ісіңізге назар аудара аласыз, ал біз мінсіз маршрутты қамтамасыз етеміз.',
+    heroBadge: 'Астана · MAX таксопаркі · Яндекс Такси серіктесі',
+    heroTitle: 'MAX таксопаркі — Астанадағы және қала сыртындағы ыңғайлы сапарлар',
+    heroP1: 'Біз такси, трансфер және корпоративтік сапарлардың қызметтерін қауіпсіздік, комфорт және маршрут дәлдігіне баса жүргіземіз.',
+    heroP2: 'MAX — Астанада және оның айналасында сапарларыңызды ұсынуға дайын қазіргі заманғы таксопарк.',
+    heroP3: 'Сізге қала ішіндегі рейс, әуежайға сапар немесе жеке трансфер қажет болса — біз ыңғайлы нұсқаны ұсынамыз.',
     standardsTitleDesktop: 'Стандарттар',
     contactsHint: 'Қоңырау шалыңыз немесе WhatsApp-қа жазыңыз — біз 24/7 байланыстамыз',
     nameLabel: 'Атыңыз *',
@@ -343,7 +347,7 @@ const translations = {
     favoriteAddressPrefix: 'Мекенжай',
     submitSuccess: 'Өтінім WhatsApp-та ашылды. Сондай-ақ, тарихта сақталды.',
     removeFavoriteAria: 'Мекенжайды жою',
-    waMessageTitle: 'TransferPro өтінімі:',
+    waMessageTitle: 'MAX Taxi өтінімі:',
     waName: 'Аты',
     waPhone: 'Телефон',
     waService: 'Қызмет',
@@ -533,11 +537,11 @@ const translations = {
     priceFromTrip: 'сапарға 10 000 ₸ бастап',
     moreItems: 'тағы',
     callAriaLabel: 'Қоңырау шалу',
-    bottomBrand: 'Transfer Pro · Астана',
+    bottomBrand: 'MAX · Таксопарк',
     orderNowCta: 'Қазір тапсырыс беру ->',
     offlineDemo: 'Офлайн демо',
     deleteTransferAria: 'Трансферді жою',
-    footerTagline: 'Астанадағы премиум трансфер',
+    footerTagline: 'Астанадағы MAX таксопаркі: такси және трансферлер',
     favNoteEdit: 'Ескертпе',
     favNotePlaceholder: 'Мысалы: сол жақта тұрақ',
     reactivationTitle: 'Дұрыс тапсырыс етпедіңіз бе?',
@@ -566,8 +570,8 @@ const translations = {
     startOrderAlt: 'Get price in 30 seconds',
     draftReminder: 'You have an unfinished booking',
     continueDraftShort: 'Continue',
-    installAppTitle: 'Install TransferPro app',
-    installAppHint: 'Open faster and use it even with weak internet.',
+    installAppTitle: 'Install MAX app',
+    installAppHint: 'Open faster and book your trip in a couple of taps.',
     installAppButton: 'Install',
     installAppLater: 'Later',
     quickScenarios: 'Quick scenarios',
@@ -589,14 +593,14 @@ const translations = {
     progressStep2: '2. Service and date',
     progressStep3: '3. Details (optional)',
     phoneInvalid: 'Enter a valid number (+7XXXXXXXXXX)',
-    bookingTitle: 'Ready for a new level of comfort?',
-    bookingSubtitle: 'Book a one-time transfer or set up a long-term service contract today. Our manager is online 24/7.',
+    bookingTitle: 'Ready for a comfortable ride?',
+    bookingSubtitle: 'Book city taxi, airport transfer, or a corporate ride — our team is available 24/7.',
     bookingSubtitleShort: 'Leave contact details and date. We confirm quickly via WhatsApp or phone.',
-    heroBadge: 'Astana · Premium Transport Service',
-    heroTitle: 'Your personal fleet in the capital',
-    heroP1: 'We do more than provide a car with a driver — we take full responsibility for your comfort on city roads.',
-    heroP2: 'Transfer Pro is a blend of professional etiquette, punctuality, and deep understanding of VIP client needs.',
-    heroP3: 'You focus on business, while we deliver the perfect route.',
+    heroBadge: 'Astana · MAX taxi park · Yandex Taxi partner',
+    heroTitle: 'MAX taxi park — comfortable rides across Astana and beyond',
+    heroP1: 'We provide taxi, transfer, and corporate travel services with a focus on safety, comfort, and route precision.',
+    heroP2: 'MAX is a modern taxi park with drivers ready to handle your trips in Astana and beyond.',
+    heroP3: 'Whether you need a city ride, airport transfer, or a personalised transfer — we will find the right option.',
     standardsTitleDesktop: 'Standard of Excellence',
     contactsHint: 'Call or message us on WhatsApp — available 24/7',
     nameLabel: 'Your name *',
@@ -613,7 +617,7 @@ const translations = {
     favoriteAddressPrefix: 'Address',
     submitSuccess: 'Request opened in WhatsApp and saved to history.',
     removeFavoriteAria: 'Remove address',
-    waMessageTitle: 'TransferPro request:',
+    waMessageTitle: 'MAX Taxi request:',
     waName: 'Name',
     waPhone: 'Phone',
     waService: 'Service',
@@ -803,11 +807,11 @@ const translations = {
     priceFromTrip: 'from 10,000 KZT per trip',
     moreItems: 'more',
     callAriaLabel: 'Call',
-    bottomBrand: 'Transfer Pro · Astana',
+    bottomBrand: 'MAX · Taxi Park',
     orderNowCta: 'Book now ->',
     offlineDemo: 'Offline demo',
     deleteTransferAria: 'Delete transfer',
-    footerTagline: 'Premium transfer in Astana',
+    footerTagline: 'MAX taxi park in Astana: taxi and transfers',
     favNoteEdit: 'Note',
     favNotePlaceholder: 'E.g.: parking on the left',
     reactivationTitle: "Haven't ordered in a while?",
@@ -823,14 +827,14 @@ const serviceCatalog = [
   {
     icon: Plane,
     title: {
-      ru: 'VIP Встреча - Аэропорт-Город',
-      kk: 'VIP Карсы алу - Әуежай-Қала',
-      en: 'VIP Meet & Greet - Airport to City',
+      ru: 'Аэропорт и вокзал',
+      kk: 'Әуежай және вокзал',
+      en: 'Airport and train station',
     },
     subtitle: {
-      ru: 'Трансфер из аэропорта',
-      kk: 'Әуежай трансфері',
-      en: 'Airport Transfer',
+      ru: 'Трансфер в аэропорт и из аэропорта',
+      kk: 'Әуежайға және әуежайдан трансфер',
+      en: 'Airport transfer to and from the terminal',
     },
     price: {
       ru: 'от 15 000 ₸',
@@ -839,39 +843,39 @@ const serviceCatalog = [
     },
     details: {
       ru: [
-        'Встреча с именной табличкой у выхода зоны прилета',
-        'Полная помощь с багажом и транспортировкой',
-        'До 60 мин бесплатного ожидания при задержке рейса',
-        'Охлажденная вода, влажные салфетки',
-        'Выбор музыки и температуры в салоне',
+        'Подача автомобиля в удобное время',
+        'Помощь с багажом и парковкой',
+        'До 60 мин ожидания при задержке рейса',
+        'Чистый салон и комфортный маршрут',
+        'Поддержка по WhatsApp и телефону',
       ],
       kk: [
-        'Келу аймағынан шығаберісте аты-жөні бар тақтайшамен қарсы алу',
-        'Жүкке толық көмек көрсету',
-        'Рейс кешіксе 60 минутқа дейін тегін күту',
-        'Салқын су және дымқыл майлықтар',
-        'Салонда музыка мен температураны таңдау',
+        'Көлікті ыңғайлы уақытта жеткізу',
+        'Жүкпен және паркингпен көмек',
+        'Рейс кешіксе 60 минутқа дейін күту',
+        'Таза салон және ыңғайлы маршрут',
+        'WhatsApp және телефон арқылы қолдау',
       ],
       en: [
-        'Meet-and-greet with a name sign at arrivals exit',
-        'Full assistance with luggage handling',
-        'Up to 60 minutes of free waiting for delayed flights',
-        'Chilled water and wet wipes',
-        'Personalized music and cabin temperature',
+        'Vehicle pickup at a convenient time',
+        'Assistance with luggage and parking',
+        'Up to 60 minutes waiting for delayed flights',
+        'Clean cabin and comfortable route',
+        'Support by WhatsApp and phone',
       ],
     },
   },
   {
     icon: Baby,
     title: {
-      ru: 'Smart Parents - Развозка детей',
-      kk: 'Smart Parents - Балаларды тасымалдау',
-      en: 'Smart Parents - Kids Shuttle',
+      ru: 'Семейные и детские поездки',
+      kk: 'Отбасылық және балалық сапарлар',
+      en: 'Family and kids rides',
     },
     subtitle: {
-      ru: 'Школьный трансфер',
-      kk: 'Мектеп трансфері',
-      en: 'School Transfer',
+      ru: 'Школьный и детский трансфер',
+      kk: 'Мектеп және балалар трансфері',
+      en: 'School and kids transfer',
     },
     price: {
       ru: 'от 100 000 ₸ / мес',
@@ -880,36 +884,36 @@ const serviceCatalog = [
     },
     details: {
       ru: [
-        'Контроль от двери до двери с передачей из рук в руки',
-        'Фотоотчет родителю при посадке и высадке',
-        'Постоянный проверенный водитель',
-        'Замена водителя/машины по предварительному согласованию',
+        'Поездки от двери до двери',
+        'Надежный водитель и чистый салон',
+        'Регулярные маршруты по утрам и вечерам',
+        'Поддержка по расписанию и по запросу',
       ],
       kk: [
-        'Есіктен есікке дейін жеке бақылау',
-        'Отырғызу және түсіру кезінде ата-анаға фотоесеп',
-        'Тұрақты тексерілген жүргізуші',
-        'Жүргізушіні немесе көлікті алдын ала келісіп ауыстыру',
+        'Есіктен есікке дейін сапар',
+        'Сенімді жүргізуші және таза салон',
+        'Таңертеңгі және кешкі тұрақты бағыттар',
+        'Кесте бойынша және сұраныс бойынша қолдау',
       ],
       en: [
-        'Door-to-door supervision with hand-to-hand handover',
-        'Photo updates to parents at pickup and drop-off',
-        'Dedicated vetted driver',
-        'Driver or vehicle replacement by prior agreement',
+        'Door-to-door rides',
+        'Reliable driver and clean cabin',
+        'Regular morning and evening routes',
+        'Scheduled or on-demand support',
       ],
     },
   },
   {
     icon: BriefcaseBusiness,
     title: {
-      ru: 'Бизнес-сопровождение',
-      kk: 'Бизнес сүйемелдеу',
-      en: 'Business Assistance',
+      ru: 'Корпоративное такси',
+      kk: 'Корпоративтік такси',
+      en: 'Corporate taxi',
     },
     subtitle: {
-      ru: 'Почасовая аренда',
-      kk: 'Сағаттық жалдау',
-      en: 'Hourly Rental',
+      ru: 'Поездки для бизнеса',
+      kk: 'Бизнес үшін сапарлар',
+      en: 'Business rides',
     },
     price: {
       ru: 'от 10 000 ₸ / час',
@@ -918,39 +922,36 @@ const serviceCatalog = [
     },
     details: {
       ru: [
-        'Любой класс автомобиля на выбор (седан, представительский, минивэн)',
-        'Безлимитное ожидание - водитель всегда в часе езды',
-        'Консьерж-функции: покупки, переговоры, записки',
-        'Дресс-код по запросу (строгий костюм или Smart Casual)',
-        'Плотный график встреч без суеты',
+        'Поездки для сотрудников, встреч и переговоров',
+        'Пунктуальность и порядок маршрутов',
+        'Поддержка в любое время дня и ночи',
+        'Подбор автомобиля под задачу',
       ],
       kk: [
-        'Көлік класын таңдау (седан, бизнес, минивэн)',
-        'Шексіз күту - жүргізуші әрдайым жақын маңда',
-        'Консьерж қызметтері: сатып алу, келіссөз, құжат жеткізу',
-        'Сұраныс бойынша дресс-код (қатаң костюм немесе Smart Casual)',
-        'Кездесулер кестесін тыныш әрі ыңғайлы ұстау',
+        'Қызметкерлер, кездесулер және келіссөздер сапарлары',
+        'Уақыттылық және маршрут тәртібі',
+        'Түнгі де күндізгі де қолдау',
+        'Міндетке сәйкес көлік таңдау',
       ],
       en: [
-        'Any vehicle class on demand (sedan, executive, minivan)',
-        'Unlimited waiting time - your driver stays nearby',
-        'Concierge tasks: shopping, meetings, document delivery',
-        'Dress code on request (formal suit or smart casual)',
-        'Smooth support for a packed meeting schedule',
+        'Trips for staff, meetings, and negotiations',
+        'Punctuality and clear routing',
+        'Support day and night',
+        'Vehicle selection based on your task',
       ],
     },
   },
   {
     icon: Building2,
     title: {
-      ru: 'Корпоративное обслуживание',
-      kk: 'Корпоративтік қызмет',
-      en: 'Corporate Service',
+      ru: 'Корпоративный парк',
+      kk: 'Корпоративтік парк',
+      en: 'Corporate fleet',
     },
     subtitle: {
-      ru: 'Корпоративный автопарк',
-      kk: 'B2B автопаркі',
-      en: 'B2B Fleet',
+      ru: 'Регулярные поездки для компаний',
+      kk: 'Компаниялар үшін тұрақты сапарлар',
+      en: 'Regular trips for companies',
     },
     price: {
       ru: 'Индивидуальный тариф',
@@ -959,39 +960,36 @@ const serviceCatalog = [
     },
     details: {
       ru: [
-        'Фиксированный тариф без учета пробок и праздничных наценок',
-        'Полный электронный документооборот для бухгалтерии',
-        'Подменный автомобиль в течение часа',
-        'Персональный менеджер с круглосуточной поддержкой',
-        'Приоритетное бронирование для компаний и посольств',
+        'Бронируйте поездки заранее и без лишней суеты',
+        'Поддержка для бухгалтерии и менеджеров',
+        'Подмена автомобиля при необходимости',
+        'Персональный менеджер 24/7',
       ],
       kk: [
-        'Кептеліс пен мерекелік үстемесіз бекітілген тариф',
-        'Бухгалтерия үшін толық электрондық құжат айналымы',
-        'Бір сағат ішінде алмастыру көлігі',
-        '24/7 қолдауы бар жеке менеджер',
-        'Компаниялар мен елшіліктерге басым брондау',
+        'Сапарларды алдын ала брондай аласыз',
+        'Бухгалтерия мен менеджерлерге қолдау',
+        'Қажет болған кезде көлікті ауыстыру',
+        '24/7 жеке менеджер',
       ],
       en: [
-        'Fixed pricing without traffic or holiday surcharges',
-        'Full digital document flow for accounting',
-        'Replacement vehicle within one hour',
-        'Dedicated manager with 24/7 support',
-        'Priority booking for companies and embassies',
+        'Book rides in advance without extra hassle',
+        'Support for finance and management teams',
+        'Vehicle replacement when needed',
+        'Dedicated manager available 24/7',
       ],
     },
   },
   {
     icon: MapPin,
     title: {
-      ru: 'Премиальный Межгород',
-      kk: 'Премиум Қалааралық',
-      en: 'Premium Intercity',
+      ru: 'Межгород и поездки по области',
+      kk: 'Қалааралық және ауданаралық сапарлар',
+      en: 'Intercity and regional rides',
     },
     subtitle: {
-      ru: 'Комфортные дальние поездки',
-      kk: 'Ыңғайлы алыс сапарлар',
-      en: 'Travel Class',
+      ru: 'Комфортные поездки за город',
+      kk: 'Қала сыртындағы ыңғайлы сапарлар',
+      en: 'Comfortable rides outside the city',
     },
     price: {
       ru: 'По запросу',
@@ -1000,25 +998,22 @@ const serviceCatalog = [
     },
     details: {
       ru: [
-        'Маршруты: Боровое, Щучинск, Караганда, Павлодар',
-        'Wi-Fi и климат-контроль на протяжении всего пути',
-        'Остановки по желанию на лучших локациях',
-        'Техническая проверка перед каждым выездом',
-        'Безопасность: соблюдение скоростного режима (110-120 км/ч)',
+        'Маршруты по области и в популярные курортные точки',
+        'Надежный водитель и спокойная дорога',
+        'Остановки по желанию',
+        'Подготовка машины перед выездом',
       ],
       kk: [
-        'Бағыттар: Бурабай, Щучинск, Қарағанды, Павлодар',
-        'Сапар бойы Wi-Fi және климат-бақылау',
-        'Қалауыңыз бойынша үздік орындарда тоқтау',
-        'Әр сапар алдында техникалық тексеріс',
-        'Қауіпсіздік: жылдамдық режимін сақтау (110-120 км/сағ)',
+        'Аудан және танымал курорт нүктелеріне бағыттар',
+        'Сенімді жүргізуші және тыныш жол',
+        'Қалауы бойынша аялдамалар',
+        'Сапар алдында көлікті дайындау',
       ],
       en: [
-        'Routes: Burabay, Shchuchinsk, Karaganda, Pavlodar',
-        'Wi-Fi and climate control throughout the trip',
-        'Optional stops at top locations',
-        'Technical inspection before every departure',
-        'Safety-first speed policy (110-120 km/h)',
+        'Routes across the region and to popular resort areas',
+        'Reliable driver and calm road experience',
+        'Stops on request',
+        'Vehicle preparation before departure',
       ],
     },
   },
@@ -1167,7 +1162,7 @@ const getReviews = (language) => {
       },
       {
         author: 'N. Consulting',
-        text: 'We use TransferPro for corporate guests. Reliable service and excellent communication.',
+        text: 'We use MAX for corporate guests. Reliable service and excellent communication.',
       },
       {
         author: 'Ruslan M.',
@@ -1314,7 +1309,7 @@ const LoyaltyCard = ({ t, level, points, nextLevelOrders, progressPercent }) => 
 }
 
 // 🎯 УЛУЧШЕНИЕ 1: Быстрый звонок в один клик
-const CallButton = ({ phoneNumber = '77781556699', label = '☎️', className = '' }) => (
+const CallButton = ({ phoneNumber = alibekPhoneNumber.replace('+', ''), label = '☎️', className = '' }) => (
   <a
     href={`tel:+${phoneNumber}`}
     className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-black font-bold hover:bg-accent/90 transition shadow-lg ${className}`}
@@ -2013,7 +2008,7 @@ function App() {
   const copyReferralText = async () => {
     trackCtaClick('copy_referral_text')
     const referralMessage = [
-      'TransferPro — премиальный трансфер в Астане',
+      'MAX Taxi Park — такси и трансферы в Астане',
       `Промокод друга: ${referralCode}`,
       'Скажите этот код менеджеру в WhatsApp и получите скидку 5%',
       `https://wa.me/${whatsappNumber}`,
@@ -2239,9 +2234,9 @@ function App() {
     }
 
     const orderPrice = Number(order.estimatedPriceKzt || 0) || estimatePriceKzt(order.service, order.date)
-    const subject = `TransferPro - ${order.service || '-'} - ${order.createdAt || ''}`
+    const subject = `MAX Taxi - ${order.service || '-'} - ${order.createdAt || ''}`
     const body = [
-      'TransferPro',
+      'MAX Taxi',
       `${t.waService}: ${order.service || '-'}`,
       `${t.waDate}: ${order.date || '-'}`,
       `${t.waName}: ${order.name || '-'}`,
@@ -2288,7 +2283,7 @@ function App() {
     wrapper.style.fontFamily = 'Arial, sans-serif'
     wrapper.innerHTML = `
       <div style="border:1px solid #e5e7eb; border-radius:16px; padding:24px;">
-        <h1 style="margin:0 0 8px; font-size:28px;">TransferPro</h1>
+        <h1 style="margin:0 0 8px; font-size:28px;">MAX Taxi</h1>
         <p style="margin:0 0 24px; color:#6b7280; font-size:14px;">${t.receiptPdfButton}</p>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:14px;">
           <div><strong>${t.waService}:</strong><br>${order.service || '-'}</div>
@@ -2318,7 +2313,7 @@ function App() {
       await html2pdf()
         .set({
           margin: 10,
-          filename: `transferpro-receipt-${order.id}.pdf`,
+          filename: `max-taxi-receipt-${order.id}.pdf`,
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
@@ -2841,7 +2836,7 @@ function App() {
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/75 backdrop-blur-xl supports-[backdrop-filter]:bg-black/50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
-          <a href="#top" className="font-serif text-lg tracking-[0.2em] text-accent drop-shadow-[0_0_10px_rgba(245,200,106,0.35)]">TRANSFER PRO</a>
+          <a href="#top" className="font-serif text-lg tracking-[0.2em] text-accent drop-shadow-[0_0_10px_rgba(245,200,106,0.35)]">MAX</a>
           
           <div className="hidden md:flex gap-5 items-center text-sm">
             {role === 'client' && (
@@ -3263,9 +3258,8 @@ function App() {
             <motion.div className="w-full space-y-4 sm:space-y-5 bg-gradient-to-b from-black/70 via-emerald-950/20 to-black/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl" {...sectionMotionProps}>
               <h2 className="text-2xl sm:text-3xl font-serif text-accent font-bold">{t.contacts}</h2>
               <div className="space-y-3 sm:space-y-4 text-white/90">
-                <a href="tel:+77781556699" className="block w-full p-4 sm:p-5 rounded-xl bg-gradient-to-r from-accent/20 to-accent/10 hover:from-accent/30 hover:to-accent/20 active:scale-95 transition border-l-4 border-accent text-base sm:text-lg font-semibold text-accent shadow-md">+7 778 155 6699</a>
-                <a href="tel:+77089389145" className="block w-full p-4 sm:p-5 rounded-xl bg-gradient-to-r from-white/5 to-white/3 hover:from-white/10 hover:to-white/5 active:scale-95 transition border-l-4 border-accent text-base sm:text-lg font-semibold shadow-md">+7 708 938 9145</a>
-                <a href="tel:+77771351387" className="block w-full p-4 sm:p-5 rounded-xl bg-gradient-to-r from-white/5 to-white/3 hover:from-white/10 hover:to-white/5 active:scale-95 transition border-l-4 border-accent text-base sm:text-lg font-semibold shadow-md">+7 777 135 1387</a>
+                <a href={`tel:${maxPhoneNumber}`} className="block w-full p-4 sm:p-5 rounded-xl bg-gradient-to-r from-accent/20 to-accent/10 hover:from-accent/30 hover:to-accent/20 active:scale-95 transition border-l-4 border-accent text-base sm:text-lg font-semibold text-accent shadow-md">{maxPhoneLabel}</a>
+                <a href={`tel:${alibekPhoneNumber}`} className="block w-full p-4 sm:p-5 rounded-xl bg-gradient-to-r from-white/5 to-white/3 hover:from-white/10 hover:to-white/5 active:scale-95 transition border-l-4 border-accent text-base sm:text-lg font-semibold shadow-md">{alibekPhoneLabel}</a>
               </div>
             </motion.div>
           )}
@@ -3721,7 +3715,7 @@ function App() {
             >
               {t.booking}
             </button>
-            <a href="tel:+77781556699" className="flex items-center justify-center px-2.5 sm:px-3 py-2.5 sm:py-3 rounded-lg bg-white/10 text-white text-xs sm:text-sm font-bold whitespace-nowrap hover:bg-white/15 active:scale-95 transition shadow-md" aria-label={t.callAriaLabel}>
+            <a href={`tel:${alibekPhoneNumber}`} className="flex items-center justify-center px-2.5 sm:px-3 py-2.5 sm:py-3 rounded-lg bg-white/10 text-white text-xs sm:text-sm font-bold whitespace-nowrap hover:bg-white/15 active:scale-95 transition shadow-md" aria-label={t.callAriaLabel}>
                 <Phone className="w-4 h-4" />
             </a>
             <div className="relative">
@@ -3938,9 +3932,8 @@ function App() {
                 <h2 className="section-title text-4xl text-accent">{t.contacts}</h2>
                 <p className="text-white text-base mb-6">{t.contactsHint}</p>
                 <div className="flex gap-4 flex-wrap">
-                  <a href="tel:+77781556699" className="px-6 py-3 rounded-lg bg-accent text-black font-semibold text-base hover:bg-accent/90 transition">+7 778 155 6699</a>
-                  <a href="tel:+77089389145" className="px-6 py-3 rounded-lg bg-accent text-black font-semibold text-base hover:bg-accent/90 transition">+7 708 938 9145</a>
-                  <a href="tel:+77771351387" className="px-6 py-3 rounded-lg bg-accent text-black font-semibold text-base hover:bg-accent/90 transition">+7 777 135 1387</a>
+                  <a href={`tel:${maxPhoneNumber}`} className="px-6 py-3 rounded-lg bg-accent text-black font-semibold text-base hover:bg-accent/90 transition">{maxPhoneLabel}</a>
+                  <a href={`tel:${alibekPhoneNumber}`} className="px-6 py-3 rounded-lg bg-accent text-black font-semibold text-base hover:bg-accent/90 transition">{alibekPhoneLabel}</a>
                 </div>
               </motion.div>
             )}
@@ -4211,7 +4204,7 @@ function App() {
               </p>
             </div>
             <div className="flex gap-3 items-center">
-              <a href="tel:+77781556699" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/8 border border-white/15 text-white text-sm font-semibold hover:bg-white/12 transition">
+              <a href={`tel:${alibekPhoneNumber}`} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/8 border border-white/15 text-white text-sm font-semibold hover:bg-white/12 transition">
                 <Phone className="w-3.5 h-3.5" /> {t.supportCall}
               </a>
               <div className="relative">
@@ -4581,7 +4574,7 @@ function App() {
 
       <footer className="border-t border-white/10 px-4 py-6 text-center text-xs text-white/60 md:px-8 md:translate-y-0">
         <div className="space-y-2">
-          <p>© {new Date().getFullYear()} TransferPro · {t.footerTagline}</p>
+          <p>© {new Date().getFullYear()} MAX · {t.footerTagline}</p>
           <div className="flex items-center justify-center gap-4">
             <a href={`privacy.html${legalPageQuery}`} className="text-accent/90 hover:text-accent underline underline-offset-2">{t.privacyPolicyLabel}</a>
             <a href={`terms.html${legalPageQuery}`} className="text-accent/90 hover:text-accent underline underline-offset-2">{t.termsLabel}</a>
