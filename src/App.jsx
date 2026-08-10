@@ -61,6 +61,10 @@ const translations = {
     heroP1: 'Мы оказываем услуги такси, трансферов и корпоративных поездок с акцентом на безопасность, комфорт и точность маршрута.',
     heroP2: 'MAX — это современный таксопарк с водителями, готовыми обслуживать ваши поездки по Астане и за её пределами.',
     heroP3: 'Независимо от того, нужен ли вам городской рейс, аэропорт или персональный трансфер — мы подберем удобный вариант.',
+    partnerDriversTitle: 'Подключаем водителей на своих автомобилях',
+    partnerDriversSubtitle: 'На выгодных условиях и с полным сопровождением',
+    partnerDriversText: 'Подключаем водителей на собственных авто с прозрачными условиями, поддержкой по всем вопросам и полным сопровождением.',
+    partnerDriversButton: 'Стать партнером',
     standardsTitleDesktop: 'Стандарты',
     contactsHint: 'Позвоните или напишите в WhatsApp — мы на связи 24/7',
     nameLabel: 'Ваше имя *',
@@ -331,6 +335,10 @@ const translations = {
     heroP1: 'Біз такси, трансфер және корпоративтік сапарлардың қызметтерін қауіпсіздік, комфорт және маршрут дәлдігіне баса жүргіземіз.',
     heroP2: 'MAX — Астанада және оның айналасында сапарларыңызды ұсынуға дайын қазіргі заманғы таксопарк.',
     heroP3: 'Сізге қала ішіндегі рейс, әуежайға сапар немесе жеке трансфер қажет болса — біз ыңғайлы нұсқаны ұсынамыз.',
+    partnerDriversTitle: 'Өз көліктерімен жүргізушілерді қабылдаймыз',
+    partnerDriversSubtitle: 'Ыңғайлы шарттармен және толық сүйемелдеумен',
+    partnerDriversText: 'Өз көліктері бар жүргізушілерді мөлдір шарттармен, барлық сұрақтарға қолдау және толық сүйемелдеумен қабылдаймыз.',
+    partnerDriversButton: 'Партнер болу',
     standardsTitleDesktop: 'Стандарттар',
     contactsHint: 'Қоңырау шалыңыз немесе WhatsApp-қа жазыңыз — біз 24/7 байланыстамыз',
     nameLabel: 'Атыңыз *',
@@ -601,6 +609,10 @@ const translations = {
     heroP1: 'We provide taxi, transfer, and corporate travel services with a focus on safety, comfort, and route precision.',
     heroP2: 'MAX is a modern taxi park with drivers ready to handle your trips in Astana and beyond.',
     heroP3: 'Whether you need a city ride, airport transfer, or a personalised transfer — we will find the right option.',
+    partnerDriversTitle: 'We welcome drivers with their own vehicles',
+    partnerDriversSubtitle: 'On favorable terms with full support',
+    partnerDriversText: 'We connect drivers with their own cars under transparent terms, with support on every step and full accompaniment.',
+    partnerDriversButton: 'Become a partner',
     standardsTitleDesktop: 'Standard of Excellence',
     contactsHint: 'Call or message us on WhatsApp — available 24/7',
     nameLabel: 'Your name *',
@@ -3007,71 +3019,6 @@ function App() {
         </div>
       )}
 
-      {role === 'client' && hasDraft && mobileTab !== 'booking' && desktopTab !== 'booking' && (
-        <div className="mx-auto mt-3 w-[calc(100%-2rem)] max-w-6xl rounded-xl border border-amber-500/35 bg-amber-500/10 px-4 py-3">
-          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-            <p className="text-sm text-amber-100">{t.draftReminder}</p>
-            <button
-              type="button"
-              onClick={() => goToBooking('draft_reminder')}
-              className="rounded-lg bg-amber-400 px-3 py-2 text-xs font-semibold text-black hover:bg-amber-300 transition"
-            >
-              {t.continueDraftShort}
-            </button>
-          </div>
-        </div>
-      )}
-
-      {role === 'client' && showInstallBanner && deferredInstallPrompt && (
-        <div className="mx-auto mt-3 w-[calc(100%-2rem)] max-w-6xl rounded-xl border border-cyan-500/35 bg-cyan-500/10 px-4 py-3 md:hidden">
-          <div className="flex flex-col gap-2">
-            <p className="text-sm font-semibold text-cyan-100">{t.installAppTitle}</p>
-            <p className="text-xs text-cyan-100/85">{t.installAppHint}</p>
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={installApp}
-                className="rounded-lg bg-cyan-400 px-3 py-2 text-xs font-semibold text-black hover:bg-cyan-300 transition"
-              >
-                {t.installAppButton}
-              </button>
-              <button
-                type="button"
-                onClick={dismissInstallBanner}
-                className="rounded-lg bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/15 transition"
-              >
-                {t.installAppLater}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {role === 'client' && showReactivationNudge && (
-        <div className="mx-auto mt-3 w-[calc(100%-2rem)] max-w-6xl rounded-xl border border-amber-500/35 bg-amber-500/10 px-4 py-3">
-          <div className="flex flex-col gap-2">
-            <p className="text-sm font-semibold text-amber-200">{t.reactivationTitle}</p>
-            <p className="text-xs text-amber-100/85">{t.reactivationHint}: <span className="font-mono font-bold">{t.reactivationCode}</span></p>
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => { copyReactivationCode(); goToBooking('reactivation_nudge') }}
-                className="rounded-lg bg-amber-400 px-3 py-2 text-xs font-semibold text-black hover:bg-amber-300 transition"
-              >
-                {reactivationCopied ? '✓ Скопировано' : t.reactivationOrder}
-              </button>
-              <button
-                type="button"
-                onClick={dismissReactivationNudge}
-                className="rounded-lg bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/15 transition"
-              >
-                {t.reactivationDismiss}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       {showStaffAuth && DEMO_STAFF_ENABLED && (
         <div className="fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm flex items-center justify-center px-4">
           <form onSubmit={handleStaffLogin} className="w-full max-w-md rounded-2xl border border-white/15 bg-black p-5 space-y-4">
@@ -3153,14 +3100,21 @@ function App() {
                 </div>
               </div>
 
-              {hasDraft && (
+              <div className="rounded-2xl border border-accent/30 bg-gradient-to-r from-accent/12 to-white/5 p-4 shadow-inner">
+                <p className="text-sm font-semibold text-accent">{t.partnerDriversTitle}</p>
+                <p className="mt-1 text-sm text-white/80">{t.partnerDriversSubtitle}</p>
+                <p className="mt-2 text-sm text-white/70">{t.partnerDriversText}</p>
                 <button
-                  onClick={() => goToBooking('continue_draft_mobile')}
-                  className="w-full py-3 rounded-xl bg-white/10 text-white font-semibold hover:bg-white/15 transition"
+                  type="button"
+                  onClick={() => {
+                    setFormData((prev) => ({ ...prev, service: t.partnerDriversTitle }))
+                    setMobileTab('booking')
+                  }}
+                  className="mt-3 rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-black hover:bg-accent/90 transition"
                 >
-                  {t.continueDraft}
+                  {t.partnerDriversButton}
                 </button>
-              )}
+              </div>
 
               <div className="grid grid-cols-1 gap-2">
                 {trustPoints.map((point) => (
@@ -3824,14 +3778,21 @@ function App() {
                   </div>
                 </div>
 
-                {hasDraft && (
+                <div className="rounded-2xl border border-accent/30 bg-gradient-to-r from-accent/12 to-white/5 p-5 max-w-3xl">
+                  <p className="text-sm font-semibold text-accent">{t.partnerDriversTitle}</p>
+                  <p className="mt-1 text-sm text-white/80">{t.partnerDriversSubtitle}</p>
+                  <p className="mt-2 text-sm text-white/70">{t.partnerDriversText}</p>
                   <button
-                    onClick={() => goToBooking('continue_draft_desktop')}
-                    className="mt-2 px-8 py-3 rounded-lg bg-white/10 text-white font-semibold text-base hover:bg-white/15 transition"
+                    type="button"
+                    onClick={() => {
+                      setFormData((prev) => ({ ...prev, service: t.partnerDriversTitle }))
+                      setDesktopTab('booking')
+                    }}
+                    className="mt-3 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-black hover:bg-accent/90 transition"
                   >
-                    {t.continueDraft}
+                    {t.partnerDriversButton}
                   </button>
-                )}
+                </div>
 
                 <div className="grid grid-cols-3 gap-3 max-w-3xl mt-4">
                   {trustPoints.map((point) => (
@@ -3947,22 +3908,6 @@ function App() {
                 <p className="mt-2 text-white/80 text-sm mb-5">{bookingSubtitleCompact}</p>
 
                 {submitNotice && <p className="mb-4 rounded-lg border border-green-500/30 bg-green-500/10 px-3 py-2 text-xs text-green-300">{submitNotice}</p>}
-                {showOrderHabitNudge && orderHabitReminder && (
-                  <div className="mb-4 rounded-lg border border-indigo-500/30 bg-indigo-500/10 px-3 py-2 text-xs text-indigo-100">
-                    <p className="font-semibold">{t.orderHabitTitle}</p>
-                    <p className="mt-1 text-indigo-100/85">
-                      {t.orderHabitHint} <span className="font-semibold capitalize">{orderHabitReminder.weekdayLabel}</span> ({orderHabitReminder.nextDateLabel})
-                    </p>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      <button type="button" onClick={applyOrderHabitDate} className="rounded-md bg-indigo-300 px-2 py-1 text-[11px] font-semibold text-black hover:bg-indigo-200 transition">
-                        {t.orderHabitAction}
-                      </button>
-                      <button type="button" onClick={dismissOrderHabitNudge} className="rounded-md bg-white/10 px-2 py-1 text-[11px] text-white hover:bg-white/15 transition">
-                        {t.orderHabitDismiss}
-                      </button>
-                    </div>
-                  </div>
-                )}
                 {showReferralNudge && (
                   <div className="mb-4 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-100">
                     <p>{t.referralAfterOrder}</p>
