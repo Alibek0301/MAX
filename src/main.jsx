@@ -66,6 +66,24 @@ const initAnalytics = () => {
   }
 }
 
+const resetServiceWorkerState = async () => {
+  if (!('serviceWorker' in navigator)) return
+
+  try {
+    const registrations = await navigator.serviceWorker.getRegistrations()
+    await Promise.all(registrations.map((registration) => registration.unregister()))
+  } catch {
+    // ignore service-worker cleanup errors
+  }
+
+  try {
+    const cacheNames = await caches.keys()
+    await Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)))
+  } catch {
+    // ignore cache clearing errors
+  }
+}
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
@@ -74,11 +92,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 initAnalytics()
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    const swUrl = `${import.meta.env.BASE_URL}sw.js`
-    navigator.serviceWorker.register(swUrl, { scope: import.meta.env.BASE_URL }).catch(() => {
-      // ignore registration failures in unsupported contexts
-    })
-  })
-}
+window.addEventListener('load', () => {
+  void resetServiceWorkerState()
+})
