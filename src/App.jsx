@@ -69,6 +69,12 @@ const translations = {
     contactsHint: 'Позвоните или напишите в WhatsApp — мы на связи 24/7',
     nameLabel: 'Ваше имя *',
     phoneLabel: 'Номер телефона *',
+    requestTypeLabel: 'Тип заявки *',
+    requestTypeOrder: 'Заказ поездки',
+    requestTypePartner: 'Стать партнером',
+    contactPersonLabel: 'Кому писать *',
+    contactPersonMax: 'Максим',
+    contactPersonAlibek: 'Алибек',
     serviceLabel: 'Выберите услугу *',
     dateLabel: 'Дата поездки *',
     addressLabel: 'Адрес подачи',
@@ -86,6 +92,8 @@ const translations = {
     waPhone: 'Телефон',
     waService: 'Услуга',
     waDate: 'Дата',
+    waRequestType: 'Тип заявки',
+    waContactPerson: 'Контакт',
     waAddress: 'Адрес',
     role: 'Роль',
     roleClient: 'Клиент',
@@ -343,6 +351,12 @@ const translations = {
     contactsHint: 'Қоңырау шалыңыз немесе WhatsApp-қа жазыңыз — біз 24/7 байланыстамыз',
     nameLabel: 'Атыңыз *',
     phoneLabel: 'Телефон нөмірі *',
+    requestTypeLabel: 'Өтінім түрі *',
+    requestTypeOrder: 'Сапарды брондау',
+    requestTypePartner: 'Партнер болу',
+    contactPersonLabel: 'Кімге жазу *',
+    contactPersonMax: 'Максим',
+    contactPersonAlibek: 'Әлібек',
     serviceLabel: 'Қызметті таңдаңыз *',
     dateLabel: 'Сапар күні *',
     addressLabel: 'Жіберу мекенжайы',
@@ -617,6 +631,12 @@ const translations = {
     contactsHint: 'Call or message us on WhatsApp — available 24/7',
     nameLabel: 'Your name *',
     phoneLabel: 'Phone number *',
+    requestTypeLabel: 'Request type *',
+    requestTypeOrder: 'Book a ride',
+    requestTypePartner: 'Become a partner',
+    contactPersonLabel: 'Contact person *',
+    contactPersonMax: 'Maxim',
+    contactPersonAlibek: 'Alibek',
     serviceLabel: 'Choose service *',
     dateLabel: 'Trip date *',
     addressLabel: 'Pickup address',
@@ -634,6 +654,8 @@ const translations = {
     waPhone: 'Phone',
     waService: 'Service',
     waDate: 'Date',
+    waRequestType: 'Request type',
+    waContactPerson: 'Contact',
     waAddress: 'Address',
     role: 'Role',
     roleClient: 'Client',
@@ -1538,6 +1560,8 @@ function App() {
     const defaultFormData = {
       name: '',
       phone: '+7',
+      requestType: 'order',
+      contactPerson: 'max',
       service: services[0]?.title || '',
       date: '',
       birthDate: '',
@@ -1554,6 +1578,8 @@ function App() {
       ...defaultFormData,
       ...saved,
       phone: typeof saved.phone === 'string' ? saved.phone : defaultFormData.phone,
+      requestType: saved?.requestType === 'partner' ? 'partner' : 'order',
+      contactPerson: saved?.contactPerson === 'alibek' ? 'alibek' : 'max',
     }
   })
 
@@ -1898,6 +1924,8 @@ function App() {
       phoneMasked: maskPhone(formData.phone),
       address: formData.address.trim(),
       comment: formData.comment.trim(),
+      requestType: formData.requestType === 'partner' ? 'partner' : 'order',
+      contactPerson: formData.contactPerson === 'alibek' ? 'alibek' : 'max',
       status: 'new',
       createdAt: new Date().toLocaleString(),
       updatedAt: new Date().toLocaleString(),
@@ -2374,7 +2402,7 @@ function App() {
 
   const clearSensitiveData = () => {
     const defaultService = services[0]?.title || ''
-    const resetFormData = { name: '', phone: '+7', service: defaultService, date: '', birthDate: '', comment: '', address: '' }
+    const resetFormData = { name: '', phone: '+7', requestType: 'order', contactPerson: 'max', service: defaultService, date: '', birthDate: '', comment: '', address: '' }
     setFormData(resetFormData)
     setOrderHistory([])
     setFavorites([])
@@ -2766,6 +2794,10 @@ function App() {
     }
   }, [])
 
+  const selectedContactNumber = formData.contactPerson === 'alibek' ? alibekPhoneNumber : maxPhoneNumber
+  const selectedContactLabel = formData.contactPerson === 'alibek' ? t.contactPersonAlibek : t.contactPersonMax
+  const selectedRequestTypeLabel = formData.requestType === 'partner' ? t.requestTypePartner : t.requestTypeOrder
+
   const whatsappHref = useMemo(() => {
     const messageParts = [
       t.waMessageTitle,
@@ -2773,6 +2805,8 @@ function App() {
       `${t.waPhone}: ${formData.phone || '-'}`,
       `${t.waService}: ${formData.service || '-'}`,
       `${t.waDate}: ${formData.date || '-'}`,
+      `${t.waRequestType}: ${selectedRequestTypeLabel}`,
+      `${t.waContactPerson}: ${selectedContactLabel}`,
     ]
 
     if (includeSensitiveInMessage) {
@@ -2781,8 +2815,8 @@ function App() {
     }
 
     const message = messageParts.join('\n')
-    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
-  }, [formData, includeSensitiveInMessage, t])
+    return `https://wa.me/${selectedContactNumber}?text=${encodeURIComponent(message)}`
+  }, [formData, includeSensitiveInMessage, selectedContactLabel, selectedContactNumber, selectedRequestTypeLabel, t])
 
   const submitOrder = () => {
     if (!privacyConsentChecked) {
@@ -3318,6 +3352,36 @@ function App() {
                   {formData.phone.length > 2 && !isValidPhone(formData.phone) && (
                     <p className="mt-1.5 text-xs sm:text-sm text-red-400 font-medium">{t.phoneInvalid}</p>
                   )}
+                </div>
+
+                <div>
+                  <label htmlFor="request_mobile" className="block text-xs sm:text-sm font-bold text-white/90 mb-2">{t.requestTypeLabel}</label>
+                  <select 
+                    id="request_mobile"
+                    name="requestType" 
+                    value={formData.requestType} 
+                    onChange={updateField} 
+                    onFocus={closeMobileMenu} 
+                    className="w-full rounded-xl border-2 border-accent/35 bg-slate-900/90 px-4 sm:px-5 py-3 sm:py-3.5 text-base text-white caret-accent sm:text-lg font-medium outline-none focus:border-accent focus:bg-slate-900 transition shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_10px_24px_rgba(0,0,0,0.35)]"
+                  >
+                    <option value="order">{t.requestTypeOrder}</option>
+                    <option value="partner">{t.requestTypePartner}</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="contact_person_mobile" className="block text-xs sm:text-sm font-bold text-white/90 mb-2">{t.contactPersonLabel}</label>
+                  <select 
+                    id="contact_person_mobile"
+                    name="contactPerson" 
+                    value={formData.contactPerson} 
+                    onChange={updateField} 
+                    onFocus={closeMobileMenu} 
+                    className="w-full rounded-xl border-2 border-accent/35 bg-slate-900/90 px-4 sm:px-5 py-3 sm:py-3.5 text-base text-white caret-accent sm:text-lg font-medium outline-none focus:border-accent focus:bg-slate-900 transition shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_10px_24px_rgba(0,0,0,0.35)]"
+                  >
+                    <option value="max">{t.contactPersonMax}</option>
+                    <option value="alibek">{t.contactPersonAlibek}</option>
+                  </select>
                 </div>
 
                 <div>
@@ -3965,6 +4029,20 @@ function App() {
                     {formData.phone.length > 2 && !isValidPhone(formData.phone) && (
                       <p className="mt-1 text-xs text-red-400">{t.phoneInvalid}</p>
                     )}
+                  </div>
+                  <div>
+                    <label htmlFor="request_desktop" className="text-sm font-semibold text-white">{t.requestTypeLabel}</label>
+                    <select id="request_desktop" name="requestType" value={formData.requestType} onChange={updateField} className="mt-1 w-full rounded-lg border border-accent/35 bg-slate-900/85 px-4 py-2 text-base font-medium text-white outline-none transition focus:border-accent focus:bg-slate-900 shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_10px_20px_rgba(0,0,0,0.28)]">
+                      <option value="order" className="text-black">{t.requestTypeOrder}</option>
+                      <option value="partner" className="text-black">{t.requestTypePartner}</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="contact_person_desktop" className="text-sm font-semibold text-white">{t.contactPersonLabel}</label>
+                    <select id="contact_person_desktop" name="contactPerson" value={formData.contactPerson} onChange={updateField} className="mt-1 w-full rounded-lg border border-accent/35 bg-slate-900/85 px-4 py-2 text-base font-medium text-white outline-none transition focus:border-accent focus:bg-slate-900 shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_10px_20px_rgba(0,0,0,0.28)]">
+                      <option value="max" className="text-black">{t.contactPersonMax}</option>
+                      <option value="alibek" className="text-black">{t.contactPersonAlibek}</option>
+                    </select>
                   </div>
                   <div>
                     <label htmlFor="service_desktop" className="text-sm font-semibold text-white">{t.serviceLabel}</label>
