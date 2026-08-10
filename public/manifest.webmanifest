@@ -1,22 +1,23 @@
 {
-  "name": "TransferPro",
-  "short_name": "TransferPro",
-  "description": "Премиальный трансфер в Астане",
-  "start_url": "/",
-  "scope": "/",
+  "name": "MAX Taxi Park",
+  "short_name": "MAX",
+  "description": "Такси и трансферы в Астане",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0f1318",
   "theme_color": "#0f1318",
   "lang": "ru",
   "icons": [
     {
-      "src": "/og-image.svg",
+      "src": "./og-image.svg",
       "sizes": "192x192",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/og-image.svg",
+      "src": "./og-image.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any"

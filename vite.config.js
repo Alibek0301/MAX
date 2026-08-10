@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 const normalizeBase = (value) => {
-  if (!value) return '/'
+  if (!value || value === '.' || value === './') return './'
   const withLeadingSlash = value.startsWith('/') ? value : `/${value}`
   return withLeadingSlash.endsWith('/') ? withLeadingSlash : `${withLeadingSlash}/`
 }
@@ -10,12 +10,12 @@ const normalizeBase = (value) => {
 const defaultRepoBase = '/TransferPro/'
 
 export default defineConfig(({ mode }) => {
-  const configuredBase = process.env.VITE_BASE_PATH || defaultRepoBase
+  const configuredBase = process.env.VITE_BASE_PATH || './'
 
   return {
     plugins: [react()],
-    // GitHub Pages project sites are served from /<repo>/.
-    // VITE_BASE_PATH lets CI/forks inject the right repository path.
+    // GitHub Pages project sites can be hosted under a repository subpath.
+    // Use a relative base by default so the app works across deployments.
     base: mode === 'production' ? normalizeBase(configuredBase) : '/',
     build: {
       // PDF generation is loaded on demand and stays isolated in a separate chunk.
