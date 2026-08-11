@@ -5,9 +5,9 @@ import * as QRCode from 'qrcode'
 
 
 const whatsappNumber = '77781556699'
-const maxPhoneNumber = '+77055909091'
+const maxPhoneNumber = '+77055709091'
 const alibekPhoneNumber = '+77781556699'
-const maxPhoneLabel = '+7 705 590 9091 — Максим'
+const maxPhoneLabel = '+7 705 570 9091 — Максим'
 const alibekPhoneLabel = '+7 778 155 6699 — Алибек'
 
 const translations = {
