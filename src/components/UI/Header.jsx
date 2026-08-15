@@ -6,11 +6,11 @@ const Header = ({ language, setLanguage, t }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
-            <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                <a href="#top" className="flex items-center gap-2">
-                    <img src={`${import.meta.env.BASE_URL}logo.png`} alt="MAX Logo" className="h-10 md:h-12 w-auto object-contain rounded-md" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
-                    <span className="font-serif text-2xl tracking-[0.2em] text-accent drop-shadow-glow" style={{ display: 'none' }}> MAX</span>
+        <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-base/70 backdrop-blur-2xl">
+            <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+                <a href="#top" className="flex items-center gap-2 group hover:opacity-90 transition-opacity">
+                    <img src={`${import.meta.env.BASE_URL}logo.png`} alt="MAX Logo" className="h-16 md:h-24 w-auto object-contain drop-shadow-2xl" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+                    <span className="font-serif text-3xl tracking-[0.2em] text-accent drop-shadow-glow" style={{ display: 'none' }}> MAX</span>
                 </a>
 
                 {/* Desktop Nav */}
@@ -65,12 +65,12 @@ const Header = ({ language, setLanguage, t }) => {
 
             {/* Mobile Nav */}
             {mobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 right-0 bg-surface border-b border-white/10 shadow-2xl p-4 flex flex-col gap-4 animate-in slide-in-from-top-2">
-                    <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-lg hover:text-accent p-2">{t.services}</a>
-                    <a href="#standards" onClick={() => setMobileMenuOpen(false)} className="text-lg hover:text-accent p-2">{t.standards}</a>
-                    <a href="#booking" onClick={() => setMobileMenuOpen(false)} className="text-lg hover:text-accent p-2">{t.booking}</a>
+                <div className="md:hidden absolute top-full left-0 right-0 bg-base/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl p-6 flex flex-col gap-5 animate-in slide-in-from-top-2">
+                    <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium hover:text-accent transition-colors">{t.services}</a>
+                    <a href="#standards" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium hover:text-accent transition-colors">{t.standards}</a>
+                    <a href="#booking" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium hover:text-accent transition-colors">{t.booking}</a>
 
-                    <a href={`https://wa.me/${whatsappNumber}`} className="mt-4 bg-green-500 text-white text-center py-3 rounded-lg font-bold">
+                    <a href={`https://wa.me/${whatsappNumber}`} className="mt-4 bg-gradient-to-r from-green-500 to-green-600 shadow-xl shadow-green-900/20 text-white text-center py-4 rounded-xl font-bold text-lg transition-transform active:scale-95">
                         Написать в WhatsApp
                     </a>
                     <a href={`tel:+${whatsappNumber}`} className="bg-accent text-black text-center py-3 rounded-lg font-bold flex items-center justify-center gap-2">

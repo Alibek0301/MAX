@@ -50,12 +50,13 @@ const BookingForm = ({ language, t }) => {
     const servicesList = getServices(language);
 
     return (
-        <div className="bg-surface/80 backdrop-blur-xl border border-white/10 p-6 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <div className="bg-gradient-to-b from-surface to-black/90 backdrop-blur-2xl border border-white/10 p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden ring-1 ring-accent/10">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
 
-            <div className="text-center mb-10 relative z-10">
-                <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-md">{t.bookingTitle}</h2>
-                <p className="text-gray-400 max-w-xl mx-auto">{t.bookingSubtitle}</p>
+            <div className="text-center mb-12 relative z-10">
+                <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-md">{t.bookingTitle}</h2>
+                <p className="text-gray-300 max-w-xl mx-auto font-light text-sm md:text-base">{t.bookingSubtitle}</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto relative z-10">
@@ -143,11 +144,12 @@ const BookingForm = ({ language, t }) => {
                     />
                 </div>
 
-                <div className="pt-4 flex justify-center">
+                <div className="pt-8 flex justify-center relative z-10">
                     <button
                         type="submit"
-                        className="w-full sm:w-auto bg-accent text-black font-bold uppercase tracking-widest text-sm px-12 py-5 rounded-full hover:bg-amber-300 transition-all shadow-[0_0_20px_rgba(245,200,106,0.3)] hover:shadow-[0_0_30px_rgba(245,200,106,0.5)] transform hover:-translate-y-1 active:scale-95"
+                        className="group relative w-full sm:w-auto bg-gradient-to-r from-accent to-amber-500 text-black font-extrabold uppercase tracking-[0.1em] text-sm px-14 py-5 rounded-full hover:from-amber-400 hover:to-amber-500 transition-all shadow-[0_0_20px_rgba(245,200,106,0.2)] hover:shadow-[0_0_40px_rgba(245,200,106,0.6)] transform hover:-translate-y-1 active:scale-95 overflow-hidden"
                     >
+                        <div className="absolute inset-0 bg-white/20 w-full h-full skew-x-[-20deg] -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                         {t.submitWhatsapp}
                     </button>
                 </div>

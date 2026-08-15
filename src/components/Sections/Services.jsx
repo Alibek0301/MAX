@@ -26,13 +26,14 @@ const Services = ({ language, t }) => {
                         <motion.div
                             {...cardMotionProps(idx * 0.1)}
                             key={idx}
-                            className="bg-surface/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-accent/40 hover:bg-surface transition-all duration-300 group flex flex-col h-full shadow-lg"
+                            className="bg-gradient-to-br from-surface to-black border border-white/5 rounded-2xl p-8 hover:border-accent/40 hover:from-surface/80 hover:to-surface transition-all duration-500 group flex flex-col h-full shadow-2xl relative overflow-hidden"
                         >
-                            <div className="w-14 h-14 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-glow">
-                                <Icon size={28} className="text-accent" />
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-[50px] group-hover:bg-accent/10 transition-colors pointer-events-none" />
+                            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/20 to-accent/5 border border-accent/20 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-glow relative z-10">
+                                <Icon size={32} className="text-accent" />
                             </div>
-                            <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors">{svc.title}</h3>
-                            <p className="text-gray-400 text-sm mb-4 min-h-[40px]">{svc.subtitle}</p>
+                            <h3 className="text-2xl font-serif font-bold mb-3 group-hover:text-accent transition-colors relative z-10">{svc.title}</h3>
+                            <p className="text-gray-400 text-sm mb-6 min-h-[40px] leading-relaxed relative z-10">{svc.subtitle}</p>
 
                             <ul className="space-y-3 mb-6 flex-grow">
                                 {svc.details.map((detail, dIdx) => (

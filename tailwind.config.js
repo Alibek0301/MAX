@@ -16,6 +16,11 @@ export default {
       boxShadow: {
         glow: '0 0 28px rgba(245, 200, 106, 0.32), 0 0 48px rgba(245, 200, 106, 0.14)',
       },
+      keyframes: {
+        shimmer: {
+          '100%': { transform: 'translateX(100%)' },
+        }
+      }
     },
   },
   plugins: [],
