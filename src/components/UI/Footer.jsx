@@ -1,5 +1,5 @@
 import React from 'react';
-import { maxPhoneLabel, alibekPhoneLabel, whatsappNumber } from '../../constants/data';
+import { maxPhoneLabel, alibekPhoneLabel, whatsappNumber, maxPhoneNumber, alibekPhoneNumber } from '../../constants/data';
 
 const Footer = ({ t }) => {
     return (
@@ -9,10 +9,10 @@ const Footer = ({ t }) => {
                     <h3 className="font-serif text-2xl text-accent mb-4 tracking-widest drop-shadow-glow">MAX</h3>
                     <p className="text-gray-400 max-w-xs">{t.footerTagline}</p>
                     <div className="mt-6 flex flex-col gap-2 opacity-80">
-                        <a href={`tel:${maxPhoneLabel.split(' ')[0]}`} className="hover:text-amber-300 transition">
+                        <a href={`tel:${maxPhoneNumber}`} className="hover:text-amber-300 transition">
                             {maxPhoneLabel}
                         </a>
-                        <a href={`tel:${alibekPhoneLabel.split(' ')[0]}`} className="hover:text-amber-300 transition">
+                        <a href={`tel:${alibekPhoneNumber}`} className="hover:text-amber-300 transition">
                             {alibekPhoneLabel}
                         </a>
                     </div>

@@ -1,0 +1,18 @@
+
+> transferpro-landing@0.0.0 build
+> vite build
+
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[32mтЬУ[39m 1946 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                        [39m[1m[2m 13.72 kB[22m[1m[22m[2m тФВ gzip:  3.79 kB[22m
+[2mdist/[22m[35massets/index-hc21i3nV.css         [39m[1m[2m 30.56 kB[22m[1m[22m[2m тФВ gzip:  6.08 kB[22m
+[2mdist/[22m[36massets/index-BY38xgG3.js          [39m[1m[2m 59.82 kB[22m[1m[22m[2m тФВ gzip: 21.61 kB[22m
+[2mdist/[22m[36massets/vendor-motion-zSjuSjkF.js  [39m[1m[2m111.53 kB[22m[1m[22m[2m тФВ gzip: 36.65 kB[22m
+[2mdist/[22m[36massets/vendor-react-BZTF0kD4.js   [39m[1m[2m150.86 kB[22m[1m[22m[2m тФВ gzip: 47.93 kB[22m
+[32mтЬУ built in 4.96s[39m

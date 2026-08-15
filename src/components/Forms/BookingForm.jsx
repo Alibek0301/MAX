@@ -15,8 +15,8 @@ const BookingForm = ({ language, t }) => {
 
     const isValidPhone = (phone) => {
         if (!phone) return false;
-        const cleaned = phone.replace(/[^\d+]/g, '');
-        return cleaned.startsWith('+7') && cleaned.length === 12;
+        const cleaned = phone.replace(/[^\d]/g, '');
+        return cleaned.length >= 10;
     };
 
     const updateField = (event) => {
@@ -26,7 +26,10 @@ const BookingForm = ({ language, t }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (!isValidPhone(formData.phone)) return;
+        if (!isValidPhone(formData.phone)) {
+            alert("Пожалуйста, введите корректный номер телефона (минимум 10 цифр)");
+            return;
+        }
 
         // Формирование текста для WhatsApp
         const lines = [

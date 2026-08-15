@@ -8,8 +8,9 @@ const Header = ({ language, setLanguage, t }) => {
     return (
         <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
             <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                <a href="#top" className="font-serif text-2xl tracking-[0.2em] text-accent drop-shadow-glow">
-                    MAX
+                <a href="#top" className="flex items-center gap-2">
+                    <img src={`${import.meta.env.BASE_URL}logo.png`} alt="MAX Logo" className="h-10 md:h-12 w-auto object-contain rounded-md" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+                    <span className="font-serif text-2xl tracking-[0.2em] text-accent drop-shadow-glow" style={{ display: 'none' }}> MAX</span>
                 </a>
 
                 {/* Desktop Nav */}
@@ -18,7 +19,6 @@ const Header = ({ language, setLanguage, t }) => {
                         <a href="#services" className="hover:text-accent transition-colors">{t.services}</a>
                         <a href="#standards" className="hover:text-accent transition-colors">{t.standards}</a>
                         <a href="#booking" className="hover:text-accent transition-colors">{t.booking}</a>
-                        <a href="#reviews" className="hover:text-accent transition-colors">{t.reviews}</a>
                     </nav>
 
                     <div className="flex items-center gap-4 pl-6 border-l border-white/20">
@@ -69,7 +69,6 @@ const Header = ({ language, setLanguage, t }) => {
                     <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-lg hover:text-accent p-2">{t.services}</a>
                     <a href="#standards" onClick={() => setMobileMenuOpen(false)} className="text-lg hover:text-accent p-2">{t.standards}</a>
                     <a href="#booking" onClick={() => setMobileMenuOpen(false)} className="text-lg hover:text-accent p-2">{t.booking}</a>
-                    <a href="#reviews" onClick={() => setMobileMenuOpen(false)} className="text-lg hover:text-accent p-2">{t.reviews}</a>
 
                     <a href={`https://wa.me/${whatsappNumber}`} className="mt-4 bg-green-500 text-white text-center py-3 rounded-lg font-bold">
                         Написать в WhatsApp
