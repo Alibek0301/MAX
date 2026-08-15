@@ -1,0 +1,27 @@
+46: const shouldShowInstallPromptBanner = () => {
+112: const LoyaltyCard = ({ t, level, points, nextLevel
+142: const CallButton = ({ phoneNumber = alibekPhoneNum
+153: const WhatsAppQRModal = ({ isOpen, onClose, whatsa
+167:   const handleCopy = () => {
+229: const ExitIntentPopup = ({ isOpen, onClose, t }) =
+478:     const handleAppInstalled = () => {
+711:   const addToHistory = () => {
+734:   const clearHistory = () => {
+833:   const claimBirthdayBonus = () => {
+1029:   const handleStaffLogout = () => {
+1169:   const addFavorite = () => {
+1188:   const clearSessionSensitiveState = () => {
+1199:   const clearSensitiveData = () => {
+1219:     const scheduleExpiry = () => {
+1285:   const openPartnerOffer = () => {
+1291:   const dismissInstallBanner = () => {
+1321:   const dismissReactivationNudge = () => {
+1330:   const copyReactivationCode = () => {
+1341:   const applyOrderHabitDate = () => {
+1350:   const dismissOrderHabitNudge = () => {
+1393:   const exportTransfers = () => {
+1408:     reader.onload = () => {
+1533:   const startVoiceInputForAddress = () => {
+1571:     recognition.onerror = () => {
+1575:     recognition.onend = () => {
+1617:   const submitOrder = () => {

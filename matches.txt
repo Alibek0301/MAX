@@ -1,0 +1,12 @@
+[
+  'const ADMIN_LOGIN =',
+  'const DEMO_STAFF_ENABLED = import.meta.env.DEV || import.meta.env.VITE_ENABLE_DEMO_STAFF ===',
+  'const SENSITIVE_STORAGE_KEYS =',
+  'const INACTIVITY_TIMEOUT_MS =',
+  'const ACTIVITY_EVENTS =',
+  'const INSTALL_PROMPT_RESHOW_MS =',
+  'const LoyaltyCard = ({ t, level, points, nextLevelOrders, progressPercent }) =',
+  "const CallButton = ({ phoneNumber = alibekPhoneNumber.replace('+', ''), label = 'тШОя╕П', className = '' }) =",
+  'const WhatsAppQRModal = ({ isOpen, onClose, whatsappNumber }) =',
+  'const ExitIntentPopup = ({ isOpen, onClose, t }) ='
+]
