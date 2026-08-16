@@ -6,6 +6,7 @@ import Corporate from '../components/Sections/Corporate';
 import Standards from '../components/Sections/Standards';
 import ForDrivers from '../components/Sections/ForDrivers';
 import FAQ from '../components/Sections/FAQ';
+import Trust from '../components/Sections/Trust';
 import BookingForm from '../components/Forms/BookingForm';
 
 const Home = ({ language, t }) => {
@@ -17,6 +18,8 @@ const Home = ({ language, t }) => {
             <Corporate t={t} />
             <Standards language={language} t={t} />
             <ForDrivers t={t} />
+
+            <Trust t={t} />
 
             <section id="booking" className="max-w-4xl mx-auto w-full px-4 mb-10 scroll-mt-28">
                 <BookingForm language={language} t={t} />

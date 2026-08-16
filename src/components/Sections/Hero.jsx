@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Shield, Clock, Car, Star } from 'lucide-react';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -13,57 +14,98 @@ const heroStagger = {
 
 const Hero = ({ t }) => {
     return (
-        <section className="relative w-full min-h-[90vh] flex items-center pt-28 pb-20 overflow-hidden">
+        <section className="relative w-full min-h-[92vh] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
             {/* Cinematic Background Lighting */}
-            <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/10 blur-[150px] rounded-full pointer-events-none opacity-60 translate-x-1/3 -translate-y-1/3" />
+            <div className="absolute top-0 right-0 w-[60vw] h-[60vw] bg-accent/5 blur-[150px] rounded-full pointer-events-none opacity-80 translate-x-1/3 -translate-y-1/3" />
+            <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none opacity-50 -translate-x-1/3 translate-y-1/3" />
 
             {/* Very Top Thin Accent Line */}
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
-            <div className="max-w-5xl mx-auto px-4 w-full relative z-10 flex flex-col items-center justify-center mt-12 mb-8">
+            <div className="max-w-6xl mx-auto px-4 w-full relative z-10 flex flex-col items-center justify-center mt-12 mb-8 flex-grow">
 
                 {/* Main Centered Content */}
                 <motion.div
                     variants={heroStagger}
                     initial="hidden"
                     animate="show"
-                    className="flex flex-col items-center text-center"
+                    className="flex flex-col items-center text-center w-full"
                 >
-                    <motion.div variants={fadeUp} className="mb-6 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-accent flex items-center gap-2 drop-shadow-[0_0_15px_rgba(245,200,106,0.3)]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                    <motion.div variants={fadeUp} className="mb-8 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl text-xs font-bold uppercase tracking-[0.2em] text-gray-300 flex items-center gap-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                        </span>
                         {t.heroBadge}
                     </motion.div>
 
                     <motion.h1
                         variants={fadeUp}
-                        className="font-serif text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 lg:mb-8 leading-[1.1] tracking-tight text-white"
+                        className="font-serif text-5xl sm:text-6xl lg:text-8xl font-bold mb-6 lg:mb-8 leading-[1.05] tracking-tight text-white drop-shadow-2xl"
                     >
                         {t.heroTitle.split(' — ')[0]} <br className="hidden sm:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl mt-2 block">
-                            — {t.heroTitle.split(' — ')[1] || t.heroTitle}
+                        <span className="font-sans font-light text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-300 to-gray-500 text-3xl sm:text-5xl lg:text-7xl mt-4 block tracking-normal">
+                            {t.heroTitle.split(' — ')[1] || t.heroTitle}
                         </span>
                     </motion.h1>
 
-                    <motion.div variants={fadeUp} className="max-w-2xl text-gray-400 text-sm sm:text-base lg:text-lg space-y-3 sm:space-y-4 mb-8 lg:mb-10 leading-relaxed font-light mx-auto">
+                    <motion.div variants={fadeUp} className="max-w-3xl text-gray-400 text-base lg:text-xl space-y-4 mb-10 lg:mb-12 leading-relaxed font-light mx-auto">
                         <p>{t.heroP1}</p>
-                        <p className="hidden md:block">{t.heroP2}</p>
                     </motion.div>
 
-                    <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-5 w-full sm:w-auto mt-2">
+                    <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center items-center gap-6 w-full sm:w-auto relative">
+                        {/* Glowing effect behind CTA */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent/20 blur-[50px] rounded-full pointer-events-none"></div>
+
                         <a
                             href="#booking"
-                            className="group relative flex items-center justify-center bg-white text-black font-extrabold uppercase tracking-widest text-xs sm:text-sm px-8 sm:px-10 py-4 sm:py-5 rounded-full overflow-hidden transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95"
+                            className="group relative flex items-center justify-center bg-white text-black font-extrabold uppercase tracking-widest text-sm px-12 py-5 rounded-full overflow-hidden transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_50px_rgba(245,200,106,0.4)] hover:scale-105 active:scale-95"
                         >
                             <span className="relative z-10">{t.orderNowCta}</span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0 group-hover:translate-x-[100%] -translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
                         </a>
                         <a
-                            href="#services"
-                            className="flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 rounded-full border border-white/20 text-white font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-white/10 transition-colors"
+                            href="#corporate"
+                            className="flex items-center justify-center px-10 py-5 rounded-full border border-white/20 text-white font-bold uppercase tracking-widest text-sm hover:bg-white/10 hover:border-white/40 transition-colors"
                         >
-                            Подробнее
+                            Для бизнеса
                         </a>
                     </motion.div>
                 </motion.div>
+            </div>
+
+            {/* Live Ticker / Global Platform Feel */}
+            <div className="w-full mt-auto relative z-20 border-y border-white/5 bg-black/40 backdrop-blur-md py-4 overflow-hidden">
+                <div className="flex whitespace-nowrap animate-marquee items-center opacity-80">
+                    {/* Repeat elements for seamless marquee */}
+                    {[...Array(2)].map((_, i) => (
+                        <div key={i} className="flex items-center space-x-12 px-6">
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                                <span className="text-green-500 font-bold mx-2">●</span> LIVE
+                            </div>
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                                <Car size={16} className="text-accent" />
+                                <span>45+ Активных автомобилей</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                                <Clock size={16} className="text-accent" />
+                                <span>Ср. время подачи: 8 мин</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                                <Star size={16} className="text-accent" />
+                                <span>4.9/5 Оценка клиентов</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                                <Shield size={16} className="text-accent" />
+                                <span>Строгий NDA протокол</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                                <span className="text-gray-500 mx-4">|</span>
+                                12,000+ Успешных поездок
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );
