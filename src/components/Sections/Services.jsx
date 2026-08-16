@@ -105,10 +105,14 @@ const Services = ({ language, t }) => {
                             className="bg-gradient-to-b from-[#121820] to-[#0a0d12] w-full max-w-lg rounded-3xl border border-white/10 p-6 sm:p-8 relative overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
                         >
                             <button
-                                onClick={() => setSelectedService(null)}
-                                className="absolute top-4 right-4 p-2 bg-white/5 rounded-full text-white/50 hover:text-white transition-colors hover:bg-white/10 z-20"
+                                type="button"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setSelectedService(null);
+                                }}
+                                className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/5 rounded-full text-white/50 hover:text-white transition-colors hover:bg-white/10 z-[101]"
                             >
-                                <X size={20} />
+                                <X size={24} />
                             </button>
 
                             <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[60px] pointer-events-none transform translate-x-1/2 -translate-y-1/2" />

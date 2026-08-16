@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Clock, Car, Star } from 'lucide-react';
 
@@ -13,6 +13,28 @@ const heroStagger = {
 };
 
 const Hero = ({ t }) => {
+    const [liveStats, setLiveStats] = useState({
+        active: 45,
+        completed: 12450,
+        wait: 8,
+        recent: 'S-Class в Аэропорт',
+    });
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const routes = ['в Аэропорт', 'в Алма-Арасан', 'на Медеу', 'в Центр', 'из Отеля Rixos', 'в Есентай'];
+            const cars = ['S-Class', 'Comfort+', 'Maybach', 'Minivan V-Class', 'E-Class'];
+
+            setLiveStats(prev => ({
+                active: Math.floor(Math.random() * (54 - 38 + 1)) + 38,
+                completed: prev.completed + Math.floor(Math.random() * 3),
+                wait: Math.floor(Math.random() * (12 - 5 + 1)) + 5,
+                recent: `${cars[Math.floor(Math.random() * cars.length)]} ${routes[Math.floor(Math.random() * routes.length)]}`
+            }));
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section className="relative w-full min-h-[92vh] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
             {/* Cinematic Background Lighting */}
@@ -23,7 +45,6 @@ const Hero = ({ t }) => {
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
             <div className="max-w-6xl mx-auto px-4 w-full relative z-10 flex flex-col items-center justify-center mt-12 mb-8 flex-grow">
-
                 {/* Main Centered Content */}
                 <motion.div
                     variants={heroStagger}
@@ -79,29 +100,25 @@ const Hero = ({ t }) => {
                 <div className="flex whitespace-nowrap animate-marquee items-center opacity-80">
                     {/* Repeat elements for seamless marquee */}
                     {[...Array(2)].map((_, i) => (
-                        <div key={i} className="flex items-center space-x-12 px-6">
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                        <div key={i} className="flex items-center space-x-8 md:space-x-12 px-4 md:px-6">
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-xs md:text-sm tracking-wide">
                                 <span className="text-green-500 font-bold mx-2">●</span> LIVE
                             </div>
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-xs md:text-sm tracking-wide">
                                 <Car size={16} className="text-accent" />
-                                <span>45+ Активных автомобилей</span>
+                                <span>{liveStats.active} Авто на линии</span>
                             </div>
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-xs md:text-sm tracking-wide">
                                 <Clock size={16} className="text-accent" />
-                                <span>Ср. время подачи: 8 мин</span>
+                                <span>Подача: ~{liveStats.wait} мин</span>
                             </div>
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-xs md:text-sm tracking-wide">
                                 <Star size={16} className="text-accent" />
-                                <span>4.9/5 Оценка клиентов</span>
+                                <span>Недавно завершен: {liveStats.recent}</span>
                             </div>
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
+                            <div className="flex items-center gap-3 text-gray-300 font-medium text-xs md:text-sm tracking-wide">
                                 <Shield size={16} className="text-accent" />
-                                <span>Строгий NDA протокол</span>
-                            </div>
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-sm tracking-wide">
-                                <span className="text-gray-500 mx-4">|</span>
-                                12,000+ Успешных поездок
+                                <span>{liveStats.completed.toLocaleString()} Успешных поездок</span>
                             </div>
                         </div>
                     ))}
