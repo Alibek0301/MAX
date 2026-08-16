@@ -92,6 +92,7 @@ const BookingForm = ({ language, t }) => {
                         <select
                             required
                             name="service"
+                            id="requestTypeSelect"
                             value={formData.service}
                             onChange={updateField}
                             className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner appearance-none"
@@ -100,6 +101,7 @@ const BookingForm = ({ language, t }) => {
                             {servicesList.map((svc, i) => (
                                 <option key={i} value={svc.title} className="bg-surface text-white">{svc.title}</option>
                             ))}
+                            <option value={t.requestTypePartner} className="bg-surface text-accent font-bold">⭐ {t.requestTypePartner}</option>
                         </select>
                     </div>
                     <div className="space-y-1.5">
