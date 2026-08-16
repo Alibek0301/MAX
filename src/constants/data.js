@@ -10,9 +10,11 @@ export const translations = {
   ru: {
     home: 'Главная',
     services: 'Услуги',
+    fleet: 'Автопарк',
     standards: 'Стандарты',
     contacts: 'Контакты',
     booking: 'Заказ',
+    faqNav: 'FAQ',
     price: 'Прайс',
     history: 'История',
     favorites: 'Избранное',
@@ -297,6 +299,14 @@ export const translations = {
     reactivationDismiss: 'Не сейчас',
     reactivationOrder: 'Заказать со скидкой',
     historyAutoCleanedNotice: 'Старые заказы (>90 дней) автоматически удалены для вашей конфиденциальности.',
+    fleetTitle: 'Наш автопарк',
+    corporateTitle: 'MAX для бизнеса',
+    corpSubtitle: 'Корпоративное обслуживание',
+    corpP1: 'Мы работаем с компаниями по договору. Вы получаете индивидуального менеджера, прозрачную отчетность и премиальный сервис для ваших сотрудников и гостей.',
+    corpBen1: 'ЭСФ и закрывающие документы',
+    corpBen2: 'Персональный менеджер 24/7',
+    corpBen3: 'Постоплата по договору',
+    faqTitle: 'Частые вопросы',
   },
   kk: {
     home: 'Басты бет',
@@ -578,7 +588,6 @@ export const translations = {
     offlineDemo: 'Офлайн демо',
     deleteTransferAria: 'Трансферді жою',
     footerTagline: 'Астанадағы MAX таксопаркі: такси және трансферлер',
-    favNoteEdit: 'Ескертпе',
     favNotePlaceholder: 'Мысалы: сол жақта тұрақ',
     reactivationTitle: 'Дұрыс тапсырыс етпедіңіз бе?',
     reactivationHint: 'Оралыңыз және келіңіз — промокодпен 5% жеңілдік алыңыз',
@@ -586,13 +595,23 @@ export const translations = {
     reactivationDismiss: 'Қазір емес',
     reactivationOrder: 'Жеңілікпен тапсырис беру',
     historyAutoCleanedNotice: 'Ескі тапсырыстар (>90 күн) конфиденциалдылық ушін автоматты жойылды.',
+    fleetTitle: 'Біздің автопарк',
+    corporateTitle: 'Бизнес үшін MAX',
+    corpSubtitle: 'Корпоративтік клиенттерге қызмет көрсету',
+    corpP1: 'Компанияларға мамандандырылған қызмет көрсетеміз. Жеке менеджер, айлық есеп және барлық құжаттар.',
+    corpBen1: 'ҚҚС бар ЭШФ',
+    corpBen2: 'Жеке менеджер 24/7',
+    corpBen3: 'Кейін төлеу (Post-payment)',
+    faqTitle: 'Жиі қойылатын сұрақтар',
   },
   en: {
     home: 'Home',
     services: 'Services',
+    fleet: 'Fleet',
     standards: 'Standards',
     contacts: 'Contacts',
     booking: 'Booking',
+    faqNav: 'FAQ',
     price: 'Pricing',
     history: 'History',
     favorites: 'Favorites',
@@ -877,6 +896,14 @@ export const translations = {
     reactivationDismiss: 'Not now',
     reactivationOrder: 'Book with discount',
     historyAutoCleanedNotice: 'Old orders (>90 days) were auto-removed for your privacy.',
+    fleetTitle: 'Our Fleet',
+    corporateTitle: 'MAX for Business',
+    corpSubtitle: 'Corporate Services',
+    corpP1: 'We provide premium transportation solutions for companies. Enjoy dedicated account managers, transparent billing, and top-tier service tailored perfectly to your corporate needs.',
+    corpBen1: 'Invoices & Receipts',
+    corpBen2: '24/7 Dedicated Manager',
+    corpBen3: 'Post-payment basis',
+    faqTitle: 'Frequently Asked Questions',
   },
 }
 
@@ -1229,4 +1256,49 @@ export const getReviews = (language) => {
   }
 
   return reviewsByLanguage[language] || reviewsByLanguage.ru
+}
+
+export const getFleet = (language) => {
+  const fleetByLanguage = {
+    ru: [
+      { class: 'Комфорт+', models: 'Toyota Camry, Hyundai Sonata', desc: 'Идеально для ежедневных поездок и трансферов. Просторный салон, климат-контроль.', price: 'от 2000 ₸', icon: 'Car' },
+      { class: 'Бизнес', models: 'Mercedes E-class, BMW 5', desc: 'Для корпоративных клиентов и важных встреч. Кожаный салон, тишина, вода.', price: 'от 5000 ₸', icon: 'Crown' },
+      { class: 'Минивен', models: 'Toyota Alphard, Hyundai Staria', desc: 'Для поездок группой до 7 человек. Удобные кресла, много места для багажа.', price: 'от 8000 ₸', icon: 'BriefcaseBusiness' }
+    ],
+    kk: [
+      { class: 'Жайлылық+', models: 'Toyota Camry, Hyundai Sonata', desc: 'Күнделікті сапарлар үшін тамаша. Кең салон, климат-бақылау.', price: '2000 ₸ бастап', icon: 'Car' },
+      { class: 'Бизнес', models: 'Mercedes E-class, BMW 5', desc: 'Корпоративтік қонақтар үшін. Былғары салон, тыныштық, су.', price: '5000 ₸ бастап', icon: 'Crown' },
+      { class: 'Минивен', models: 'Toyota Alphard, Hyundai Staria', desc: '7 адамға дейін топтық сапарлар үшін. Көп жүк орны.', price: '8000 ₸ бастап', icon: 'BriefcaseBusiness' }
+    ],
+    en: [
+      { class: 'Comfort+', models: 'Toyota Camry, Hyundai Sonata', desc: 'Perfect for daily trips. Spacious interior, climate control.', price: 'from 2000 ₸', icon: 'Car' },
+      { class: 'Business', models: 'Mercedes E-class, BMW 5', desc: 'For corporate clients. Leather interior, quietness, water.', price: 'from 5000 ₸', icon: 'Crown' },
+      { class: 'Minivan', models: 'Toyota Alphard, Hyundai Staria', desc: 'For group trips up to 7 people. Lots of luggage space.', price: 'from 8000 ₸', icon: 'BriefcaseBusiness' }
+    ]
+  }
+  return fleetByLanguage[language] || fleetByLanguage.ru;
+}
+
+export const getFaq = (language) => {
+  const faqByLanguage = {
+    ru: [
+      { q: 'Как быстро подается машина?', a: 'Среднее время подачи авто — от 5 до 15 минут в зависимости от района города и класса авто.' },
+      { q: 'Могу ли я оплатить безналичным расчетом?', a: 'Да, для корпоративных клиентов доступна оплата по счёту. Для физических лиц — Kaspi, Halyk или Apple Pay через терминал в машинах бизнес-класса.' },
+      { q: 'Встречаете ли вы с табличкой в аэропорту?', a: 'Конечно. Водитель встретит вас в зоне прилета с именной табличкой, поможет с багажом и проводит к автомобилю.' },
+      { q: 'Предоставляете ли вы отчетные документы?', a: 'Да, мы выдаем электронные фискальные чеки, а также счета-фактуры (ЭСФ) и акты выполненных работ для юридических лиц.' }
+    ],
+    kk: [
+      { q: 'Көлік қанша уақытта келеді?', a: 'Көлік берудің орташа уақыты — қала ауданы мен көлік класына байланысты 5-тен 15 минутқа дейін.' },
+      { q: 'Қолма-қол ақшасыз төлей аламын ба?', a: 'Иә, корпоративтік тұтынушылар үшін шот арқылы төлеуге болады. Жеке тұлғалар үшін — Kaspi, Halyk.' },
+      { q: 'Әуежайда тақтайшамен қарсы аласыз ба?', a: 'Әрине. Жүргізуші сізді ұшып келу аймағында атаулы тақтайшамен күтіп алады және жүгіңізге көмектеседі.' },
+      { q: 'Есеп құжаттарын бересіз бе?', a: 'Иә, біз заңды тұлғалар үшін электронды фискалдық чектер мен ЭШФ береміз.' }
+    ],
+    en: [
+      { q: 'How fast does the car arrive?', a: 'Average arrival time is between 5 to 15 minutes depending on the city area and car class.' },
+      { q: 'Can I pay by card/bank transfer?', a: 'Yes, corporate clients can pay via invoice. Individuals can use Kaspi, Halyk, or direct card terminals in business class cars.' },
+      { q: 'Do you meet with a name sign at the airport?', a: 'Absolutely. The driver will meet you in the arrivals area with a name sign and help with your luggage.' },
+      { q: 'Do you provide invoices and receipts?', a: 'Yes, we provide electronic fiscal receipts and official invoices for businesses.' }
+    ]
+  }
+  return faqByLanguage[language] || faqByLanguage.ru;
 }
