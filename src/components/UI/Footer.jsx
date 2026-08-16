@@ -49,8 +49,8 @@ const Footer = ({ t }) => {
                     <p>Проект принадлежит ТОО "Vigil Agency"</p>
                 </div>
                 <div className="flex gap-4">
-                    <a href="/privacy.html" className="hover:text-white transition">{t.privacyPolicyLabel}</a>
-                    <a href="/terms.html" className="hover:text-white transition">{t.termsLabel}</a>
+                    <a href="./privacy.html" target="_blank" className="hover:text-white transition">{t.privacyPolicyLabel}</a>
+                    <a href="./terms.html" target="_blank" className="hover:text-white transition">{t.termsLabel}</a>
                 </div>
             </div>
         </footer>
