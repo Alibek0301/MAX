@@ -11,7 +11,7 @@ import BookingForm from '../components/Forms/BookingForm';
 
 const Home = ({ language, t }) => {
     return (
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-10 md:gap-20">
             <Hero t={t} />
             <Fleet language={language} t={t} />
             <Services language={language} t={t} />

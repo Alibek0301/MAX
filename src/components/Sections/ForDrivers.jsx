@@ -80,17 +80,17 @@ const ForDrivers = ({ t }) => {
                                         select.dispatchEvent(new Event('change', { bubbles: true }));
                                     }
                                 }}
-                                className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-gradient-to-br from-accent to-amber-500 text-black font-extrabold uppercase tracking-widest text-sm px-8 py-4 sm:px-10 sm:py-5 rounded-full overflow-hidden transition-all shadow-xl hover:shadow-[0_0_30px_rgba(245,200,106,0.4)] active:scale-95"
+                                className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2 md:gap-3 bg-gradient-to-br from-accent to-amber-500 text-black font-extrabold uppercase tracking-widest text-xs md:text-sm px-6 py-4 md:px-10 md:py-5 rounded-full overflow-hidden transition-all shadow-xl hover:shadow-[0_0_30px_rgba(245,200,106,0.4)] active:scale-95 mx-auto lg:mx-0"
                             >
                                 <span className="relative z-10 group-hover:text-black transition-colors duration-300">
                                     {t.partnerDriversButton}
                                 </span>
-                                <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight className="relative z-10 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                             </a>
                         </motion.div>
                     </div>
 
-                    <div className="lg:w-1/2 flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 sm:grid sm:grid-cols-2 md:gap-6 pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0">
+                    <div className="hidden lg:w-1/2 md:flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 sm:grid sm:grid-cols-2 md:gap-6 pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0">
                         {benefits.map((benefit, idx) => (
                             <motion.div
                                 key={idx}

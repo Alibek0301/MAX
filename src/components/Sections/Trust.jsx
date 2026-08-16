@@ -33,32 +33,38 @@ const Trust = ({ t }) => {
                         Для нас безопасность ваших данных и маршрутов так же важна, как и комфорт в пути. Мы соблюдаем строгие стандарты приватности для всех категорий клиентов.
                     </p>
 
-                    <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:grid md:grid-cols-3 md:gap-8 pb-6 -mx-8 px-8 md:pb-0 md:mx-0 md:px-0 text-left max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-left max-w-5xl mx-auto">
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="bg-[#0a0d12] p-6 sm:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
+                            className="bg-[#0a0d12] p-5 md:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0"
                         >
-                            <ShieldCheck size={32} className="text-accent mb-6" />
-                            <h3 className="text-white text-xl font-bold mb-3">Защита данных</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">Вся информация о бронированиях защищена современными протоколами шифрования. Мы не передаем контакты третьим лицам.</p>
+                            <ShieldCheck className="w-10 h-10 md:w-12 md:h-12 text-accent md:mb-6 shrink-0" />
+                            <div>
+                                <h3 className="text-white text-base md:text-xl font-bold mb-1 md:mb-3">Защита данных</h3>
+                                <p className="text-gray-400 text-xs md:text-sm leading-relaxed hidden md:block">Вся информация о бронированиях защищена современными протоколами шифрования. Мы не передаем контакты третьим лицам.</p>
+                            </div>
                         </motion.div>
 
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="bg-[#0a0d12] p-6 sm:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
+                            className="bg-[#0a0d12] p-5 md:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0"
                         >
-                            <EyeOff size={32} className="text-accent mb-6" />
-                            <h3 className="text-white text-xl font-bold mb-3">NDA протокол</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">С каждым корпоративным клиентом мы готовы подписать соглашение о неразглашении (NDA). Ваши маршруты — это коммерческая тайна.</p>
+                            <EyeOff className="w-10 h-10 md:w-12 md:h-12 text-accent md:mb-6 shrink-0" />
+                            <div>
+                                <h3 className="text-white text-base md:text-xl font-bold mb-1 md:mb-3">NDA протокол</h3>
+                                <p className="text-gray-400 text-xs md:text-sm leading-relaxed hidden md:block">С каждым корпоративным клиентом мы готовы подписать соглашение о неразглашении (NDA). Ваши маршруты — это коммерческая тайна.</p>
+                            </div>
                         </motion.div>
 
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="bg-[#0a0d12] p-6 sm:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
+                            className="bg-[#0a0d12] p-5 md:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0"
                         >
-                            <LockKeyhole size={32} className="text-accent mb-6" />
-                            <h3 className="text-white text-xl font-bold mb-3">Анонимность поездок</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">Для VIP-гостей мы предоставляем автомобили без опознавательных знаков такси и водителей, соблюдающих строгий протокол тишины.</p>
+                            <LockKeyhole className="w-10 h-10 md:w-12 md:h-12 text-accent md:mb-6 shrink-0" />
+                            <div>
+                                <h3 className="text-white text-base md:text-xl font-bold mb-1 md:mb-3">Анонимность поездок</h3>
+                                <p className="text-gray-400 text-xs md:text-sm leading-relaxed hidden md:block">Для VIP-гостей мы предоставляем автомобили без опознавательных знаков такси и водителей, соблюдающих строгий протокол тишины.</p>
+                            </div>
                         </motion.div>
                     </div>
                 </motion.div>

@@ -32,7 +32,7 @@ const Fleet = ({ language, t }) => {
                 <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto opacity-80" />
             </div>
 
-            <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:grid md:grid-cols-3 md:gap-8 pb-6 -mx-4 px-4 md:pb-0 md:mx-0 md:px-0">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
                 {fleetList.map((vehicle, idx) => {
                     const Icon = iconMap[vehicle.icon] || Car;
                     return (
@@ -43,29 +43,32 @@ const Fleet = ({ language, t }) => {
                             viewport={{ once: true, margin: '-50px' }}
                             transition={{ duration: 0.6, delay: idx * 0.15 }}
                             whileHover={{ y: -5 }}
-                            className="group relative flex flex-col h-full rounded-[2rem] p-[1px] bg-gradient-to-b from-white/10 to-transparent overflow-hidden shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
+                            className="group relative flex flex-col md:h-full rounded-2xl md:rounded-[2rem] p-[1px] bg-gradient-to-b from-white/10 to-transparent overflow-hidden"
                             style={{ WebkitTransform: 'translate3d(0,0,0)' }}
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                            <div className="bg-[#0a0d12]/90 backdrop-blur-xl rounded-[calc(2rem-1px)] p-6 sm:p-8 h-full flex flex-col relative z-10 transition-colors duration-500 group-hover:bg-[#0a0d12]/70">
+                            <div className="bg-[#0a0d12]/90 backdrop-blur-xl rounded-[calc(1rem-1px)] md:rounded-[calc(2rem-1px)] p-5 md:p-8 flex flex-col relative z-10 transition-colors duration-500 group-hover:bg-[#0a0d12]/70 h-full">
                                 <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-[40px] group-hover:bg-accent/20 transition-all duration-700" />
 
-                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1a1f26] to-[#0f1318] border border-white/5 flex items-center justify-center mb-6 focus-within:ring group-hover:scale-110 group-hover:-rotate-3 group-hover:border-accent/30 transition-all duration-500 shadow-xl">
-                                    <Icon size={28} className="text-gray-400 group-hover:text-accent transition-colors duration-500" />
+                                <div className="flex items-center gap-4 md:flex-col md:items-start mb-4 md:mb-6">
+                                    <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#1a1f26] to-[#0f1318] border border-white/5 flex items-center justify-center focus-within:ring group-hover:scale-110 md:group-hover:-rotate-3 group-hover:border-accent/30 transition-all duration-500 shadow-xl">
+                                        <Icon className="w-6 h-6 md:w-7 md:h-7 text-gray-400 group-hover:text-accent transition-colors duration-500" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl md:text-2xl font-serif font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                                            {vehicle.class}
+                                        </h3>
+                                        <p className="text-xs md:text-sm font-semibold text-accent/80">{vehicle.models}</p>
+                                    </div>
                                 </div>
 
-                                <h3 className="text-2xl font-serif font-bold mb-2 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
-                                    {vehicle.class}
-                                </h3>
-                                <p className="text-sm font-semibold text-accent/80 mb-4">{vehicle.models}</p>
-
-                                <p className="text-gray-400 text-sm mb-8 leading-relaxed font-light flex-grow">
+                                <p className="text-gray-400 text-xs sm:text-sm mb-4 md:mb-8 leading-relaxed font-light flex-grow">
                                     {vehicle.desc}
                                 </p>
 
-                                <div className="pt-6 border-t border-white/5 mt-auto flex items-center justify-between group-hover:border-white/10 transition-colors">
-                                    <span className="text-lg text-gray-200 font-bold tracking-wide">
+                                <div className="pt-4 md:pt-6 border-t border-white/5 mt-auto flex items-center justify-between group-hover:border-white/10 transition-colors">
+                                    <span className="text-base md:text-lg text-gray-200 font-bold tracking-wide">
                                         {vehicle.price}
                                     </span>
                                 </div>
