@@ -43,7 +43,11 @@ const Footer = ({ t }) => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-                <p>© {new Date().getFullYear()} MAX Taxi Park. Все права защищены.</p>
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center">
+                    <p>© {new Date().getFullYear()} MAX Taxi Park. Все права защищены.</p>
+                    <span className="hidden sm:inline text-gray-600">|</span>
+                    <p>Проект принадлежит ТОО "Vigil Agency"</p>
+                </div>
                 <div className="flex gap-4">
                     <a href="/privacy.html" className="hover:text-white transition">{t.privacyPolicyLabel}</a>
                     <a href="/terms.html" className="hover:text-white transition">{t.termsLabel}</a>
