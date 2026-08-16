@@ -32,7 +32,7 @@ const Fleet = ({ language, t }) => {
                 <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto opacity-80" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:grid md:grid-cols-3 md:gap-8 pb-6 -mx-4 px-4 md:pb-0 md:mx-0 md:px-0">
                 {fleetList.map((vehicle, idx) => {
                     const Icon = iconMap[vehicle.icon] || Car;
                     return (
@@ -43,7 +43,7 @@ const Fleet = ({ language, t }) => {
                             viewport={{ once: true, margin: '-50px' }}
                             transition={{ duration: 0.6, delay: idx * 0.15 }}
                             whileHover={{ y: -5 }}
-                            className="group relative flex flex-col h-full rounded-[2rem] p-[1px] bg-gradient-to-b from-white/10 to-transparent overflow-hidden"
+                            className="group relative flex flex-col h-full rounded-[2rem] p-[1px] bg-gradient-to-b from-white/10 to-transparent overflow-hidden shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
                             style={{ WebkitTransform: 'translate3d(0,0,0)' }}
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />

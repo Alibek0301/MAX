@@ -4,13 +4,13 @@ import { Building2, FileText, Headphones, CreditCard, ChevronRight } from 'lucid
 
 const Corporate = ({ t }) => {
     return (
-        <section id="corporate" className="max-w-7xl mx-auto px-4 py-16 scroll-mt-20">
-            <div className="relative rounded-[2.5rem] bg-gradient-to-br from-[#121820] to-[#0a0d12] border border-white/5 overflow-hidden">
+        <section id="corporate" className="max-w-7xl mx-auto px-4 py-8 md:py-16 scroll-mt-20">
+            <div className="relative rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-[#121820] to-[#0a0d12] border border-white/5 overflow-hidden">
                 {/* Decorative background elements */}
                 <div className="absolute top-0 right-0 w-full h-[500px] bg-accent/5 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/2 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-full h-[300px] bg-blue-500/5 blur-[100px] rounded-full -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
-                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 p-8 sm:p-12 lg:p-16 items-center">
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 p-6 sm:p-12 lg:p-16 items-center">
                     {/* Text Content */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}

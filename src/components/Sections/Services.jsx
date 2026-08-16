@@ -35,7 +35,7 @@ const Services = ({ language, t }) => {
                 <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto opacity-80" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 pb-6 -mx-4 px-4 md:pb-0 md:mx-0 md:px-0">
                 {servicesList.map((svc, idx) => {
                     const Icon = svc.icon;
                     return (
@@ -43,7 +43,7 @@ const Services = ({ language, t }) => {
                             {...cardMotionProps(idx * 0.1)}
                             key={idx}
                             whileHover={{ y: -10 }}
-                            className="group relative flex flex-col h-full rounded-[2rem] p-[1px] bg-gradient-to-b from-white/10 to-transparent overflow-hidden"
+                            className="group relative flex flex-col h-full rounded-[2rem] p-[1px] bg-gradient-to-b from-white/10 to-transparent overflow-hidden shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
                             style={{ WebkitTransform: 'translate3d(0,0,0)' }} // Hardware acceleration
                         >
                             {/* Animated Inner Shine on Hover */}

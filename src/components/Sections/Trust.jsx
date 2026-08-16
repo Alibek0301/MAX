@@ -33,10 +33,10 @@ const Trust = ({ t }) => {
                         Для нас безопасность ваших данных и маршрутов так же важна, как и комфорт в пути. Мы соблюдаем строгие стандарты приватности для всех категорий клиентов.
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-5xl mx-auto">
+                    <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:grid md:grid-cols-3 md:gap-8 pb-6 -mx-8 px-8 md:pb-0 md:mx-0 md:px-0 text-left max-w-5xl mx-auto">
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="bg-[#0a0d12] p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20"
+                            className="bg-[#0a0d12] p-6 sm:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
                         >
                             <ShieldCheck size={32} className="text-accent mb-6" />
                             <h3 className="text-white text-xl font-bold mb-3">Защита данных</h3>
@@ -45,7 +45,7 @@ const Trust = ({ t }) => {
 
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="bg-[#0a0d12] p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20"
+                            className="bg-[#0a0d12] p-6 sm:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
                         >
                             <EyeOff size={32} className="text-accent mb-6" />
                             <h3 className="text-white text-xl font-bold mb-3">NDA протокол</h3>
@@ -54,7 +54,7 @@ const Trust = ({ t }) => {
 
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="bg-[#0a0d12] p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20"
+                            className="bg-[#0a0d12] p-6 sm:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
                         >
                             <LockKeyhole size={32} className="text-accent mb-6" />
                             <h3 className="text-white text-xl font-bold mb-3">Анонимность поездок</h3>

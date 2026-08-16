@@ -29,7 +29,7 @@ const Standards = ({ language, t }) => {
                 <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto opacity-80" />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+            <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 pb-6 -mx-4 px-4 md:pb-0 md:mx-0 md:px-0 relative z-10">
                 {standardsData.map((std, idx) => {
                     const Icon = std.icon;
                     return (
@@ -37,7 +37,7 @@ const Standards = ({ language, t }) => {
                             {...cardMotionProps(idx * 0.1)}
                             key={idx}
                             whileHover={{ scale: 1.02 }}
-                            className="group relative flex flex-col items-start gap-5 p-6 sm:p-8 rounded-3xl bg-[#0a0d12]/60 hover:bg-[#11161d]/80 border border-white/5 hover:border-accent/20 transition-all duration-500 backdrop-blur-xl overflow-hidden"
+                            className="group relative flex flex-col items-start gap-5 p-6 sm:p-8 rounded-3xl bg-[#0a0d12]/60 hover:bg-[#11161d]/80 border border-white/5 hover:border-accent/20 transition-all duration-500 backdrop-blur-xl overflow-hidden shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
                             style={{ WebkitTransform: 'translate3d(0,0,0)' }}
                         >
                             {/* Glow accent */}

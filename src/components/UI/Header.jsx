@@ -19,8 +19,9 @@ const Header = ({ language, setLanguage, t }) => {
                         <a href="#fleet" className="hover:text-accent transition-colors">{t.fleet || 'Автопарк'}</a>
                         <a href="#services" className="hover:text-accent transition-colors">{t.services}</a>
                         <a href="#standards" className="hover:text-accent transition-colors">{t.standards}</a>
-                        <a href="#faq" className="hover:text-accent transition-colors">{t.faqNav || 'FAQ'}</a>
                         <a href="#booking" className="hover:text-accent transition-colors">{t.booking}</a>
+                        <a href="#faq" className="hover:text-accent transition-colors">{t.faqNav || 'FAQ'}</a>
+                        <a href="#for-drivers" className="hover:text-accent transition-colors opacity-70">Партнерам</a>
                     </nav>
 
                     <div className="flex items-center gap-4 pl-6 border-l border-white/20">
@@ -70,9 +71,9 @@ const Header = ({ language, setLanguage, t }) => {
                 <div className="md:hidden absolute top-full left-0 right-0 bg-base/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl p-6 flex flex-col gap-5 animate-in slide-in-from-top-2">
                     <a href="#fleet" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium hover:text-accent transition-colors">{t.fleet || 'Автопарк'}</a>
                     <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium hover:text-accent transition-colors">{t.services}</a>
-                    <a href="#standards" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium hover:text-accent transition-colors">{t.standards}</a>
-                    <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium hover:text-accent transition-colors">{t.faqNav || 'FAQ'}</a>
                     <a href="#booking" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium hover:text-accent transition-colors">{t.booking}</a>
+                    <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium hover:text-accent transition-colors">{t.faqNav || 'FAQ'}</a>
+                    <a href="#for-drivers" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium hover:text-accent transition-colors opacity-70 border-t border-white/10 pt-4">Стать партнером</a>
 
                     <a href={`https://wa.me/${whatsappNumber}`} className="mt-4 bg-gradient-to-r from-green-500 to-green-600 shadow-xl shadow-green-900/20 text-white text-center py-4 rounded-xl font-bold text-lg transition-transform active:scale-95">
                         Написать в WhatsApp
