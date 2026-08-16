@@ -42,7 +42,7 @@ const benefits = [
 
 const ForDrivers = ({ t }) => {
     return (
-        <section id="for-drivers" className="relative py-24 px-4 overflow-hidden mt-12 bg-surface/30 border-y border-white/5">
+        <section id="for-drivers" className="relative py-16 lg:py-24 px-4 overflow-hidden mt-12 bg-surface/30 border-y border-white/5">
             {/* Background Effects */}
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent opacity-50" />
 

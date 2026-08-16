@@ -37,7 +37,7 @@ const Standards = ({ language, t }) => {
                             {...cardMotionProps(idx * 0.1)}
                             key={idx}
                             whileHover={{ scale: 1.02 }}
-                            className="group relative flex flex-col items-start gap-5 p-8 rounded-3xl bg-[#0a0d12]/60 hover:bg-[#11161d]/80 border border-white/5 hover:border-accent/20 transition-all duration-500 backdrop-blur-xl overflow-hidden"
+                            className="group relative flex flex-col items-start gap-5 p-6 sm:p-8 rounded-3xl bg-[#0a0d12]/60 hover:bg-[#11161d]/80 border border-white/5 hover:border-accent/20 transition-all duration-500 backdrop-blur-xl overflow-hidden"
                             style={{ WebkitTransform: 'translate3d(0,0,0)' }}
                         >
                             {/* Glow accent */}

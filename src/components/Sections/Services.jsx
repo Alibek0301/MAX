@@ -49,10 +49,10 @@ const Services = ({ language, t }) => {
                             {/* Animated Inner Shine on Hover */}
                             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                            <div className="bg-[#0a0d12]/90 backdrop-blur-xl rounded-[calc(2rem-1px)] p-8 h-full flex flex-col relative z-10 transition-colors duration-500 group-hover:bg-[#0a0d12]/70">
+                            <div className="bg-[#0a0d12]/90 backdrop-blur-xl rounded-[calc(2rem-1px)] p-6 sm:p-8 h-full flex flex-col relative z-10 transition-colors duration-500 group-hover:bg-[#0a0d12]/70">
                                 <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/10 rounded-full blur-[40px] group-hover:bg-accent/20 transition-all duration-700" />
 
-                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1a1f26] to-[#0f1318] border border-white/5 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:-rotate-6 group-hover:border-accent/30 transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1a1f26] to-[#0f1318] border border-white/5 flex items-center justify-center mb-6 sm:mb-8 group-hover:scale-110 group-hover:-rotate-6 group-hover:border-accent/30 transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
                                     <Icon size={30} className="text-gray-300 group-hover:text-accent transition-colors duration-500" />
                                 </div>
 
