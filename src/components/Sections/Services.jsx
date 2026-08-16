@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getServices } from '../../constants/data';
 import { X, ChevronRight } from 'lucide-react';
@@ -13,6 +13,18 @@ const cardMotionProps = (delay) => ({
 const Services = ({ language, t }) => {
     const servicesList = getServices(language);
     const [selectedService, setSelectedService] = useState(null);
+
+    // Prevent scrolling when modal is open
+    useEffect(() => {
+        if (selectedService) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [selectedService]);
 
     return (
         <section id="services" className="max-w-7xl mx-auto px-4 scroll-mt-28 relative z-10">
@@ -76,6 +88,7 @@ const Services = ({ language, t }) => {
             <AnimatePresence>
                 {selectedService && (
                     <motion.div
+                        key="modal-backdrop"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -83,6 +96,7 @@ const Services = ({ language, t }) => {
                         onClick={() => setSelectedService(null)}
                     >
                         <motion.div
+                            key="modal-content"
                             initial={{ scale: 0.95, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
@@ -92,7 +106,7 @@ const Services = ({ language, t }) => {
                         >
                             <button
                                 onClick={() => setSelectedService(null)}
-                                className="absolute top-4 right-4 p-2 bg-white/5 rounded-full text-white/50 hover:text-white transition-colors hover:bg-white/10 z-10"
+                                className="absolute top-4 right-4 p-2 bg-white/5 rounded-full text-white/50 hover:text-white transition-colors hover:bg-white/10 z-20"
                             >
                                 <X size={20} />
                             </button>
@@ -101,7 +115,7 @@ const Services = ({ language, t }) => {
 
                             <div className="flex items-center gap-4 mb-6 relative z-10 pt-2">
                                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1a1f26] to-[#0f1318] border border-white/5 flex items-center justify-center shadow-lg shrink-0">
-                                    <selectedService.icon size={28} className="text-accent" />
+                                    {selectedService.icon && React.createElement(selectedService.icon, { size: 28, className: "text-accent" })}
                                 </div>
                                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-white pr-6">
                                     {selectedService.title}
