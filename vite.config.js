@@ -12,9 +12,6 @@ export default defineConfig(({ mode }) => {
           manualChunks(id) {
             if (!id.includes('node_modules')) return
 
-            if (id.includes('html2pdf.js')) return 'pdf-html2pdf'
-            if (id.includes('jspdf')) return 'pdf-jspdf'
-            if (id.includes('html2canvas')) return 'pdf-html2canvas'
             if (id.includes('react') || id.includes('scheduler')) return 'vendor-react'
             if (id.includes('framer-motion')) return 'vendor-motion'
             if (id.includes('lucide-react')) return 'vendor-icons'

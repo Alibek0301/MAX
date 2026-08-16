@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, CalendarDays, MapPin } from 'lucide-react';
+import { CalendarDays, MapPin } from 'lucide-react';
 import { whatsappNumber, getServices } from '../../constants/data';
 
 const BookingForm = ({ language, t }) => {
