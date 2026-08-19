@@ -70,23 +70,18 @@ const ForDrivers = ({ t }) => {
                         </motion.p>
 
                         <motion.div variants={fadeIn} className="pt-4">
-                            <a
-                                href="#booking"
-                                onClick={(e) => {
-                                    const select = document.getElementById('requestTypeSelect');
-                                    if (select) {
-                                        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLSelectElement.prototype, "value").set;
-                                        nativeInputValueSetter.call(select, t.requestTypePartner);
-                                        select.dispatchEvent(new Event('change', { bubbles: true }));
-                                    }
+                            <button
+                                onClick={() => {
+                                    const iframe = document.getElementById('yandex-fleet-iframe');
+                                    if (iframe) iframe.scrollIntoView({ behavior: 'smooth' });
                                 }}
                                 className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2 md:gap-3 bg-gradient-to-br from-accent to-amber-500 text-black font-extrabold uppercase tracking-widest text-xs md:text-sm px-6 py-4 md:px-10 md:py-5 rounded-full overflow-hidden transition-all shadow-xl hover:shadow-[0_0_30px_rgba(245,200,106,0.4)] active:scale-95 mx-auto lg:mx-0"
                             >
                                 <span className="relative z-10 group-hover:text-black transition-colors duration-300">
                                     {t.partnerDriversButton}
                                 </span>
-                                <ArrowRight className="relative z-10 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
-                            </a>
+                                <ArrowRight className="relative z-10 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform rotate-90" />
+                            </button>
                         </motion.div>
                     </div>
 
@@ -113,6 +108,26 @@ const ForDrivers = ({ t }) => {
                                 </div>
                             </motion.div>
                         ))}
+                    </div>
+                </motion.div>
+
+                {/* Yandex Fleet Driver Registration Form */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={fadeIn}
+                    className="mt-16 flex flex-col items-center justify-center relative z-10"
+                >
+                    <div id="yandex-fleet-iframe" className="w-full max-w-[600px] h-[600px] bg-surface rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative scroll-mt-28">
+                        <div className="absolute inset-0 bg-accent/5 animate-pulse" /> {/* Loading placeholder effect */}
+                        <iframe
+                            title="Регистрация водителей Yandex"
+                            width="100%"
+                            height="100%"
+                            src="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62&iframe=true&lang=ru"
+                            className="border-none relative z-10 bg-white"
+                        ></iframe>
                     </div>
                 </motion.div>
             </div>
