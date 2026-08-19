@@ -109,18 +109,6 @@ const ForDrivers = ({ t }) => {
                         ))}
                     </div>
                 </motion.div>
-
-                <div className="mt-12 flex flex-col items-center justify-center relative z-10 w-full">
-                    <a
-                        href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group relative flex w-full max-w-[400px] items-center justify-center bg-white text-black font-extrabold uppercase tracking-widest text-sm px-10 py-6 rounded-full overflow-hidden transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.7)] hover:scale-[1.02] active:scale-95 text-center"
-                    >
-                        <span className="relative z-10">Форма регистрации Яндекс.Про</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0 group-hover:translate-x-[100%] -translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
-                    </a>
-                </div>
             </div>
         </section>
     );
