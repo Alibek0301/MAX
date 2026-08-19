@@ -70,18 +70,17 @@ const ForDrivers = ({ t }) => {
                         </motion.p>
 
                         <motion.div variants={fadeIn} className="pt-4">
-                            <button
-                                onClick={() => {
-                                    const iframe = document.getElementById('yandex-fleet-iframe');
-                                    if (iframe) iframe.scrollIntoView({ behavior: 'smooth' });
-                                }}
+                            <a
+                                href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2 md:gap-3 bg-gradient-to-br from-accent to-amber-500 text-black font-extrabold uppercase tracking-widest text-xs md:text-sm px-6 py-4 md:px-10 md:py-5 rounded-full overflow-hidden transition-all shadow-xl hover:shadow-[0_0_30px_rgba(245,200,106,0.4)] active:scale-95 mx-auto lg:mx-0"
                             >
                                 <span className="relative z-10 group-hover:text-black transition-colors duration-300">
                                     {t.partnerDriversButton}
                                 </span>
-                                <ArrowRight className="relative z-10 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform rotate-90" />
-                            </button>
+                                <ArrowRight className="relative z-10 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+                            </a>
                         </motion.div>
                     </div>
 
@@ -111,36 +110,17 @@ const ForDrivers = ({ t }) => {
                     </div>
                 </motion.div>
 
-                {/* Yandex Fleet Driver Registration Form */}
-                <motion.div
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={fadeIn}
-                    className="mt-16 flex flex-col items-center justify-center relative z-10"
-                >
-                    <div id="yandex-fleet-iframe" className="w-full max-w-[600px] h-[600px] bg-surface rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative scroll-mt-28">
-                        <div className="absolute inset-0 bg-accent/5 animate-pulse" /> {/* Loading placeholder effect */}
-                        <iframe
-                            title="Регистрация водителей Yandex"
-                            width="100%"
-                            height="100%"
-                            src="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
-                            className="border-none relative z-10 bg-white"
-                        ></iframe>
-                    </div>
-                    <div className="mt-4 text-center">
-                        <span className="text-gray-400 text-sm">Форма не загружается? </span>
-                        <a
-                            href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-accent hover:underline text-sm font-semibold"
-                        >
-                            Открыть в новом окне
-                        </a>
-                    </div>
-                </motion.div>
+                <div className="mt-12 flex flex-col items-center justify-center relative z-10 w-full">
+                    <a
+                        href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative flex w-full max-w-[400px] items-center justify-center bg-white text-black font-extrabold uppercase tracking-widest text-sm px-10 py-6 rounded-full overflow-hidden transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.7)] hover:scale-[1.02] active:scale-95 text-center"
+                    >
+                        <span className="relative z-10">Форма регистрации Яндекс.Про</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0 group-hover:translate-x-[100%] -translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+                    </a>
+                </div>
             </div>
         </section>
     );
