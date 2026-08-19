@@ -36,7 +36,7 @@ const Hero = ({ t }) => {
     }, []);
 
     return (
-        <section className="relative w-full min-h-[92vh] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
+        <section className="relative w-full min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-6 md:pt-32 md:pb-10 overflow-hidden">
             {/* Cinematic Background Lighting */}
             <div className="absolute top-0 right-0 w-[60vw] h-[60vw] bg-accent/5 blur-[150px] rounded-full pointer-events-none opacity-80 translate-x-1/3 -translate-y-1/3" />
             <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none opacity-50 -translate-x-1/3 translate-y-1/3" />
@@ -44,7 +44,7 @@ const Hero = ({ t }) => {
             {/* Very Top Thin Accent Line */}
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
-            <div className="max-w-6xl mx-auto px-4 w-full relative z-10 flex flex-col items-center justify-center mt-12 mb-8 flex-grow">
+            <div className="max-w-6xl mx-auto px-4 w-full relative z-10 flex flex-col items-center justify-center mt-6 mb-4 flex-grow">
                 {/* Main Centered Content */}
                 <motion.div
                     variants={heroStagger}
@@ -52,7 +52,7 @@ const Hero = ({ t }) => {
                     animate="show"
                     className="flex flex-col items-center text-center w-full"
                 >
-                    <motion.div variants={fadeUp} className="mb-8 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl text-xs font-bold uppercase tracking-[0.2em] text-gray-300 flex items-center gap-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+                    <motion.div variants={fadeUp} className="mb-5 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl text-xs font-bold uppercase tracking-[0.2em] text-gray-300 flex items-center gap-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
@@ -62,7 +62,7 @@ const Hero = ({ t }) => {
 
                     <motion.h1
                         variants={fadeUp}
-                        className="font-serif text-5xl sm:text-6xl lg:text-8xl font-bold mb-6 lg:mb-8 leading-[1.05] tracking-tight text-white drop-shadow-2xl"
+                        className="font-serif text-5xl sm:text-6xl lg:text-8xl font-bold mb-4 lg:mb-5 leading-[1.05] tracking-tight text-white drop-shadow-2xl"
                     >
                         {t.heroTitle.split(' — ')[0]} <br className="hidden sm:block" />
                         <span className="font-sans font-light text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-300 to-gray-500 text-3xl sm:text-5xl lg:text-7xl mt-4 block tracking-normal">
@@ -70,7 +70,7 @@ const Hero = ({ t }) => {
                         </span>
                     </motion.h1>
 
-                    <motion.div variants={fadeUp} className="max-w-3xl text-gray-400 text-base lg:text-xl space-y-4 mb-10 lg:mb-12 leading-relaxed font-light mx-auto">
+                    <motion.div variants={fadeUp} className="max-w-3xl text-gray-400 text-base lg:text-xl space-y-4 mb-6 lg:mb-8 leading-relaxed font-light mx-auto">
                         <p>{t.heroP1}</p>
                     </motion.div>
 

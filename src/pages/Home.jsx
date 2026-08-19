@@ -11,7 +11,7 @@ import BookingForm from '../components/Forms/BookingForm';
 
 const Home = ({ language, t }) => {
     return (
-        <div className="flex flex-col gap-10 md:gap-20">
+        <div className="flex flex-col gap-10 md:gap-14">
             <Hero t={t} />
             <Fleet language={language} t={t} />
             <Services language={language} t={t} />
@@ -21,7 +21,7 @@ const Home = ({ language, t }) => {
 
             <Trust t={t} />
 
-            <section id="booking" className="max-w-4xl mx-auto w-full px-4 mb-10 scroll-mt-28">
+            <section id="booking" className="max-w-4xl mx-auto w-full px-4 scroll-mt-28 mt-4 md:mt-8">
                 <BookingForm language={language} t={t} />
             </section>
 
