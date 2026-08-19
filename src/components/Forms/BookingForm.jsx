@@ -56,13 +56,13 @@ const BookingForm = ({ language, t }) => {
 
             <div className="text-center mb-12 relative z-10">
                 <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-md">{t.bookingTitle}</h2>
-                <p className="text-gray-300 max-w-xl mx-auto font-light text-sm md:text-base">{t.bookingSubtitle}</p>
+                <p className="text-gray-200 max-w-xl mx-auto font-light text-sm md:text-base">{t.bookingSubtitle}</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-1.5">
-                        <label className="text-sm font-semibold text-gray-300 ml-1">{t.nameLabel}</label>
+                        <label className="text-sm font-semibold text-gray-100 ml-1">{t.nameLabel}</label>
                         <input
                             required
                             name="name"
@@ -73,7 +73,7 @@ const BookingForm = ({ language, t }) => {
                         />
                     </div>
                     <div className="space-y-1.5">
-                        <label className="text-sm font-semibold text-gray-300 ml-1">{t.phoneLabel}</label>
+                        <label className="text-sm font-semibold text-gray-100 ml-1">{t.phoneLabel}</label>
                         <input
                             required
                             type="tel"
@@ -88,7 +88,7 @@ const BookingForm = ({ language, t }) => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-1.5">
-                        <label className="text-sm font-semibold text-gray-300 ml-1">{t.serviceLabel}</label>
+                        <label className="text-sm font-semibold text-gray-100 ml-1">{t.serviceLabel}</label>
                         <select
                             required
                             name="service"
@@ -105,7 +105,7 @@ const BookingForm = ({ language, t }) => {
                         </select>
                     </div>
                     <div className="space-y-1.5">
-                        <label className="text-sm font-semibold text-gray-300 ml-1">{t.dateLabel}</label>
+                        <label className="text-sm font-semibold text-gray-100 ml-1">{t.dateLabel}</label>
                         <div className="relative">
                             <CalendarDays className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
                             <input

@@ -70,11 +70,11 @@ const Services = ({ language, t }) => {
                                     <Icon className="w-6 h-6 md:w-8 md:h-8 text-gray-300 md:group-hover:text-accent transition-colors duration-500" />
                                 </div>
 
-                                <h3 className="text-[13px] leading-tight sm:text-base md:text-xl font-serif font-bold text-white md:group-hover:text-amber-400 transition-colors duration-300 h-[2.5em] md:h-auto flex items-center justify-center">
+                                <h3 className="text-[13px] leading-tight sm:text-base md:text-xl font-serif font-bold text-white h-[2.5em] md:h-auto flex items-center justify-center">
                                     {svc.title}
                                 </h3>
 
-                                <div className="mt-4 opacity-50 group-hover:opacity-100 flex items-center justify-center group-hover:text-accent transition-colors">
+                                <div className="mt-4 flex items-center justify-center text-gray-300 group-hover:text-accent transition-colors">
                                     <span className="text-[10px] md:text-sm tracking-widest uppercase font-bold mr-1 hidden sm:block">Подробнее</span>
                                     <ChevronRight size={14} />
                                 </div>

@@ -56,14 +56,14 @@ const Fleet = ({ language, t }) => {
                                         <Icon className="w-6 h-6 md:w-7 md:h-7 text-gray-400 group-hover:text-accent transition-colors duration-500" />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl md:text-2xl font-serif font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                                        <h3 className="text-xl md:text-2xl font-serif font-bold text-white group-hover:text-amber-400 transition-colors duration-300">
                                             {vehicle.class}
                                         </h3>
-                                        <p className="text-xs md:text-sm font-semibold text-accent/80">{vehicle.models}</p>
+                                        <p className="text-sm md:text-base font-semibold text-accent">{vehicle.models}</p>
                                     </div>
                                 </div>
 
-                                <p className="text-gray-400 text-xs sm:text-sm mb-4 md:mb-8 leading-relaxed font-light flex-grow">
+                                <p className="text-gray-300 text-sm md:text-base mb-4 md:mb-8 leading-relaxed flex-grow">
                                     {vehicle.desc}
                                 </p>
 

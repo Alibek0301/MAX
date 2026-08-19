@@ -70,7 +70,7 @@ const Hero = ({ t }) => {
                         </span>
                     </motion.h1>
 
-                    <motion.div variants={fadeUp} className="max-w-3xl text-gray-400 text-base lg:text-xl space-y-4 mb-6 lg:mb-8 leading-relaxed font-light mx-auto">
+                    <motion.div variants={fadeUp} className="max-w-3xl text-gray-200 text-base lg:text-xl space-y-4 mb-6 lg:mb-8 leading-relaxed font-light mx-auto">
                         <p>{t.heroP1}</p>
                     </motion.div>
 
@@ -97,7 +97,7 @@ const Hero = ({ t }) => {
 
             {/* Live Ticker / Global Platform Feel */}
             <div className="w-full mt-auto relative z-20 border-y border-white/5 bg-black/40 backdrop-blur-md py-4 overflow-hidden">
-                <div className="flex whitespace-nowrap animate-marquee items-center opacity-80">
+                <div className="flex whitespace-nowrap animate-marquee items-center">
                     {/* Repeat elements for seamless marquee */}
                     {[...Array(2)].map((_, i) => (
                         <div key={i} className="flex items-center space-x-8 md:space-x-12 px-4 md:px-6">

@@ -101,7 +101,7 @@ const ForDrivers = ({ t }) => {
                                     <h3 className="text-lg md:text-xl font-semibold mb-3 text-white">
                                         {t[benefit.titleKey]}
                                     </h3>
-                                    <p className="text-sm md:text-base text-gray-400 leading-relaxed font-light">
+                                    <p className="text-sm md:text-base text-gray-200 leading-relaxed">
                                         {t[benefit.descKey]}
                                     </p>
                                 </div>

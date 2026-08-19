@@ -41,7 +41,7 @@ const Trust = ({ t }) => {
                             <ShieldCheck className="w-10 h-10 md:w-12 md:h-12 text-accent md:mb-6 shrink-0" />
                             <div>
                                 <h3 className="text-white text-base md:text-xl font-bold mb-1 md:mb-3">Защита данных</h3>
-                                <p className="text-gray-400 text-xs md:text-sm leading-relaxed hidden md:block">Вся информация о бронированиях защищена современными протоколами шифрования. Мы не передаем контакты третьим лицам.</p>
+                                <p className="text-gray-300 text-xs md:text-sm leading-relaxed hidden md:block">Вся информация о бронированиях защищена современными протоколами шифрования. Мы не передаем контакты третьим лицам.</p>
                             </div>
                         </motion.div>
 
@@ -52,7 +52,7 @@ const Trust = ({ t }) => {
                             <EyeOff className="w-10 h-10 md:w-12 md:h-12 text-accent md:mb-6 shrink-0" />
                             <div>
                                 <h3 className="text-white text-base md:text-xl font-bold mb-1 md:mb-3">NDA протокол</h3>
-                                <p className="text-gray-400 text-xs md:text-sm leading-relaxed hidden md:block">С каждым корпоративным клиентом мы готовы подписать соглашение о неразглашении (NDA). Ваши маршруты — это коммерческая тайна.</p>
+                                <p className="text-gray-300 text-xs md:text-sm leading-relaxed hidden md:block">С каждым корпоративным клиентом мы готовы подписать соглашение о неразглашении (NDA). Ваши маршруты — это коммерческая тайна.</p>
                             </div>
                         </motion.div>
 
@@ -63,7 +63,7 @@ const Trust = ({ t }) => {
                             <LockKeyhole className="w-10 h-10 md:w-12 md:h-12 text-accent md:mb-6 shrink-0" />
                             <div>
                                 <h3 className="text-white text-base md:text-xl font-bold mb-1 md:mb-3">Анонимность поездок</h3>
-                                <p className="text-gray-400 text-xs md:text-sm leading-relaxed hidden md:block">Для VIP-гостей мы предоставляем автомобили без опознавательных знаков такси и водителей, соблюдающих строгий протокол тишины.</p>
+                                <p className="text-gray-300 text-xs md:text-sm leading-relaxed hidden md:block">Для VIP-гостей мы предоставляем автомобили без опознавательных знаков такси и водителей, соблюдающих строгий протокол тишины.</p>
                             </div>
                         </motion.div>
                     </div>
