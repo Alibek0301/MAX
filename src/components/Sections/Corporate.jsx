@@ -26,7 +26,7 @@ const Corporate = ({ t }) => {
                             {t.corporateTitle}
                         </h2>
 
-                        <p className="text-gray-400 text-base md:text-lg mb-8 leading-relaxed max-w-lg">
+                        <p className="text-gray-200 text-base md:text-lg mb-8 leading-relaxed max-w-lg">
                             {t.corpP1}
                         </p>
 

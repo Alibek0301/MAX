@@ -37,8 +37,7 @@ const Standards = ({ language, t }) => {
                             {...cardMotionProps(idx * 0.1)}
                             key={idx}
                             whileHover={{ scale: 1.02 }}
-                            className="group relative flex flex-col md:items-start gap-4 md:gap-5 p-5 md:p-8 rounded-2xl md:rounded-3xl bg-[#0a0d12]/60 hover:bg-[#11161d]/80 border border-white/5 hover:border-accent/20 transition-all duration-500 backdrop-blur-xl overflow-hidden"
-                            style={{ WebkitTransform: 'translate3d(0,0,0)' }}
+                            className="group relative flex flex-col md:items-start gap-4 md:gap-5 p-5 md:p-8 rounded-2xl md:rounded-3xl bg-[#0a0d12] hover:bg-[#11161d] border border-white/10 hover:border-accent/20 transition-all duration-500 overflow-hidden text-white"
                         >
                             {/* Glow accent */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-[40px] group-hover:bg-accent/15 transition-all duration-700 pointer-events-none" />
@@ -48,13 +47,13 @@ const Standards = ({ language, t }) => {
                                     <Icon className="w-5 h-5 md:w-6 md:h-6 text-gray-300 group-hover:text-accent transition-colors duration-500" />
                                 </div>
 
-                                <h4 className="font-bold text-base md:text-xl text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all m-0">
+                                <h4 className="font-bold text-base md:text-xl text-white group-hover:text-amber-400 transition-colors duration-300 m-0">
                                     {std.title}
                                 </h4>
                             </div>
 
                             <div className="relative z-10 w-full pl-14 md:pl-0">
-                                <p className="text-xs md:text-sm text-gray-400 leading-relaxed font-light group-hover:text-gray-300 transition-colors">
+                                <p className="text-xs md:text-sm text-gray-300 leading-relaxed">
                                     {std.desc}
                                 </p>
                             </div>
