@@ -125,9 +125,20 @@ const ForDrivers = ({ t }) => {
                             title="Регистрация водителей Yandex"
                             width="100%"
                             height="100%"
-                            src="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62&iframe=true&lang=ru"
+                            src="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
                             className="border-none relative z-10 bg-white"
                         ></iframe>
+                    </div>
+                    <div className="mt-4 text-center">
+                        <span className="text-gray-400 text-sm">Форма не загружается? </span>
+                        <a
+                            href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-accent hover:underline text-sm font-semibold"
+                        >
+                            Открыть в новом окне
+                        </a>
                     </div>
                 </motion.div>
             </div>
