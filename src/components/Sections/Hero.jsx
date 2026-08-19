@@ -65,7 +65,7 @@ const Hero = ({ t }) => {
                         className="font-serif text-5xl sm:text-6xl lg:text-8xl font-bold mb-4 lg:mb-5 leading-[1.05] tracking-tight text-white drop-shadow-2xl"
                     >
                         {t.heroTitle.split(' — ')[0]} <br className="hidden sm:block" />
-                        <span className="font-sans font-light text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-300 to-gray-500 text-3xl sm:text-5xl lg:text-7xl mt-4 block tracking-normal">
+                        <span className="font-sans font-light text-gray-200 text-3xl sm:text-5xl lg:text-7xl mt-4 block tracking-normal drop-shadow-md">
                             {t.heroTitle.split(' — ')[1] || t.heroTitle}
                         </span>
                     </motion.h1>

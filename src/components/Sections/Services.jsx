@@ -42,7 +42,7 @@ const Services = ({ language, t }) => {
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500 mb-6"
+                    className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-md"
                 >
                     Ваш личный автопарк
                 </motion.h2>
@@ -63,10 +63,10 @@ const Services = ({ language, t }) => {
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                            <div className="bg-[#0a0d12]/90 backdrop-blur-xl rounded-[calc(1rem-1px)] md:rounded-[calc(2rem-1px)] p-4 sm:p-6 md:p-8 h-full flex flex-col relative z-10 transition-colors duration-500 group-hover:bg-[#0a0d12]/70 items-center text-center">
-                                <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-[40px] group-hover:bg-accent/20 transition-all duration-700 pointer-events-none" />
+                            <div className="bg-[#0a0d12]/90 backdrop-blur-xl rounded-[calc(1rem-1px)] md:rounded-[calc(2rem-1px)] p-4 sm:p-6 md:p-8 h-full flex flex-col relative transition-colors duration-500 group-hover:bg-[#0a0d12]/70 items-center text-center transform-gpu isolate">
+                                <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-[40px] group-hover:bg-accent/20 transition-all duration-700 pointer-events-none -z-10" />
 
-                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#1a1f26] to-[#0f1318] border border-white/5 flex items-center justify-center mb-4 md:mb-6 md:group-hover:scale-110 md:group-hover:-rotate-3 md:group-hover:border-accent/30 transition-all duration-500 shadow-lg">
+                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#1a1f26] to-[#0f1318] border border-white/5 flex items-center justify-center mb-4 md:mb-6 md:group-hover:scale-110 md:group-hover:-rotate-3 md:group-hover:border-accent/30 transition-all duration-500 shadow-lg relative z-10">
                                     <Icon className="w-6 h-6 md:w-8 md:h-8 text-gray-300 md:group-hover:text-accent transition-colors duration-500" />
                                 </div>
 

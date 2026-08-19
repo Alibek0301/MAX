@@ -61,7 +61,7 @@ const ForDrivers = ({ t }) => {
                             {t.driverBadge}
                         </motion.div>
 
-                        <motion.h2 variants={fadeIn} className="text-3xl md:text-5xl font-serif font-bold leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">
+                        <motion.h2 variants={fadeIn} className="text-3xl md:text-5xl font-serif font-bold leading-[1.1] text-white drop-shadow-md">
                             {t.partnerDriversTitle}
                         </motion.h2>
 
