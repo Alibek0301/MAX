@@ -1261,19 +1261,19 @@ export const getReviews = (language) => {
 export const getFleet = (language) => {
   const fleetByLanguage = {
     ru: [
-      { class: 'Комфорт+', models: 'Toyota Camry, Hyundai Sonata', desc: 'Идеально для ежедневных поездок и трансферов. Просторный салон, климат-контроль.', price: 'от 2000 ₸', icon: 'Car' },
-      { class: 'Бизнес', models: 'Mercedes E-class, BMW 5', desc: 'Для корпоративных клиентов и важных встреч. Кожаный салон, тишина, вода.', price: 'от 5000 ₸', icon: 'Crown' },
-      { class: 'Минивен', models: 'Toyota Alphard, Hyundai Staria', desc: 'Для поездок группой до 7 человек. Удобные кресла, много места для багажа.', price: 'от 8000 ₸', icon: 'BriefcaseBusiness' }
+      { class: 'Комфорт+', models: 'Toyota Camry 70/75', desc: 'Идеально для ежедневных поездок и трансферов. Просторный салон, климат-контроль.', price: 'от 2000 ₸', icon: 'Car' },
+      { class: 'Бизнес & VIP', models: 'Mercedes S-class (W222, W223)', desc: 'Для корпоративных клиентов и важных встреч. Кожаный салон, тишина, вода.', price: 'от 5000 ₸', icon: 'Crown' },
+      { class: 'Минивен', models: 'Mercedes-Benz V-class', desc: 'Для поездок группой до 7 человек. Удобные кресла, много места для багажа.', price: 'от 8000 ₸', icon: 'BriefcaseBusiness' }
     ],
     kk: [
-      { class: 'Жайлылық+', models: 'Toyota Camry, Hyundai Sonata', desc: 'Күнделікті сапарлар үшін тамаша. Кең салон, климат-бақылау.', price: '2000 ₸ бастап', icon: 'Car' },
-      { class: 'Бизнес', models: 'Mercedes E-class, BMW 5', desc: 'Корпоративтік қонақтар үшін. Былғары салон, тыныштық, су.', price: '5000 ₸ бастап', icon: 'Crown' },
-      { class: 'Минивен', models: 'Toyota Alphard, Hyundai Staria', desc: '7 адамға дейін топтық сапарлар үшін. Көп жүк орны.', price: '8000 ₸ бастап', icon: 'BriefcaseBusiness' }
+      { class: 'Жайлылық+', models: 'Toyota Camry 70/75', desc: 'Күнделікті сапарлар үшін тамаша. Кең салон, климат-бақылау.', price: '2000 ₸ бастап', icon: 'Car' },
+      { class: 'Бизнес & VIP', models: 'Mercedes S-class (W222, W223)', desc: 'Корпоративтік қонақтар үшін. Былғары салон, тыныштық, су.', price: '5000 ₸ бастап', icon: 'Crown' },
+      { class: 'Минивен', models: 'Mercedes-Benz V-class', desc: '7 адамға дейін топтық сапарлар үшін. Көп жүк орны.', price: '8000 ₸ бастап', icon: 'BriefcaseBusiness' }
     ],
     en: [
-      { class: 'Comfort+', models: 'Toyota Camry, Hyundai Sonata', desc: 'Perfect for daily trips. Spacious interior, climate control.', price: 'from 2000 ₸', icon: 'Car' },
-      { class: 'Business', models: 'Mercedes E-class, BMW 5', desc: 'For corporate clients. Leather interior, quietness, water.', price: 'from 5000 ₸', icon: 'Crown' },
-      { class: 'Minivan', models: 'Toyota Alphard, Hyundai Staria', desc: 'For group trips up to 7 people. Lots of luggage space.', price: 'from 8000 ₸', icon: 'BriefcaseBusiness' }
+      { class: 'Comfort+', models: 'Toyota Camry 70/75', desc: 'Perfect for daily trips. Spacious interior, climate control.', price: 'from 2000 ₸', icon: 'Car' },
+      { class: 'Business & VIP', models: 'Mercedes S-class (W222, W223)', desc: 'For corporate clients. Leather interior, quietness, water.', price: 'from 5000 ₸', icon: 'Crown' },
+      { class: 'Minivan', models: 'Mercedes-Benz V-class', desc: 'For group trips up to 7 people. Lots of luggage space.', price: 'from 8000 ₸', icon: 'BriefcaseBusiness' }
     ]
   }
   return fleetByLanguage[language] || fleetByLanguage.ru;

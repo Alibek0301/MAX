@@ -84,24 +84,24 @@ const ForDrivers = ({ t }) => {
                         </motion.div>
                     </div>
 
-                    <div className="hidden lg:w-1/2 md:flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 sm:grid sm:grid-cols-2 md:gap-6 pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0">
+                    <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 pt-8 lg:pt-0">
                         {benefits.map((benefit, idx) => (
                             <motion.div
                                 key={idx}
                                 variants={fadeIn}
-                                className="bg-[#1a222c]/80 border border-white/5 rounded-2xl p-6 hover:bg-[#1a222c] hover:border-accent/30 transition-all duration-500 backdrop-blur-md group relative overflow-hidden shrink-0 w-[85vw] snap-center sm:w-auto sm:shrink text-left"
+                                className="bg-[#1a222c]/80 border border-white/5 rounded-2xl p-6 hover:bg-[#1a222c] hover:border-accent/30 transition-all duration-500 backdrop-blur-md group relative overflow-hidden text-left shadow-lg h-full"
                             >
                                 {/* Hover glow effect inside card */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                                <div className="relative z-10">
+                                <div className="relative z-10 flex flex-col h-full">
                                     <div className="p-3 bg-accent/10 rounded-xl w-fit mb-5 group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-500 shadow-[0_0_15px_rgba(245,200,106,0.1)]">
                                         {benefit.icon}
                                     </div>
-                                    <h3 className="text-lg font-semibold mb-3 text-white">
+                                    <h3 className="text-lg md:text-xl font-semibold mb-3 text-white">
                                         {t[benefit.titleKey]}
                                     </h3>
-                                    <p className="text-sm text-gray-400 leading-relaxed font-light">
+                                    <p className="text-sm md:text-base text-gray-400 leading-relaxed font-light">
                                         {t[benefit.descKey]}
                                     </p>
                                 </div>

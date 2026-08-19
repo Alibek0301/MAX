@@ -69,7 +69,7 @@ const BookingForm = ({ language, t }) => {
                             value={formData.name}
                             onChange={updateField}
                             placeholder={t.namePlaceholder}
-                            className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner"
+                            className="w-full bg-black/60 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner"
                         />
                     </div>
                     <div className="space-y-1.5">
@@ -81,7 +81,7 @@ const BookingForm = ({ language, t }) => {
                             value={formData.phone}
                             onChange={updateField}
                             placeholder="+7"
-                            className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner"
+                            className="w-full bg-black/60 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner"
                         />
                     </div>
                 </div>
@@ -95,7 +95,7 @@ const BookingForm = ({ language, t }) => {
                             id="requestTypeSelect"
                             value={formData.service}
                             onChange={updateField}
-                            className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner appearance-none"
+                            className="w-full bg-black/60 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner appearance-none"
                         >
                             <option value="" disabled className="bg-surface text-gray-400">-- Выберите --</option>
                             {servicesList.map((svc, i) => (
@@ -114,7 +114,7 @@ const BookingForm = ({ language, t }) => {
                                 name="date"
                                 value={formData.date}
                                 onChange={updateField}
-                                className="w-full bg-black/40 border border-white/10 rounded-xl pl-11 pr-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner [color-scheme:dark]"
+                                className="w-full bg-black/60 border border-white/20 rounded-xl pl-11 pr-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner [color-scheme:dark]"
                             />
                         </div>
                     </div>
@@ -129,7 +129,7 @@ const BookingForm = ({ language, t }) => {
                             value={formData.address}
                             onChange={updateField}
                             placeholder={t.addressPlaceholder}
-                            className="w-full bg-black/40 border border-white/10 rounded-xl pl-11 pr-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner"
+                            className="w-full bg-black/60 border border-white/20 rounded-xl pl-11 pr-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner"
                         />
                     </div>
                 </div>
@@ -142,7 +142,7 @@ const BookingForm = ({ language, t }) => {
                         onChange={updateField}
                         placeholder={t.commentPlaceholder}
                         rows={3}
-                        className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner resize-none"
+                        className="w-full bg-black/60 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition shadow-inner resize-none"
                     />
                 </div>
 

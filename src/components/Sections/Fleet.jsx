@@ -68,7 +68,7 @@ const Fleet = ({ language, t }) => {
                                 </p>
 
                                 <div className="pt-4 md:pt-6 border-t border-white/5 mt-auto flex items-center justify-between group-hover:border-white/10 transition-colors">
-                                    <span className="text-base md:text-lg text-gray-200 font-bold tracking-wide">
+                                    <span className="text-xl md:text-3xl text-white font-bold tracking-wide drop-shadow-md">
                                         {vehicle.price}
                                     </span>
                                 </div>
