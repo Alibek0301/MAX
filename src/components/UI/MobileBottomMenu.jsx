@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Car, MessageCircle } from 'lucide-react';
+import { Home, Car, UserPlus } from 'lucide-react';
 import { whatsappNumber } from '../../constants/data';
 
 const MobileBottomMenu = ({ t }) => {
@@ -23,9 +23,9 @@ const MobileBottomMenu = ({ t }) => {
                     <span className="text-[10px] font-bold tracking-wider uppercase mt-6 text-accent">{t.booking}</span>
                 </a>
 
-                <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer" className="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-green-500 transition-colors">
-                    <MessageCircle size={20} className="mb-1" />
-                    <span className="text-[10px] font-medium tracking-wider uppercase">{t.whatsapp}</span>
+                <a href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer" className="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-white transition-colors">
+                    <UserPlus size={20} className="mb-1" />
+                    <span className="text-[10px] font-medium tracking-wider uppercase">Партнёрам</span>
                 </a>
             </div>
         </div>
