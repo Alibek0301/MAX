@@ -48,8 +48,8 @@ const Fleet = ({ language, t }) => {
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                            <div className="bg-[#0a0d12]/90 backdrop-blur-xl rounded-[calc(1rem-1px)] md:rounded-[calc(2rem-1px)] p-5 md:p-8 flex flex-col relative z-10 transition-colors duration-500 group-hover:bg-[#0a0d12]/70 h-full">
-                                <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-[40px] group-hover:bg-accent/20 transition-all duration-700" />
+                            <div className="bg-[#0a0d12]/90 backdrop-blur-xl rounded-[calc(1rem-1px)] md:rounded-[calc(2rem-1px)] p-5 md:p-8 flex flex-col relative z-10 transition-colors duration-500 group-hover:bg-[#0a0d12]/70 h-full text-white">
+                                <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-[40px] group-hover:bg-accent/20 transition-all duration-700 pointer-events-none -z-10" />
 
                                 <div className="flex items-center gap-4 md:flex-col md:items-start mb-4 md:mb-6">
                                     <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#1a1f26] to-[#0f1318] border border-white/5 flex items-center justify-center focus-within:ring group-hover:scale-110 md:group-hover:-rotate-3 group-hover:border-accent/30 transition-all duration-500 shadow-xl">

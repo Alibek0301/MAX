@@ -36,7 +36,7 @@ const Trust = ({ t }) => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-left max-w-5xl mx-auto">
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="bg-[#0a0d12] p-5 md:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0"
+                            className="bg-[#0a0d12] p-5 md:p-8 rounded-2xl border border-white/10 transition-colors hover:border-white/30 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 text-white"
                         >
                             <ShieldCheck className="w-10 h-10 md:w-12 md:h-12 text-accent md:mb-6 shrink-0" />
                             <div>
@@ -47,7 +47,7 @@ const Trust = ({ t }) => {
 
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="bg-[#0a0d12] p-5 md:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0"
+                            className="bg-[#0a0d12] p-5 md:p-8 rounded-2xl border border-white/10 transition-colors hover:border-white/30 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 text-white"
                         >
                             <EyeOff className="w-10 h-10 md:w-12 md:h-12 text-accent md:mb-6 shrink-0" />
                             <div>
@@ -58,7 +58,7 @@ const Trust = ({ t }) => {
 
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="bg-[#0a0d12] p-5 md:p-8 rounded-2xl border border-white/5 transition-colors hover:border-white/20 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0"
+                            className="bg-[#0a0d12] p-5 md:p-8 rounded-2xl border border-white/10 transition-colors hover:border-white/30 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 text-white"
                         >
                             <LockKeyhole className="w-10 h-10 md:w-12 md:h-12 text-accent md:mb-6 shrink-0" />
                             <div>

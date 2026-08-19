@@ -50,7 +50,7 @@ const BookingForm = ({ language, t }) => {
     const servicesList = getServices(language);
 
     return (
-        <div className="bg-gradient-to-b from-surface to-black/90 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden ring-1 ring-accent/10 transform-gpu isolate">
+        <div className="bg-gradient-to-b from-surface to-black/90 border border-white/10 p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden ring-1 ring-accent/10 text-white">
             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none -z-10" />
             <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-accent/5 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none -z-10" />
 

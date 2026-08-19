@@ -89,7 +89,7 @@ const ForDrivers = ({ t }) => {
                             <motion.div
                                 key={idx}
                                 variants={fadeIn}
-                                className="bg-[#1a222c]/80 border border-white/5 rounded-2xl p-6 hover:bg-[#1a222c] hover:border-accent/30 transition-all duration-500 backdrop-blur-md group relative overflow-hidden text-left shadow-lg h-full"
+                                className="bg-[#1a222c] border border-white/10 rounded-2xl p-6 hover:bg-[#1e2936] hover:border-accent/30 transition-all duration-500 group relative overflow-hidden text-left shadow-lg h-full text-white"
                             >
                                 {/* Hover glow effect inside card */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

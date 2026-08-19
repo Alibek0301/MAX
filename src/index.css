@@ -26,6 +26,53 @@ body {
   min-height: 100vh;
 }
 
+/* ── Global contrast guarantee ───────────────────────────────────────────────
+   Ensures text is ALWAYS visible regardless of backdrop-filter / isolate
+   stacking context issues in WebKit (Safari) and Chromium browsers.
+   Explicit color classes on elements (text-white, text-gray-*) override this.
+*/
+*,
+*::before,
+*::after {
+  color: inherit;
+}
+
+p,
+span,
+li,
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
+}
+
+/* Cards and blurred containers must always show white-ish text */
+[class*="backdrop-blur"] p,
+[class*="backdrop-blur"] span:not(.bg-accent):not([class*="text-accent"]):not([class*="text-green"]):not([class*="text-black"]),
+[class*="backdrop-blur"] li,
+[class*="backdrop-blur"] label,
+[class*="backdrop-blur"] h1,
+[class*="backdrop-blur"] h2,
+[class*="backdrop-blur"] h3,
+[class*="backdrop-blur"] h4 {
+  color: var(--text-main);
+}
+
+/* Dark card specific override */
+[class*="bg-\[#0a0d12\]"] p,
+[class*="bg-\[#0a0d12\]"] span:not([class*="text-accent"]):not([class*="text-black"]):not([class*="text-green"]),
+[class*="bg-\[#0a0d12\]"] li,
+[class*="bg-\[#0a0d12\]"] h2,
+[class*="bg-\[#0a0d12\]"] h3,
+[class*="bg-\[#1a222c\]"] p,
+[class*="bg-\[#1a222c\]"] h3 {
+  color: var(--text-main);
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -145,6 +192,7 @@ button {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
