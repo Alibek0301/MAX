@@ -98,28 +98,82 @@ const Hero = ({ t }) => {
             {/* Live Ticker / Global Platform Feel */}
             <div className="w-full mt-auto relative z-20 border-y border-white/5 bg-black/40 backdrop-blur-md py-4 overflow-hidden">
                 <div className="flex whitespace-nowrap animate-marquee items-center">
-                    {/* Repeat elements for seamless marquee */}
                     {[...Array(2)].map((_, i) => (
-                        <div key={i} className="flex items-center space-x-8 md:space-x-12 px-4 md:px-6">
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-xs md:text-sm tracking-wide">
-                                <span className="text-green-500 font-bold mx-2">●</span> LIVE
+                        <div key={i} className="flex items-center space-x-10 md:space-x-14 px-6">
+
+                            <div className="flex items-center gap-2 text-gray-300 font-medium text-xs md:text-sm">
+                                <span className="relative flex h-2 w-2 shrink-0">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                                </span>
+                                <span className="font-bold text-green-400">LIVE</span>
                             </div>
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-xs md:text-sm tracking-wide">
-                                <Car size={16} className="text-accent" />
-                                <span>{liveStats.active} Авто на линии</span>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm">
+                                <Car size={15} className="text-accent shrink-0" />
+                                <span>{liveStats.active} авто на линии прямо сейчас</span>
                             </div>
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-xs md:text-sm tracking-wide">
-                                <Clock size={16} className="text-accent" />
-                                <span>Подача: ~{liveStats.wait} мин</span>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm">
+                                <Clock size={15} className="text-accent shrink-0" />
+                                <span>Подача: ~{liveStats.wait} мин по Астане</span>
                             </div>
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-xs md:text-sm tracking-wide">
-                                <Star size={16} className="text-accent" />
-                                <span>Недавно завершен: {liveStats.recent}</span>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm">
+                                <Star size={15} className="text-accent shrink-0" />
+                                <span>Завершена поездка: {liveStats.recent}</span>
                             </div>
-                            <div className="flex items-center gap-3 text-gray-300 font-medium text-xs md:text-sm tracking-wide">
-                                <Shield size={16} className="text-accent" />
-                                <span>{liveStats.completed.toLocaleString()} Успешных поездок</span>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm">
+                                <Shield size={15} className="text-accent shrink-0" />
+                                <span>{liveStats.completed.toLocaleString()} успешных поездок</span>
                             </div>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
+                                <span className="text-accent font-bold">★ 4.9</span>
+                                <span>средний рейтинг водителей</span>
+                            </div>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
+                                <span className="text-accent">✈</span>
+                                <span>Встреча в аэропорту с табличкой</span>
+                            </div>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
+                                <span className="text-accent">🏢</span>
+                                <span>Корпоративные клиенты — закрытые договоры</span>
+                            </div>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
+                                <span className="text-accent">🔒</span>
+                                <span>NDA-протокол для VIP-пассажиров</span>
+                            </div>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
+                                <Car size={15} className="text-accent shrink-0" />
+                                <span>Mercedes S-Class · V-Class · E-Class в парке</span>
+                            </div>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
+                                <span className="text-accent">💼</span>
+                                <span>Бизнес-трансфер в Алматы, Шымкент, Актобе</span>
+                            </div>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
+                                <span className="text-accent">🕐</span>
+                                <span>Заказы 24 / 7 — без выходных и праздников</span>
+                            </div>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
+                                <Shield size={15} className="text-accent shrink-0" />
+                                <span>Официальный партнёр Яндекс Такси в Астане</span>
+                            </div>
+
+                            <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
+                                <span className="text-accent">👶</span>
+                                <span>Детское кресло — по запросу бесплатно</span>
+                            </div>
+
                         </div>
                     ))}
                 </div>

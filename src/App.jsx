@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/UI/Header';
 import Footer from './components/UI/Footer';
 import MobileBottomMenu from './components/UI/MobileBottomMenu';
+import FloatingButtons from './components/UI/FloatingButtons';
 import Home from './pages/Home';
 import { translations } from './constants/data';
 
@@ -23,6 +24,7 @@ function App() {
 
       <Footer t={t} />
       <MobileBottomMenu t={t} />
+      <FloatingButtons />
     </div>
   );
 }
