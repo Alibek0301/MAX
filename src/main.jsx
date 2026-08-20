@@ -33,7 +33,7 @@ const initYandexMetrika = () => {
 
   loadScript('https://mc.yandex.ru/metrika/tag.js')
   window.ym = window.ym || function ym() {
-    ;(window.ym.a = window.ym.a || []).push(arguments)
+    ; (window.ym.a = window.ym.a || []).push(arguments)
   }
   window.ym.l = Number(new Date())
   window.ym(Number(YANDEX_METRIKA_ID), 'init', {
@@ -50,7 +50,7 @@ const initFacebookPixel = () => {
 
   loadScript('https://connect.facebook.net/en_US/fbevents.js')
   window.fbq = function fbq() {
-    ;(window.fbq.q = window.fbq.q || []).push(arguments)
+    ; (window.fbq.q = window.fbq.q || []).push(arguments)
   }
   window.fbq('init', FACEBOOK_PIXEL_ID)
   window.fbq('track', 'PageView')
@@ -66,23 +66,7 @@ const initAnalytics = () => {
   }
 }
 
-const resetServiceWorkerState = async () => {
-  if (!('serviceWorker' in navigator)) return
-
-  try {
-    const registrations = await navigator.serviceWorker.getRegistrations()
-    await Promise.all(registrations.map((registration) => registration.unregister()))
-  } catch {
-    // ignore service-worker cleanup errors
-  }
-
-  try {
-    const cacheNames = await caches.keys()
-    await Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)))
-  } catch {
-    // ignore cache clearing errors
-  }
-}
+// Service Worker cleanup removed - allowing normal browser caching to work
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -92,6 +76,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 initAnalytics()
 
-window.addEventListener('load', () => {
-  void resetServiceWorkerState()
-})

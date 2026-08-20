@@ -102,6 +102,15 @@ const Footer = ({ t }) => {
                     >
                         WhatsApp
                     </a>
+
+                    <div className="flex flex-col gap-2 mt-6 text-sm">
+                        <a href="mailto:max.transferpro@yandex.kz" className="text-gray-400 hover:text-white transition">
+                            max.transferpro@yandex.kz
+                        </a>
+                        <a href="mailto:vip.transfer.astana@gmail.com" className="text-gray-400 hover:text-white transition">
+                            vip.transfer.astana@gmail.com
+                        </a>
+                    </div>
                 </div>
             </div>
 
