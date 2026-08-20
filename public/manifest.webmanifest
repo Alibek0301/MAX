@@ -1,6 +1,6 @@
 {
   "name": "MAX Taxi Park",
-  "short_name": "MAX",
+  "short_name": "MAX Taxi",
   "description": "Такси и трансферы в Астане",
   "id": "./",
   "start_url": "./",
@@ -11,15 +11,15 @@
   "lang": "ru",
   "icons": [
     {
-      "src": "./og-image.svg",
+      "src": "./og-image.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./og-image.svg",
+      "src": "./og-image.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     }
   ]
