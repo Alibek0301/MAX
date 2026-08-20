@@ -1,4 +1,4 @@
-# robots.txt для TransferPro
+# robots.txt для MAX Taxi
 # Инструкции для поисковых ботов
 
 User-agent: *
@@ -22,6 +22,6 @@ Crawl-delay: 0.1
 
 # Ссылка на sitemap
 # ВАЖНО: После деплоя замените пример домена на реальный!
-# Для GitHub Pages: https://Alibek0301.github.io/TransferPro/sitemap.xml
-# Для собственного домена: https://transferpro.kz/sitemap.xml
-Sitemap: https://transferpro.kz/sitemap.xml
+# Для GitHub Pages: https://Alibek0301.github.io/MAX Taxi/sitemap.xml
+# Для собственного домена: https://maxtaxi.kz/sitemap.xml
+Sitemap: https://maxtaxi.kz/sitemap.xml

@@ -7,11 +7,32 @@ import Home from './pages/Home';
 import { translations } from './constants/data';
 
 function App() {
-  const [language, setLanguage] = useState('ru');
+  const [language, setLanguage] = useState(() => {
+    // 1. Check URL parameters (?lang=kk)
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang && translations[urlLang]) {
+      return urlLang;
+    }
+    // 2. Check localStorage
+    const savedLang = localStorage.getItem('max_taxi_lang');
+    if (savedLang && translations[savedLang]) {
+      return savedLang;
+    }
+    // 3. Fallback to default
+    return 'ru';
+  });
+
   const t = translations[language] || translations.ru;
 
   useEffect(() => {
     document.documentElement.lang = language;
+    localStorage.setItem('max_taxi_lang', language);
+
+    // Update URL without reloading the page
+    const url = new URL(window.location);
+    url.searchParams.set('lang', language);
+    window.history.replaceState({}, '', url);
   }, [language]);
 
   return (

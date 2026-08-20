@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Sitemap для TransferPro
+  Sitemap для MAX Taxi
   ВАЖНО: После деплоя замените пример домена на реальный:
-  - Для GitHub Pages: https://Alibek0301.github.io/TransferPro/
-  - Для собственного домена: https://transferpro.kz/
+  - Для GitHub Pages: https://Alibek0301.github.io/MAX Taxi/
+  - Для собственного домена: https://maxtaxi.kz/
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://transferpro.kz/</loc>
+    <loc>https://maxtaxi.kz/</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://transferpro.kz/?lang=ru" />
-    <xhtml:link rel="alternate" hreflang="kk" href="https://transferpro.kz/?lang=kk" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://transferpro.kz/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://transferpro.kz/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://maxtaxi.kz/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="kk" href="https://maxtaxi.kz/?lang=kk" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maxtaxi.kz/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maxtaxi.kz/" />
   </url>
   <url>
-    <loc>https://transferpro.kz/privacy.html</loc>
+    <loc>https://maxtaxi.kz/privacy.html</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://transferpro.kz/privacy.html?lang=ru" />
-    <xhtml:link rel="alternate" hreflang="kk" href="https://transferpro.kz/privacy.html?lang=kk" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://transferpro.kz/privacy.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://transferpro.kz/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://maxtaxi.kz/privacy.html?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="kk" href="https://maxtaxi.kz/privacy.html?lang=kk" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maxtaxi.kz/privacy.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maxtaxi.kz/privacy.html" />
   </url>
   <url>
-    <loc>https://transferpro.kz/terms.html</loc>
+    <loc>https://maxtaxi.kz/terms.html</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://transferpro.kz/terms.html?lang=ru" />
-    <xhtml:link rel="alternate" hreflang="kk" href="https://transferpro.kz/terms.html?lang=kk" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://transferpro.kz/terms.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://transferpro.kz/terms.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://maxtaxi.kz/terms.html?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="kk" href="https://maxtaxi.kz/terms.html?lang=kk" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maxtaxi.kz/terms.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maxtaxi.kz/terms.html" />
   </url>
 </urlset>
