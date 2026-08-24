@@ -15,7 +15,7 @@
   <meta property="og:title" content="MAX - Политика конфиденциальности" />
   <meta property="og:description" content="Как MAX обрабатывает и защищает данные клиентов." />
   <meta property="og:url" content="https://maxtaxi.kz/privacy.html" />
-  <meta property="og:image" content="https://maxtaxi.kz/og-image.svg" />
+  <meta property="og:image" content="https://maxtaxi.kz/og-image.png" />
   <meta name="robots" content="index,follow" />
   <style>
     :root {
@@ -40,7 +40,7 @@
     }
 
     .wrap {
-      max-width: 860px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 32px 20px 56px;
     }
@@ -50,7 +50,7 @@
       gap: 12px;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 14px;
+      margin-bottom: 24px;
     }
 
     .lang {
@@ -65,27 +65,44 @@
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 16px;
-      padding: 20px;
+      padding: 40px;
     }
 
     h1 {
-      margin: 0 0 16px;
+      margin: 0 0 24px;
       color: var(--accent);
-      font-size: 30px;
-      line-height: 1.2;
+      font-size: 26px;
+      line-height: 1.4;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     h2 {
-      margin: 18px 0 8px;
-      font-size: 16px;
+      margin: 32px 0 16px;
+      font-size: 18px;
       color: var(--accent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+      text-transform: uppercase;
     }
 
     p,
     li {
       color: var(--muted);
       line-height: 1.7;
-      font-size: 14px;
+      font-size: 15px;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      margin-top: 0;
+      margin-bottom: 16px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
     }
 
     a {
@@ -94,6 +111,34 @@
 
     .top-link {
       display: inline-block;
+      text-decoration: none;
+    }
+
+    .meta-info {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .company-details p {
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 24px;
+      }
+
+      .meta-info {
+        flex-direction: column;
+        text-align: left;
+        gap: 8px;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -104,108 +149,17 @@
       <a id="top-link" class="top-link" href="./">← На главную</a>
       <select id="lang-switch" class="lang" aria-label="Language switcher">
         <option value="ru">RU</option>
-        <option value="kk">KK</option>
-        <option value="en">EN</option>
+        <option value="kk">KK (Beta)</option>
+        <option value="en">EN (Beta)</option>
       </select>
     </div>
-    <section class="card">
-      <h1 id="title"></h1>
-      <p id="intro"></p>
-
-      <h2 id="s1"></h2>
-      <ul>
-        <li id="s1li1"></li>
-        <li id="s1li2"></li>
-      </ul>
-
-      <h2 id="s2"></h2>
-      <ul>
-        <li id="s2li1"></li>
-        <li id="s2li2"></li>
-      </ul>
-
-      <h2 id="s3"></h2>
-      <ul>
-        <li id="s3li1"></li>
-        <li id="s3li2"></li>
-        <li id="s3li3"></li>
-      </ul>
-
-      <h2 id="s4"></h2>
-      <p id="s4p"></p>
-
-      <h2 id="s5"></h2>
-      <p id="s5p"></p>
+    <section class="card" id="content">
+      <!-- Injected via JS -->
     </section>
   </main>
 
+  <script src="./privacy-data.js?v=1"></script>
   <script>
-    const i18n = {
-      ru: {
-        pageTitle: 'MAX - Политика конфиденциальности',
-        pageDescription: 'Политика конфиденциальности MAX Taxi',
-        topLink: '← На главную',
-        title: 'Политика конфиденциальности и обработки персональных данных',
-        intro: 'Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сервиса MAX, принадлежащего ТОО "Vigil Agency", в соответствии с Законом Республики Казахстан от 21 мая 2013 года № 94-V «О персональных данных и их защите».',
-        s1: '1. Собираемые данные',
-        s1li1: 'Мы собираем минимально необходимый объем данных для предоставления услуг: имя, контактный номер телефона, история поездок, адреса подачи и назначения, а также дополнительные комментарии к заказам.',
-        s1li2: 'Автоматически собираемые данные: IP-адрес, тип устройства, версия браузера и данные файлов cookie для обеспечения работы веб-сайта и аналитики.',
-        s2: '2. Цели обработки данных',
-        s2li1: 'Обработка и подтверждение заявок на услуги такси и трансфера, связь менеджеров и водителей с клиентом.',
-        s2li2: 'Улучшение качества сервиса, сбор статистики, а также информирование о статусе заказа и предоставление персонализированных предложений.',
-        s3: '3. Хранение и безопасность',
-        s3li1: 'По умолчанию, введенные в браузере данные сохраняются локально на вашем устройстве с использованием технологий LocalStorage и SessionStorage.',
-        s3li2: 'Вы имеете право запросить удаление, изменение или блокировку ваших персональных данных, воспользовавшись кнопкой «Удалить мои данные» в интерфейсе бронирования.',
-        s3li3: 'ТОО "Vigil Agency" применяет современные технические меры для защиты данных от несанкционированного доступа, изменения или раскрытия.',
-        s4: '4. Передача третьим лицам',
-        s4p: 'Мы не передаем ваши персональные данные третьим лицам без вашего согласия, за исключением случаев, предусмотренных законодательством РК. В случае отправки заявки через WhatsApp, данные передаются в данный сервис коммуникации по вашей прямой инициативе.',
-        s5: '5. Заключительные положения и контакты',
-        s5p: 'Использование сервиса MAX означает ваше безоговорочное согласие с настоящей Политикой. По всем вопросам, связанным с обработкой персональных данных, вы можете обратиться по официальным контактам ТОО "Vigil Agency", указанным на сайте.',
-      },
-      kk: {
-        pageTitle: 'MAX - Құпиялылық саясаты',
-        pageDescription: 'MAX құпиялылық саясаты',
-        topLink: '← Басты бетке',
-        title: 'Дербес деректерді өңдеу және құпиялылық саясаты',
-        intro: 'Осы Құпиялылық саясаты «Дербес деректер және оларды қорғау туралы» Қазақстан Республикасының 2013 жылғы 21 мамырдағы № 94-V Заңына сәйкес, "Vigil Agency" ЖШС-не қарасты MAX сервисі пайдаланушыларының дербес деректерін өңдеу және қорғау тәртібін айқындайды.',
-        s1: '1. Жиналатын деректер',
-        s1li1: 'Біз қызмет көрсету үшін ең қажетті деректерді ғана жинаймыз: аты, байланыс телефоны, сапарлар тарихы, жіберу және бару мекенжайлары, сондай-ақ тапсырысқа қатысты қосымша пікірлер.',
-        s1li2: 'Автоматты түрде жиналатын деректер: веб-сайт жұмысы мен аналитиканы қамтамасыз ету үшін IP-мекенжай, құрылғы түрі, браузер нұсқасы және cookie файлдары.',
-        s2: '2. Деректерді өңдеу мақсаттары',
-        s2li1: 'Такси және трансфер қызметтеріне өтінімдерді өңдеу және растау, менеджерлер мен жүргізушілердің клиентпен байланысы.',
-        s2li2: 'Сервис сапасын арттыру, статистика жинау, сондай-ақ тапсырыс мәртебесі туралы хабарлау және жеке ұсыныстар беру.',
-        s3: '3. Сақтау және қауіпсіздік',
-        s3li1: 'Әдепкі бойынша, браузерде енгізілген деректер LocalStorage және SessionStorage технологияларын қолдана отырып, құрылғыңызда жергілікті түрде сақталады.',
-        s3li2: 'Сіз брондау интерфейсіндегі «Деректерімді өшіру» батырмасын пайдалану арқылы дербес деректеріңізді жоюды, өзгертуді немесе бұғаттауды талап етуге құқылысыз.',
-        s3li3: '"Vigil Agency" ЖШС деректерді рұқсатсыз қол жеткізуден, өзгертуден немесе жариялаудан қорғау үшін заманауи техникалық шараларды қолданады.',
-        s4: '4. Үшінші тараптарға беру',
-        s4p: 'ҚР заңнамасында көзделген жағдайларды қоспағанда, біз сіздің дербес деректеріңізді келісіміңізсіз үшінші тараптарға бермейміз. Егер өтінім WhatsApp арқылы жіберілсе, деректер сіздің тікелей бастамаңызбен осы коммуникация сервисіне беріледі.',
-        s5: '5. Қорытынды ережелер және байланыс',
-        s5p: 'MAX сервисін пайдалану осы Саясатпен сөзсіз келісетініңізді білдіреді. Дербес деректерді өңдеуге қатысты барлық сұрақтар бойынша сайтта көрсетілген "Vigil Agency" ЖШС ресми байланыс нөмірлеріне хабарласа аласыз.',
-      },
-      en: {
-        pageTitle: 'MAX - Privacy Policy',
-        pageDescription: 'MAX privacy policy',
-        topLink: '← Back to home',
-        title: 'Privacy and Personal Data Protection Policy',
-        intro: 'This Privacy Policy determines the procedure for processing and protecting personal data of MAX service users, owned by "Vigil Agency" LLP in accordance with the Law of the Republic of Kazakhstan No. 94-V "On Personal Data and Its Protection".',
-        s1: '1. Data Collection',
-        s1li1: 'We collect the minimum necessary data to provide services: name, contact phone number, trip history, pickup and destination addresses, and additional order comments.',
-        s1li2: 'Automatically collected data: IP address, device type, browser version, and cookies to ensure website functionality and analytics.',
-        s2: '2. Purpose of Data Processing',
-        s2li1: 'Processing and confirming taxi and transfer service requests, and communication between managers, drivers, and the client.',
-        s2li2: 'Improving service quality, gathering statistics, as well as providing order status updates and personalized offers.',
-        s3: '3. Storage and Security',
-        s3li1: 'By default, the data entered in the browser is stored locally on your device using LocalStorage and SessionStorage technologies.',
-        s3li2: 'You have the right to request the deletion, modification, or blocking of your personal data using the "Delete my data" button in the booking interface.',
-        s3li3: '"Vigil Agency" LLP applies modern technical measures to protect data from unauthorized access, alteration, or disclosure.',
-        s4: '4. Data Transfer to Third Parties',
-        s4p: 'We do not transfer your personal data to third parties without your consent, except as provided by the legislation of the Republic of Kazakhstan. When submitting a request via WhatsApp, data is transferred to this communication service by your direct initiative.',
-        s5: '5. Final Provisions and Contacts',
-        s5p: 'Using the MAX service implies your unconditional agreement with this Policy. For all questions related to personal data processing, you can contact the official lines of "Vigil Agency" LLP listed on the website.',
-      },
-    }
-
     const allowed = ['ru', 'kk', 'en']
     const params = new URLSearchParams(window.location.search)
     const fromQuery = params.get('lang')
@@ -215,7 +169,7 @@
 
     const applyLanguage = (language) => {
       const lang = allowed.includes(language) ? language : 'ru'
-      const t = i18n[lang]
+      const t = i18n[lang] || i18n['ru']
 
       document.documentElement.lang = lang
       document.title = t.pageTitle
@@ -224,11 +178,7 @@
       document.getElementById('top-link').textContent = t.topLink
       document.getElementById('top-link').href = `./?lang=${lang}`
 
-      Object.keys(t).forEach((key) => {
-        if (['pageTitle', 'pageDescription', 'topLink'].includes(key)) return
-        const node = document.getElementById(key)
-        if (node) node.textContent = t[key]
-      })
+      document.getElementById('content').innerHTML = t.htmlContent
 
       localStorage.setItem('language', lang)
       params.set('lang', lang)
