@@ -8,6 +8,9 @@ export const alibekPhoneLabel = '+7 778 155 6699 — Алибек'
 
 export const translations = {
   ru: {
+    metaTitle: 'MAX Taxi Park — такси и трансферы в Астане | Аэропорт, город, 24/7',
+    metaDescription: 'MAX Taxi Park — премиум такси и трансферы в Астане: поездки по городу, в аэропорт, корпоративное такси. Комфорт и безопасность.',
+    metaKeywords: 'такси Астана, таксопарк MAX, Яндекс Такси, трансфер аэропорт, корпоративное такси Астана',
     home: 'Главная',
     services: 'Услуги',
     fleet: 'Автопарк',
@@ -309,6 +312,9 @@ export const translations = {
     faqTitle: 'Частые вопросы',
   },
   kk: {
+    metaTitle: 'MAX Taxi Park — Астанадағы такси және трансферлер | Әуежай, қала, 24/7',
+    metaDescription: 'MAX Taxi Park — Астанадағы премиум такси және трансферлер: қалааралық сапарлар, әуежай, корпоративтік такси. Жайлылық пен қауіпсіздік.',
+    metaKeywords: 'Астана такси, MAX таксопаркі, Яндекс Такси, трансфер әуежай, Астана корпоративті такси',
     home: 'Басты бет',
     services: 'Қызметтер',
     standards: 'Стандарттар',
@@ -605,6 +611,9 @@ export const translations = {
     faqTitle: 'Жиі қойылатын сұрақтар',
   },
   en: {
+    metaTitle: 'MAX Taxi Park — Premium Taxi & Transfers in Astana | Airport, City, 24/7',
+    metaDescription: 'MAX Taxi Park — premium taxi and transfers in Astana: city rides, airport transfers, corporate transport. Comfort and safety guaranteed.',
+    metaKeywords: 'taxi Astana, MAX taxi fleet, Yandex Taxi, airport transfer Astana, corporate taxi',
     home: 'Home',
     services: 'Services',
     fleet: 'Fleet',
