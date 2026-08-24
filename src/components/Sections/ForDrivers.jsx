@@ -84,9 +84,9 @@ const ForDrivers = ({ t }) => {
 
                             <div className="mt-4 lg:text-left text-center">
                                 <a href="./drivers-offer.html" target="_blank" className="text-gray-400 hover:text-white underline text-xs transition duration-300">
-                                    {language === 'kk'
+                                    {t.partnerDriversButton.includes('Қосылу')
                                         ? 'Жүргізушілермен ынтымақтастық шарттары'
-                                        : language === 'en'
+                                        : t.partnerDriversButton.includes('Join')
                                             ? 'Driver Partnership Terms and Conditions'
                                             : 'Условия сотрудничества и инструкция по подключению'
                                     }
