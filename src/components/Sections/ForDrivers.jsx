@@ -81,6 +81,17 @@ const ForDrivers = ({ t }) => {
                                 </span>
                                 <ArrowRight className="relative z-10 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                             </a>
+
+                            <div className="mt-4 lg:text-left text-center">
+                                <a href="./drivers-offer.html" target="_blank" className="text-gray-400 hover:text-white underline text-xs transition duration-300">
+                                    {language === 'kk'
+                                        ? 'Жүргізушілермен ынтымақтастық шарттары'
+                                        : language === 'en'
+                                            ? 'Driver Partnership Terms and Conditions'
+                                            : 'Условия сотрудничества и инструкция по подключению'
+                                    }
+                                </a>
+                            </div>
                         </motion.div>
                     </div>
 

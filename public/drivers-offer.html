@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAX Taxi - Условия для водителей</title>
+  <meta name="description" content="Условия сотрудничества и инструкция по подключению водителей" />
+  <link rel="canonical" href="https://maxtaxi.kz/drivers-offer.html" />
+  <link rel="alternate" href="https://maxtaxi.kz/drivers-offer.html?lang=ru" hreflang="ru" />
+  <link rel="alternate" href="https://maxtaxi.kz/drivers-offer.html?lang=kk" hreflang="kk" />
+  <link rel="alternate" href="https://maxtaxi.kz/drivers-offer.html?lang=en" hreflang="en" />
+  <link rel="alternate" href="https://maxtaxi.kz/drivers-offer.html" hreflang="x-default" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="MAX - Условия для водителей" />
+  <meta property="og:description" content="Условия сотрудничества для водителей Яндекс Про." />
+  <meta property="og:url" content="https://maxtaxi.kz/drivers-offer.html" />
+  <meta property="og:image" content="https://maxtaxi.kz/og-image.png" />
+  <meta name="robots" content="index,follow" />
+  <style>
+    :root {
+      --bg: #0f1318;
+      --surface: #151c24;
+      --text: #f0f3f7;
+      --muted: rgba(240, 243, 247, 0.72);
+      --accent: #f5c86a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Manrope, system-ui, -apple-system, Segoe UI, sans-serif;
+      background: radial-gradient(1100px 520px at 12% -8%, rgba(245, 200, 106, 0.14), transparent 60%),
+        linear-gradient(180deg, #10161d 0%, #0c1117 52%, #0a0f14 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .lang {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 6px 8px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      color: var(--accent);
+      font-size: 26px;
+      line-height: 1.4;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 32px 0 16px;
+      font-size: 18px;
+      color: var(--accent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      margin-top: 0;
+      margin-bottom: 16px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .top-link {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .meta-info {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .company-details p {
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 24px;
+      }
+
+      .meta-info {
+        flex-direction: column;
+        text-align: left;
+        gap: 8px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <div class="toolbar">
+      <a id="top-link" class="top-link" href="./">← На главную</a>
+      <select id="lang-switch" class="lang" aria-label="Language switcher">
+        <option value="ru">RU</option>
+        <option value="kk">KK (Beta)</option>
+        <option value="en">EN (Beta)</option>
+      </select>
+    </div>
+    <section class="card" id="content">
+      <!-- Injected via JS -->
+    </section>
+  </main>
+
+  <script src="./drivers-offer-data.js?v=1"></script>
+  <script>
+    const allowed = ['ru', 'kk', 'en']
+    const params = new URLSearchParams(window.location.search)
+    const fromQuery = params.get('lang')
+    const fromStorage = localStorage.getItem('language')
+    const fromNavigator = navigator.language ? navigator.language.slice(0, 2).toLowerCase() : 'ru'
+    const initialLanguage = allowed.includes(fromQuery) ? fromQuery : (allowed.includes(fromStorage) ? fromStorage : (allowed.includes(fromNavigator) ? fromNavigator : 'ru'))
+
+    const applyLanguage = (language) => {
+      const lang = allowed.includes(language) ? language : 'ru'
+      const t = i18n[lang] || i18n['ru']
+
+      document.documentElement.lang = lang
+      document.title = t.pageTitle
+      document.querySelector('meta[name="description"]').setAttribute('content', t.pageDescription)
+      document.getElementById('lang-switch').value = lang
+      document.getElementById('top-link').textContent = t.topLink
+      document.getElementById('top-link').href = `./?lang=${lang}`
+
+      document.getElementById('content').innerHTML = t.htmlContent
+
+      localStorage.setItem('language', lang)
+      params.set('lang', lang)
+      history.replaceState(null, '', `${window.location.pathname}?${params.toString()}`)
+    }
+
+    document.getElementById('lang-switch').addEventListener('change', (event) => {
+      applyLanguage(event.target.value)
+    })
+
+    applyLanguage(initialLanguage)
+  </script>
+</body>
+
+</html>
