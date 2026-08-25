@@ -26,7 +26,7 @@ const WeatherWidget = ({ language }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(true);
 
-    const langCode = Math.min(language === 'kk' ? 'ru' : language, 'ru'); // OpenWeatherMap kk support is very poor, fallback to ru
+    const langCode = language === 'kk' ? 'ru' : language; // OpenWeatherMap kk support is very poor, fallback to ru
 
     const [forecastLoading, setForecastLoading] = useState(false);
 
