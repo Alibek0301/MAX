@@ -28,23 +28,55 @@ const WeatherWidget = ({ language }) => {
 
     const langCode = Math.min(language === 'kk' ? 'ru' : language, 'ru'); // OpenWeatherMap kk support is very poor, fallback to ru
 
+    const [forecastLoading, setForecastLoading] = useState(false);
+
     useEffect(() => {
-        const fetchWeather = async () => {
+        const fetchCurrentWeather = async () => {
+            const cacheKey = `weather_current_${currentCity.name}_${langCode}`;
+            const cached = sessionStorage.getItem(cacheKey);
+            if (cached) {
+                const { data, timestamp } = JSON.parse(cached);
+                if (Date.now() - timestamp < 1000 * 60 * 10) { // 10 minutes cache
+                    setCurrentWeather(data);
+                    setLoading(false);
+                    return;
+                }
+            }
+
             setLoading(true);
             try {
-                // Fetch Current Weather
-                const currentRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${currentCity.lat}&lon=${currentCity.lon}&appid=${API_KEY}&units=metric&lang=${language === 'en' ? 'en' : 'ru'}`);
+                const currentRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${currentCity.lat}&lon=${currentCity.lon}&appid=${API_KEY}&units=metric&lang=${langCode}`);
                 const currentData = await currentRes.json();
                 setCurrentWeather(currentData);
+                sessionStorage.setItem(cacheKey, JSON.stringify({ data: currentData, timestamp: Date.now() }));
+            } catch (error) {
+                console.error("Error fetching weather:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchCurrentWeather();
+    }, [currentCity, langCode]);
 
-                // Fetch 5-Day Forecast
-                const forecastRes = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${currentCity.lat}&lon=${currentCity.lon}&appid=${API_KEY}&units=metric&lang=${language === 'en' ? 'en' : 'ru'}`);
-                const forecastData = await forecastRes.json();
+    useEffect(() => {
+        const fetchForecast = async () => {
+            if (!isOpen) return;
+            setForecastLoading(true);
+            try {
+                const cacheKey = `weather_forecast_${currentCity.name}_${langCode}`;
+                const cached = sessionStorage.getItem(cacheKey);
+                let forecastData;
 
-                // Group forecast by day
+                if (cached && (Date.now() - JSON.parse(cached).timestamp < 1000 * 60 * 30)) {
+                    forecastData = JSON.parse(cached).data;
+                } else {
+                    const forecastRes = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${currentCity.lat}&lon=${currentCity.lon}&appid=${API_KEY}&units=metric&lang=${langCode}`);
+                    forecastData = await forecastRes.json();
+                    sessionStorage.setItem(cacheKey, JSON.stringify({ data: forecastData, timestamp: Date.now() }));
+                }
+
                 const daily = [];
                 const addedDates = new Set();
-
                 for (const item of forecastData.list) {
                     const date = new Date(item.dt * 1000).toLocaleDateString();
                     if (!addedDates.has(date) && daily.length < 5) {
@@ -54,14 +86,16 @@ const WeatherWidget = ({ language }) => {
                 }
                 setForecast(daily);
             } catch (error) {
-                console.error("Error fetching weather:", error);
+                console.error("Error fetching forecast:", error);
             } finally {
-                setLoading(false);
+                setForecastLoading(false);
             }
         };
 
-        fetchWeather();
-    }, [currentCity, language]);
+        if (isOpen) {
+            fetchForecast();
+        }
+    }, [currentCity, langCode, isOpen]);
 
     return (
         <>
@@ -122,10 +156,13 @@ const WeatherWidget = ({ language }) => {
                                     {CITIES.map((city) => (
                                         <button
                                             key={city.name}
-                                            onClick={() => setCurrentCity(city)}
+                                            onClick={() => {
+                                                setCurrentCity(city);
+                                                setForecast(null); // Clear forecast to re-fetch when city changes
+                                            }}
                                             className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all ${currentCity.name === city.name ? 'bg-accent text-black shadow-md' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
                                         >
-                                            {city.name.split(' ')[0]} {/* Mobile friendly short name */}
+                                            {city.name.split(' ')[0]}
                                         </button>
                                     ))}
                                 </div>
@@ -151,24 +188,31 @@ const WeatherWidget = ({ language }) => {
                             )}
 
                             {/* Forecast List */}
-                            <div className="px-6 pb-6 pt-2">
+                            <div className="px-6 pb-6 pt-2 min-h-[150px]">
                                 <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Прогноз на 5 дней</h4>
-                                <div className="space-y-3">
-                                    {forecast?.map((day, idx) => (
-                                        <div key={idx} className="flex items-center justify-between text-sm py-2 border-t border-white/5">
-                                            <span className="text-gray-300 w-16">
-                                                {idx === 0 ? 'Сегодня' : idx === 1 ? 'Завтра' : new Date(day.dt * 1000).toLocaleDateString('ru-RU', { weekday: 'short' })}
-                                            </span>
-                                            <div className="flex items-center gap-2">
-                                                <span className="text-white drop-shadow-lg scale-125">{getIcon(day.weather[0].id)}</span>
+
+                                {forecastLoading ? (
+                                    <div className="flex justify-center items-center py-6">
+                                        <div className="w-6 h-6 rounded-full border-2 border-white/20 border-t-accent animate-spin" />
+                                    </div>
+                                ) : (
+                                    <div className="space-y-3">
+                                        {forecast?.map((day, idx) => (
+                                            <div key={idx} className="flex items-center justify-between text-sm py-2 border-t border-white/5">
+                                                <span className="text-gray-300 w-16">
+                                                    {idx === 0 ? 'Сегодня' : idx === 1 ? 'Завтра' : new Date(day.dt * 1000).toLocaleDateString('ru-RU', { weekday: 'short' })}
+                                                </span>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-white drop-shadow-lg scale-125">{getIcon(day.weather[0].id)}</span>
+                                                </div>
+                                                <div className="w-20 text-right flex justify-between font-mono">
+                                                    <span className="text-white font-medium">{Math.round(day.main.temp_max)}°</span>
+                                                    <span className="text-gray-500">{Math.round(day.main.temp_min)}°</span>
+                                                </div>
                                             </div>
-                                            <div className="w-20 text-right flex justify-between font-mono">
-                                                <span className="text-white font-medium">{Math.round(day.main.temp_max)}°</span>
-                                                <span className="text-gray-500">{Math.round(day.main.temp_min)}°</span>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         </motion.div>
                     </div>
