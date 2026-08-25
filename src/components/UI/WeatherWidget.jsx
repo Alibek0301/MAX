@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cloud, CloudRain, Sun, Wind, CloudSnow, CloudLightning, X, MapPin } from 'lucide-react';
 
-const API_KEY = '9dae34a86b1ebbd02db84110f3c6f3eb';
+const API_KEY = 'cab938058b08dd85bf8e8815f2550820';
 
 const getIcon = (weatherId) => {
     if (weatherId >= 200 && weatherId < 300) return <CloudLightning className="w-5 h-5 text-yellow-400" />;
@@ -32,7 +32,7 @@ const WeatherWidget = ({ language }) => {
 
     useEffect(() => {
         const fetchCurrentWeather = async () => {
-            const cacheKey = `weather_current_${currentCity.name}_${langCode}`;
+            const cacheKey = `weather_current_v2_${currentCity.name}_${langCode}`;
             const cached = sessionStorage.getItem(cacheKey);
             if (cached) {
                 const { data, timestamp } = JSON.parse(cached);
@@ -63,7 +63,7 @@ const WeatherWidget = ({ language }) => {
             if (!isOpen) return;
             setForecastLoading(true);
             try {
-                const cacheKey = `weather_forecast_${currentCity.name}_${langCode}`;
+                const cacheKey = `weather_forecast_v2_${currentCity.name}_${langCode}`;
                 const cached = sessionStorage.getItem(cacheKey);
                 let forecastData;
 
