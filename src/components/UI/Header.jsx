@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Menu, X } from 'lucide-react';
 import { whatsappNumber } from '../../constants/data';
+import WeatherWidget from './WeatherWidget';
 
 const Header = ({ language, setLanguage, t }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,6 +26,7 @@ const Header = ({ language, setLanguage, t }) => {
                     </nav>
 
                     <div className="flex items-center gap-4 pl-6 border-l border-white/20">
+                        <WeatherWidget language={language} />
                         <select
                             value={language}
                             onChange={(e) => setLanguage(e.target.value)}
@@ -47,7 +49,8 @@ const Header = ({ language, setLanguage, t }) => {
                 </div>
 
                 {/* Mobile Toggle */}
-                <div className="flex gap-4 items-center md:hidden">
+                <div className="flex gap-3 items-center md:hidden">
+                    <WeatherWidget language={language} />
                     <select
                         value={language}
                         onChange={(e) => setLanguage(e.target.value)}
