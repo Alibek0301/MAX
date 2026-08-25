@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cloud, CloudRain, Sun, Wind, CloudSnow, CloudLightning, X, MapPin } from 'lucide-react';
 
@@ -124,107 +125,110 @@ const WeatherWidget = ({ language }) => {
             </button>
 
             {/* Weather Modal */}
-            <AnimatePresence>
-                {isOpen && (
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-                        {/* Backdrop - foolproof click area */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer"
-                            onMouseDown={() => setIsOpen(false)}
-                            onTouchStart={() => setIsOpen(false)}
-                        />
+            {typeof document !== 'undefined' && createPortal(
+                <AnimatePresence>
+                    {isOpen && (
+                        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+                            {/* Backdrop - foolproof click area */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer"
+                                onMouseDown={() => setIsOpen(false)}
+                                onTouchStart={() => setIsOpen(false)}
+                            />
 
-                        {/* Modal Content */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="relative w-full max-w-sm bg-[#0a0d12] border border-white/10 rounded-3xl overflow-hidden shadow-2xl pointer-events-auto"
-                        >
-                            <button
-                                onClick={() => setIsOpen(false)}
-                                className="absolute top-4 right-4 z-10 p-2 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                            {/* Modal Content */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                                className="relative w-full max-w-sm bg-[#0a0d12] border border-white/10 rounded-3xl overflow-hidden shadow-2xl pointer-events-auto"
                             >
-                                <X size={20} />
-                            </button>
+                                <button
+                                    onClick={() => setIsOpen(false)}
+                                    className="absolute top-4 right-4 z-10 p-2 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                                >
+                                    <X size={20} />
+                                </button>
 
-                            {/* Modal Header */}
-                            <div className="p-6 pb-4 bg-gradient-to-br from-accent/10 to-transparent">
-                                <div className="flex items-center gap-2 text-accent mb-4">
-                                    <MapPin size={18} />
-                                    <h3 className="text-sm font-semibold uppercase tracking-widest text-white">Погода на маршруте</h3>
-                                </div>
-
-                                {/* City Selector */}
-                                <div className="flex gap-2 bg-white/5 p-1 rounded-xl w-max border border-white/5">
-                                    {CITIES.map((city) => (
-                                        <button
-                                            key={city.name}
-                                            onClick={() => {
-                                                setCurrentCity(city);
-                                                setForecast(null); // Clear forecast to re-fetch when city changes
-                                            }}
-                                            className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all ${currentCity.name === city.name ? 'bg-accent text-black shadow-md' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
-                                        >
-                                            {city.name.split(' ')[0]}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Current Weather Big */}
-                            {loading || !currentWeather || !currentWeather.main ? (
-                                <div className="h-40 flex items-center justify-center">
-                                    <div className="w-8 h-8 rounded-full border-4 border-white/10 border-t-accent animate-spin" />
-                                </div>
-                            ) : (
-                                <div className="px-6 py-4 flex items-center justify-between">
-                                    <div>
-                                        <h2 className="text-6xl font-light text-white tracking-tighter">
-                                            {Math.round(currentWeather.main.temp)}<span className="text-4xl text-gray-500">°</span>
-                                        </h2>
-                                        <p className="text-gray-400 text-sm mt-1 capitalize">{currentWeather.weather[0].description}</p>
+                                {/* Modal Header */}
+                                <div className="p-6 pb-4 bg-gradient-to-br from-accent/10 to-transparent">
+                                    <div className="flex items-center gap-2 text-accent mb-4">
+                                        <MapPin size={18} />
+                                        <h3 className="text-sm font-semibold uppercase tracking-widest text-white">Погода на маршруте</h3>
                                     </div>
-                                    <div className="scale-[2.5] origin-right opacity-80 pl-4">
-                                        {getIcon(currentWeather.weather[0].id)}
-                                    </div>
-                                </div>
-                            )}
 
-                            {/* Forecast List */}
-                            <div className="px-6 pb-6 pt-2 min-h-[150px]">
-                                <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Прогноз на 5 дней</h4>
-
-                                {forecastLoading ? (
-                                    <div className="flex justify-center items-center py-6">
-                                        <div className="w-6 h-6 rounded-full border-2 border-white/20 border-t-accent animate-spin" />
-                                    </div>
-                                ) : (
-                                    <div className="space-y-3">
-                                        {forecast?.map((day, idx) => (
-                                            <div key={idx} className="flex items-center justify-between text-sm py-2 border-t border-white/5">
-                                                <span className="text-gray-300 w-16">
-                                                    {idx === 0 ? 'Сегодня' : idx === 1 ? 'Завтра' : new Date(day.dt * 1000).toLocaleDateString('ru-RU', { weekday: 'short' })}
-                                                </span>
-                                                <div className="flex items-center gap-2">
-                                                    <span className="text-white drop-shadow-lg scale-125">{getIcon(day.weather[0].id)}</span>
-                                                </div>
-                                                <div className="w-20 text-right flex justify-between font-mono">
-                                                    <span className="text-white font-medium">{Math.round(day.main.temp_max)}°</span>
-                                                    <span className="text-gray-500">{Math.round(day.main.temp_min)}°</span>
-                                                </div>
-                                            </div>
+                                    {/* City Selector */}
+                                    <div className="flex gap-2 bg-white/5 p-1 rounded-xl w-max border border-white/5">
+                                        {CITIES.map((city) => (
+                                            <button
+                                                key={city.name}
+                                                onClick={() => {
+                                                    setCurrentCity(city);
+                                                    setForecast(null); // Clear forecast to re-fetch when city changes
+                                                }}
+                                                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all ${currentCity.name === city.name ? 'bg-accent text-black shadow-md' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+                                            >
+                                                {city.name.split(' ')[0]}
+                                            </button>
                                         ))}
                                     </div>
+                                </div>
+
+                                {/* Current Weather Big */}
+                                {loading || !currentWeather || !currentWeather.main ? (
+                                    <div className="h-40 flex items-center justify-center">
+                                        <div className="w-8 h-8 rounded-full border-4 border-white/10 border-t-accent animate-spin" />
+                                    </div>
+                                ) : (
+                                    <div className="px-6 py-4 flex items-center justify-between">
+                                        <div>
+                                            <h2 className="text-6xl font-light text-white tracking-tighter">
+                                                {Math.round(currentWeather.main.temp)}<span className="text-4xl text-gray-500">°</span>
+                                            </h2>
+                                            <p className="text-gray-400 text-sm mt-1 capitalize">{currentWeather.weather[0].description}</p>
+                                        </div>
+                                        <div className="scale-[2.5] origin-right opacity-80 pl-4">
+                                            {getIcon(currentWeather.weather[0].id)}
+                                        </div>
+                                    </div>
                                 )}
-                            </div>
-                        </motion.div>
-                    </div>
-                )}
-            </AnimatePresence>
+
+                                {/* Forecast List */}
+                                <div className="px-6 pb-6 pt-2 min-h-[150px]">
+                                    <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Прогноз на 5 дней</h4>
+
+                                    {forecastLoading ? (
+                                        <div className="flex justify-center items-center py-6">
+                                            <div className="w-6 h-6 rounded-full border-2 border-white/20 border-t-accent animate-spin" />
+                                        </div>
+                                    ) : (
+                                        <div className="space-y-3">
+                                            {forecast?.map((day, idx) => (
+                                                <div key={idx} className="flex items-center justify-between text-sm py-2 border-t border-white/5">
+                                                    <span className="text-gray-300 w-16">
+                                                        {idx === 0 ? 'Сегодня' : idx === 1 ? 'Завтра' : new Date(day.dt * 1000).toLocaleDateString('ru-RU', { weekday: 'short' })}
+                                                    </span>
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="text-white drop-shadow-lg scale-125">{getIcon(day.weather[0].id)}</span>
+                                                    </div>
+                                                    <div className="w-20 text-right flex justify-between font-mono">
+                                                        <span className="text-white font-medium">{Math.round(day.main.temp_max)}°</span>
+                                                        <span className="text-gray-500">{Math.round(day.main.temp_min)}°</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </motion.div>
+                        </div>
+                    )}
+                </AnimatePresence>,
+                document.body
+            )}
         </>
     );
 };
