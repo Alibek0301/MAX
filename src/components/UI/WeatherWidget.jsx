@@ -47,8 +47,14 @@ const WeatherWidget = ({ language }) => {
             try {
                 const currentRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${currentCity.lat}&lon=${currentCity.lon}&appid=${API_KEY}&units=metric&lang=${langCode}`);
                 const currentData = await currentRes.json();
-                setCurrentWeather(currentData);
-                sessionStorage.setItem(cacheKey, JSON.stringify({ data: currentData, timestamp: Date.now() }));
+
+                if (currentData && currentData.main && currentData.weather) {
+                    setCurrentWeather(currentData);
+                    sessionStorage.setItem(cacheKey, JSON.stringify({ data: currentData, timestamp: Date.now() }));
+                } else {
+                    console.error("Invalid weather data:", currentData);
+                    sessionStorage.removeItem(cacheKey); // clear bad cache
+                }
             } catch (error) {
                 console.error("Error fetching weather:", error);
             } finally {
@@ -105,7 +111,7 @@ const WeatherWidget = ({ language }) => {
                 className="flex items-center gap-1.5 bg-white/5 border border-white/10 hover:border-accent hover:bg-white/10 px-2.5 py-1.5 rounded-full transition-all duration-300"
                 title="Прогноз погоды"
             >
-                {loading || !currentWeather ? (
+                {loading || !currentWeather || !currentWeather.main || !currentWeather.weather ? (
                     <div className="w-4 h-4 rounded-full border-2 border-white/20 border-t-accent animate-spin" />
                 ) : (
                     <>
@@ -121,13 +127,14 @@ const WeatherWidget = ({ language }) => {
             <AnimatePresence>
                 {isOpen && (
                     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-                        {/* Backdrop */}
+                        {/* Backdrop - foolproof click area */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                            onClick={() => setIsOpen(false)}
+                            className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer"
+                            onMouseDown={() => setIsOpen(false)}
+                            onTouchStart={() => setIsOpen(false)}
                         />
 
                         {/* Modal Content */}
@@ -135,7 +142,7 @@ const WeatherWidget = ({ language }) => {
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="relative w-full max-w-sm bg-[#0a0d12] border border-white/10 rounded-3xl overflow-hidden shadow-2xl"
+                            className="relative w-full max-w-sm bg-[#0a0d12] border border-white/10 rounded-3xl overflow-hidden shadow-2xl pointer-events-auto"
                         >
                             <button
                                 onClick={() => setIsOpen(false)}
@@ -169,7 +176,7 @@ const WeatherWidget = ({ language }) => {
                             </div>
 
                             {/* Current Weather Big */}
-                            {loading || !currentWeather ? (
+                            {loading || !currentWeather || !currentWeather.main ? (
                                 <div className="h-40 flex items-center justify-center">
                                     <div className="w-8 h-8 rounded-full border-4 border-white/10 border-t-accent animate-spin" />
                                 </div>
