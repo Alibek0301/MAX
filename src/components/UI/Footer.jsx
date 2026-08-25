@@ -94,14 +94,24 @@ const Footer = ({ t }) => {
                     <h4 className="font-bold text-white mb-4 uppercase tracking-wider">{t.contacts}</h4>
                     <p className="text-gray-300 mb-1">Астана, Казахстан</p>
                     <p className="text-gray-300 mb-6">Работаем 24/7</p>
-                    <a
-                        href={`https://wa.me/${whatsappNumber}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-block px-6 py-2 border border-green-500 text-green-400 rounded-full hover:bg-green-500 hover:text-white transition"
-                    >
-                        WhatsApp
-                    </a>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                        <a
+                            href={`https://wa.me/${whatsappNumber}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-block px-6 py-2 border border-green-500 text-green-400 rounded-full hover:bg-green-500 hover:text-white transition text-center"
+                        >
+                            WhatsApp
+                        </a>
+                        <a
+                            href="https://t.me/Max_taxBot"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-block px-6 py-2 border border-[#229ED9] text-[#229ED9] rounded-full hover:bg-[#229ED9] hover:text-white transition text-center"
+                        >
+                            Telegram Бот
+                        </a>
+                    </div>
 
                     <div className="flex flex-col gap-2 mt-6 text-sm">
                         <a href="mailto:max.transferpro@yandex.kz" className="text-gray-400 hover:text-white transition">

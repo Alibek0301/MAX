@@ -4,6 +4,7 @@ import { whatsappNumber } from '../../constants/data';
 
 const PARTNER_URL = 'https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62';
 const WHATSAPP_URL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Здравствуйте! Хочу заказать трансфер MAX.')}`;
+const TELEGRAM_URL = 'https://t.me/Max_taxBot';
 
 const FloatingButtons = () => {
     const [visible, setVisible] = useState(false);
@@ -31,6 +32,23 @@ const FloatingButtons = () => {
                     <AnimatePresence>
                         {expanded && (
                             <>
+                                {/* Telegram Bot */}
+                                <motion.a
+                                    href={TELEGRAM_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                                    exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                                    transition={{ duration: 0.2, delay: 0.05 }}
+                                    className="flex items-center gap-2 bg-[#229ED9] hover:bg-[#1b80b0] text-white text-sm font-semibold px-4 py-3 rounded-full shadow-xl shadow-[#229ED9]/30 transition-all whitespace-nowrap"
+                                >
+                                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current shrink-0" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12zm5.894-15.35c.298-1.405-.205-2.093-1.077-1.785l-11.45 4.398c-1.353.535-1.343 1.282-.249 1.622l2.943.916 6.815-4.28c.321-.192.616-.089.373.128l-5.516 4.966-.202 2.915c.294 0 .426-.135.592-.295l1.423-1.378 2.96 2.19c.545.303.938.147 1.074-.492l1.944-9.155z" />
+                                    </svg>
+                                    Заявка в Telegram
+                                </motion.a>
+
                                 {/* Стать партнером */}
                                 <motion.a
                                     href={PARTNER_URL}
@@ -39,7 +57,7 @@ const FloatingButtons = () => {
                                     initial={{ opacity: 0, x: 20, scale: 0.9 }}
                                     animate={{ opacity: 1, x: 0, scale: 1 }}
                                     exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                                    transition={{ duration: 0.2, delay: 0.05 }}
+                                    transition={{ duration: 0.2, delay: 0.1 }}
                                     className="flex items-center gap-2 bg-[#1a222c] border border-white/20 text-white text-sm font-semibold px-4 py-3 rounded-full shadow-xl hover:border-accent/50 hover:bg-[#1e2936] transition-all whitespace-nowrap"
                                 >
                                     <span className="text-base">🚗</span>
@@ -72,8 +90,8 @@ const FloatingButtons = () => {
                         onClick={() => setExpanded(prev => !prev)}
                         whileTap={{ scale: 0.92 }}
                         className={`w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 ${expanded
-                                ? 'bg-white/10 border border-white/20 text-white rotate-45'
-                                : 'bg-accent text-black shadow-accent/30'
+                            ? 'bg-white/10 border border-white/20 text-white rotate-45'
+                            : 'bg-accent text-black shadow-accent/30'
                             }`}
                         aria-label="Быстрые действия"
                     >
