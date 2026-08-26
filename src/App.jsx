@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import { translations } from './constants/data';
 
 function App() {
+  const [viewMode, setViewMode] = useState('client'); // 'client' or 'driver'
   const [language, setLanguage] = useState(() => {
     // 1. Check URL parameters (?lang=kk)
     const params = new URLSearchParams(window.location.search);
@@ -48,10 +49,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-base text-white font-sans selection:bg-accent selection:text-black pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
-      <Header language={language} setLanguage={setLanguage} t={t} />
+      <Header language={language} setLanguage={setLanguage} t={t} viewMode={viewMode} setViewMode={setViewMode} />
 
-      <main className="pt-20">
-        <Home language={language} t={t} />
+      <main className="pt-32 md:pt-40">
+        <Home language={language} t={t} viewMode={viewMode} setViewMode={setViewMode} />
       </main>
 
       <Footer t={t} />

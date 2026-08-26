@@ -3,7 +3,7 @@ import { Phone, Menu, X } from 'lucide-react';
 import { whatsappNumber } from '../../constants/data';
 import WeatherWidget from './WeatherWidget';
 
-const Header = ({ language, setLanguage, t }) => {
+const Header = ({ language, setLanguage, t, viewMode, setViewMode }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
@@ -17,12 +17,20 @@ const Header = ({ language, setLanguage, t }) => {
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
                     <nav className="flex gap-6 text-sm font-medium">
-                        <a href="#fleet" className="text-gray-200 hover:text-accent transition-colors">{t.fleet || 'Автопарк'}</a>
-                        <a href="#services" className="text-gray-200 hover:text-accent transition-colors">{t.services}</a>
-                        <a href="#standards" className="text-gray-200 hover:text-accent transition-colors">{t.standards}</a>
-                        <a href="#booking" className="text-gray-200 hover:text-accent transition-colors">{t.booking}</a>
+                        {viewMode === 'client' ? (
+                            <>
+                                <a href="#fleet" className="text-gray-200 hover:text-accent transition-colors">{t.fleet || 'Автопарк'}</a>
+                                <a href="#services" className="text-gray-200 hover:text-accent transition-colors">{t.services}</a>
+                                <a href="#standards" className="text-gray-200 hover:text-accent transition-colors">{t.standards}</a>
+                                <a href="#booking" className="text-gray-200 hover:text-accent transition-colors">{t.booking}</a>
+                            </>
+                        ) : (
+                            <>
+                                <a href="#for-drivers" className="text-gray-200 hover:text-accent transition-colors">Работа в парке</a>
+                                <a href="#trust" className="text-gray-200 hover:text-accent transition-colors">Гарантии</a>
+                            </>
+                        )}
                         <a href="#faq" className="text-gray-200 hover:text-accent transition-colors">{t.faqNav || 'FAQ'}</a>
-                        <a href="#for-drivers" className="text-gray-200 hover:text-accent transition-colors">Партнерам</a>
                     </nav>
 
                     <div className="flex items-center gap-4 pl-6 border-l border-white/20">
@@ -69,14 +77,47 @@ const Header = ({ language, setLanguage, t }) => {
                 </div>
             </div>
 
-            {/* Mobile Nav */}
+            {/* View Mode Toggle (Segmented Control) */}
+            <div className="w-full bg-base/50 backdrop-blur-md border-t border-b border-white/5 py-2 flex justify-center px-4">
+                <div className="flex bg-black/40 rounded-full p-1 border border-white/10 w-full max-w-sm relative shadow-inner">
+                    <button
+                        onClick={() => { setViewMode('client'); window.scrollTo(0, 0); }}
+                        className={`flex-1 text-xs sm:text-sm py-1.5 rounded-full z-10 transition-colors font-semibold ${viewMode === 'client' ? 'text-black' : 'text-gray-400 hover:text-white'
+                            }`}
+                    >
+                        Заказ трансфера
+                    </button>
+                    <button
+                        onClick={() => { setViewMode('driver'); window.scrollTo(0, 0); }}
+                        className={`flex-1 text-xs sm:text-sm py-1.5 rounded-full z-10 transition-colors font-semibold ${viewMode === 'driver' ? 'text-black' : 'text-gray-400 hover:text-white'
+                            }`}
+                    >
+                        Работа в парке
+                    </button>
+                    {/* Animated Sliding Background */}
+                    <div
+                        className={`absolute top-1 bottom-1 w-[calc(50%-4px)] bg-accent rounded-full shadow-lg transition-transform duration-300 ease-in-out ${viewMode === 'driver' ? 'translate-x-[calc(100%+0px)]' : 'translate-x-0'
+                            }`}
+                    ></div>
+                </div>
+            </div>
+
+            {/* Mobile Menu Content */}
             {mobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 right-0 bg-base/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl p-6 flex flex-col gap-5 animate-in slide-in-from-top-2">
-                    <a href="#fleet" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors">{t.fleet || 'Автопарк'}</a>
-                    <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors">{t.services}</a>
-                    <a href="#booking" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors">{t.booking}</a>
-                    <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors">{t.faqNav || 'FAQ'}</a>
-                    <a href="#for-drivers" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors border-t border-white/10 pt-4">Стать партнером</a>
+                    {viewMode === 'client' ? (
+                        <>
+                            <a href="#fleet" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors">{t.fleet || 'Автопарк'}</a>
+                            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors">{t.services}</a>
+                            <a href="#booking" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors">{t.booking}</a>
+                        </>
+                    ) : (
+                        <>
+                            <a href="#for-drivers" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors">Работа в парке</a>
+                            <a href="#trust" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors">Гарантии</a>
+                        </>
+                    )}
+                    <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-white hover:text-accent transition-colors border-t border-white/10 pt-4">{t.faqNav || 'FAQ'}</a>
 
                     <a href={`https://wa.me/${whatsappNumber}`} className="mt-4 bg-gradient-to-r from-green-500 to-green-600 shadow-xl shadow-green-900/20 text-white text-center py-4 rounded-xl font-bold text-lg transition-transform active:scale-95">
                         Написать в WhatsApp
