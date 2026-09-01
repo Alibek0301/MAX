@@ -1,0 +1,18 @@
+
+> MAX Taxi-landing@0.0.0 build
+> vite build
+
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[32m✓[39m 19 modules transformed.
+[31mx[39m Build failed in 682ms
+[31merror during build:
+[31mCould not resolve "./pages/MobileApp" from "src/App.jsx"[31m
+file: [36m/home/runner/work/MAX/MAX/src/App.jsx[31m
+    at getRollupError (file:///home/runner/work/MAX/MAX/node_modules/rollup/dist/es/shared/parseAst.js:402:41)
+    at error (file:///home/runner/work/MAX/MAX/node_modules/rollup/dist/es/shared/parseAst.js:398:42)
+    at ModuleLoader.handleInvalidResolvedId (file:///home/runner/work/MAX/MAX/node_modules/rollup/dist/es/shared/node-entry.js:21710:24)
+    at file:///home/runner/work/MAX/MAX/node_modules/rollup/dist/es/shared/node-entry.js:21670:26[39m
