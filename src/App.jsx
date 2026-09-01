@@ -51,12 +51,12 @@ function App() {
     <div className="min-h-screen bg-base text-white font-sans selection:bg-accent selection:text-black pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
       <Header language={language} setLanguage={setLanguage} t={t} viewMode={viewMode} setViewMode={setViewMode} />
 
-      <main className="pt-32 md:pt-40">
+      <main className="pt-20 md:pt-40">
         <Home language={language} t={t} viewMode={viewMode} setViewMode={setViewMode} />
       </main>
 
       <Footer t={t} />
-      <MobileBottomMenu t={t} />
+      <MobileBottomMenu t={t} viewMode={viewMode} setViewMode={setViewMode} />
       <FloatingButtons />
     </div>
   );

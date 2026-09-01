@@ -10,7 +10,7 @@ const Header = ({ language, setLanguage, t, viewMode, setViewMode }) => {
         <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-base/70 backdrop-blur-2xl">
             <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
                 <a href="#top" className="flex items-center gap-2 group hover:opacity-90 transition-opacity">
-                    <img src={`${import.meta.env.BASE_URL}logo.png`} alt="MAX Logo" className="h-16 md:h-24 w-auto object-contain drop-shadow-2xl" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+                    <img src={`${import.meta.env.BASE_URL}logo.png`} alt="MAX Logo" className="h-10 md:h-20 w-auto object-contain drop-shadow-2xl" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
                     <span className="font-serif text-3xl tracking-[0.2em] text-accent drop-shadow-glow" style={{ display: 'none' }}> MAX</span>
                 </a>
 
@@ -77,8 +77,8 @@ const Header = ({ language, setLanguage, t, viewMode, setViewMode }) => {
                 </div>
             </div>
 
-            {/* View Mode Toggle (Segmented Control) */}
-            <div className="w-full bg-base/50 backdrop-blur-md border-t border-b border-white/5 py-2 flex justify-center px-4">
+            {/* View Mode Toggle — Desktop only, hidden on mobile (lives in MobileBottomMenu) */}
+            <div className="hidden md:flex w-full bg-base/50 backdrop-blur-md border-t border-b border-white/5 py-2 justify-center px-4">
                 <div className="flex bg-black/40 rounded-full p-1 border border-white/10 w-full max-w-sm relative shadow-inner">
                     <button
                         onClick={() => { setViewMode('client'); window.scrollTo(0, 0); }}

@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbar on carousel */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Snappy touch response on all buttons/links */
+button,
+a {
+  touch-action: manipulation;
+}
+
 :root {
   --bg-base: #0f1318;
   --bg-elevated: #151c24;

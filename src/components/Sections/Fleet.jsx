@@ -9,12 +9,55 @@ const iconMap = {
     'BriefcaseBusiness': BriefcaseBusiness
 };
 
+const FleetCard = ({ vehicle, idx }) => {
+    const Icon = iconMap[vehicle.icon] || Car;
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, delay: idx * 0.15 }}
+            whileHover={{ y: -5 }}
+            className="group relative flex flex-col rounded-2xl md:rounded-[2rem] p-[1px] bg-gradient-to-b from-white/10 to-transparent overflow-hidden h-full"
+            style={{ WebkitTransform: 'translate3d(0,0,0)' }}
+        >
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+            <div className="bg-[#0a0d12]/90 backdrop-blur-xl rounded-[calc(1rem-1px)] md:rounded-[calc(2rem-1px)] p-5 md:p-8 flex flex-col relative z-10 transition-colors duration-500 group-hover:bg-[#0a0d12]/70 h-full text-white">
+                <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-[40px] group-hover:bg-accent/20 transition-all duration-700 pointer-events-none -z-10" />
+
+                <div className="flex items-center gap-4 md:flex-col md:items-start mb-4 md:mb-6">
+                    <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#1a1f26] to-[#0f1318] border border-white/5 flex items-center justify-center group-hover:scale-110 md:group-hover:-rotate-3 group-hover:border-accent/30 transition-all duration-500 shadow-xl">
+                        <Icon className="w-6 h-6 md:w-7 md:h-7 text-gray-400 group-hover:text-accent transition-colors duration-500" />
+                    </div>
+                    <div>
+                        <h3 className="text-xl md:text-2xl font-serif font-bold text-white group-hover:text-amber-400 transition-colors duration-300">
+                            {vehicle.class}
+                        </h3>
+                        <p className="text-sm md:text-base font-semibold text-accent">{vehicle.models}</p>
+                    </div>
+                </div>
+
+                <p className="text-gray-300 text-sm md:text-base mb-4 md:mb-8 leading-relaxed flex-grow">
+                    {vehicle.desc}
+                </p>
+
+                <div className="pt-4 md:pt-6 border-t border-white/5 mt-auto flex items-center justify-between group-hover:border-white/10 transition-colors">
+                    <span className="text-xl md:text-3xl text-white font-bold tracking-wide drop-shadow-md">
+                        {vehicle.price}
+                    </span>
+                </div>
+            </div>
+        </motion.div>
+    );
+};
+
 const Fleet = ({ language, t }) => {
     const fleetList = getFleet(language);
 
     return (
         <section id="fleet" className="max-w-7xl mx-auto px-4 scroll-mt-28 py-10 relative">
-            <div className="text-center mb-16 relative">
+            <div className="text-center mb-10 md:mb-16 relative">
                 <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -32,50 +75,29 @@ const Fleet = ({ language, t }) => {
                 <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto opacity-80" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-                {fleetList.map((vehicle, idx) => {
-                    const Icon = iconMap[vehicle.icon] || Car;
-                    return (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-50px' }}
-                            transition={{ duration: 0.6, delay: idx * 0.15 }}
-                            whileHover={{ y: -5 }}
-                            className="group relative flex flex-col md:h-full rounded-2xl md:rounded-[2rem] p-[1px] bg-gradient-to-b from-white/10 to-transparent overflow-hidden"
-                            style={{ WebkitTransform: 'translate3d(0,0,0)' }}
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            {/* ── Mobile: Horizontal Snap Carousel ── */}
+            <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-4 px-4 pb-4 scrollbar-none">
+                {fleetList.map((vehicle, idx) => (
+                    <div key={idx} className="snap-center shrink-0 w-[82vw]">
+                        <FleetCard vehicle={vehicle} idx={idx} />
+                    </div>
+                ))}
+                {/* Trailing space so last card centers properly */}
+                <div className="shrink-0 w-[9vw]" />
+            </div>
 
-                            <div className="bg-[#0a0d12]/90 backdrop-blur-xl rounded-[calc(1rem-1px)] md:rounded-[calc(2rem-1px)] p-5 md:p-8 flex flex-col relative z-10 transition-colors duration-500 group-hover:bg-[#0a0d12]/70 h-full text-white">
-                                <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-[40px] group-hover:bg-accent/20 transition-all duration-700 pointer-events-none -z-10" />
+            {/* Scroll hint dots (mobile) */}
+            <div className="md:hidden flex justify-center gap-1.5 mt-3">
+                {fleetList.map((_, i) => (
+                    <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-accent' : 'bg-white/20'}`} />
+                ))}
+            </div>
 
-                                <div className="flex items-center gap-4 md:flex-col md:items-start mb-4 md:mb-6">
-                                    <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#1a1f26] to-[#0f1318] border border-white/5 flex items-center justify-center focus-within:ring group-hover:scale-110 md:group-hover:-rotate-3 group-hover:border-accent/30 transition-all duration-500 shadow-xl">
-                                        <Icon className="w-6 h-6 md:w-7 md:h-7 text-gray-400 group-hover:text-accent transition-colors duration-500" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl md:text-2xl font-serif font-bold text-white group-hover:text-amber-400 transition-colors duration-300">
-                                            {vehicle.class}
-                                        </h3>
-                                        <p className="text-sm md:text-base font-semibold text-accent">{vehicle.models}</p>
-                                    </div>
-                                </div>
-
-                                <p className="text-gray-300 text-sm md:text-base mb-4 md:mb-8 leading-relaxed flex-grow">
-                                    {vehicle.desc}
-                                </p>
-
-                                <div className="pt-4 md:pt-6 border-t border-white/5 mt-auto flex items-center justify-between group-hover:border-white/10 transition-colors">
-                                    <span className="text-xl md:text-3xl text-white font-bold tracking-wide drop-shadow-md">
-                                        {vehicle.price}
-                                    </span>
-                                </div>
-                            </div>
-                        </motion.div>
-                    );
-                })}
+            {/* ── Desktop: Grid ── */}
+            <div className="hidden md:grid grid-cols-3 gap-8">
+                {fleetList.map((vehicle, idx) => (
+                    <FleetCard key={idx} vehicle={vehicle} idx={idx} />
+                ))}
             </div>
         </section>
     );
