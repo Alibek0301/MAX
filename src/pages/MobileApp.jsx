@@ -18,10 +18,12 @@ const quickServices = [
 ];
 
 const benefits = [
-    { icon: Wallet, title: 'Выплаты каждый день', desc: 'Вывод без задержек на карту Kaspi' },
-    { icon: Clock, title: 'Свободный график', desc: 'Работайте когда удобно — без смен' },
-    { icon: ShieldCheck, title: 'Поддержка парка', desc: 'Решаем вопросы с Яндексом за вас' },
-    { icon: Car, title: 'Помощь с авто', desc: 'Аренда и мойка со скидкой 20%' },
+    { icon: Wallet, title: 'Выплаты каждый день', desc: 'Возможность вывода денег на карту Kaspi ежедневно без задержек и праздников.' },
+    { icon: Clock, title: 'Свободный график', desc: 'Работайте тогда, когда вам удобно. Вы сами определяете свои выходные и рабочие часы.' },
+    { icon: ShieldCheck, title: 'Поддержка парка 24/7', desc: 'Решаем вопросы с заказами, приоритетом и диспетчерской Яндекса за вас.' },
+    { icon: Car, title: 'Помощь с авто', desc: 'Скидки на мойку и аренду. Помощь с оформлением документов и путевых листов.' },
+    { icon: MapPin, title: 'Заказы трансфера', desc: 'Доступ к эксклюзивным межгородним заказам трансфера по высоким тарифам от парка.' },
+    { icon: Star, title: 'Бонусы для Бизнеса', desc: 'Еженедельно упаковка брендированной воды в подарок для водителей тарифов Бизнес+.' }
 ];
 
 /* ─────────────────────────────────────────────
@@ -199,7 +201,7 @@ const ClientView = ({ t, language }) => {
             </div>
 
             {/* ── Quick Services Grid ── */}
-            <div className="px-4 mt-5">
+            <div id="services" className="px-4 mt-5">
                 <p className="text-[11px] text-gray-500 uppercase tracking-[0.15em] font-semibold mb-3">Популярные услуги</p>
                 <div className="grid grid-cols-2 gap-2.5">
                     {quickServices.map((s, i) => {
@@ -224,9 +226,9 @@ const ClientView = ({ t, language }) => {
             </div>
 
             {/* ── Fleet Carousel ── */}
-            <div className="mt-6">
+            <div id="fleet" className="mt-6 scroll-mt-20">
                 <div className="px-4 mb-3 flex items-center justify-between">
-                    <p className="text-[11px] text-gray-500 uppercase tracking-[0.15em] font-semibold">Наш автопарк</p>
+                    <h2 className="text-xl font-bold text-white">Управляйте с комфортом</h2>
                     <span className="text-[11px] text-accent">Premium</span>
                 </div>
                 <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 px-4 pb-2 scrollbar-none">
@@ -278,6 +280,28 @@ const ClientView = ({ t, language }) => {
                 </div>
             </div>
 
+            {/* ── Standards ── */}
+            <div id="standards" className="px-4 mt-8 scroll-mt-20">
+                <h2 className="text-xl font-bold text-white mb-4">Наши стандарты</h2>
+                <div className="grid grid-cols-1 gap-3">
+                    {[
+                        { title: 'Пунктуальность', desc: 'Автомобиль подается за 10-15 минут до назначенного времени. Мы бережем ваше время.', icon: Clock },
+                        { title: 'Безопасность', desc: 'Все водители проходят строгий отбор и регулярную проверку. Автомобили обслуживаются у официальных дилеров.', icon: ShieldCheck },
+                        { title: 'Конфиденциальность', desc: 'Мы соблюдаем NDA и обеспечиваем полную тайну ваших маршрутов и разговоров в салоне.', icon: Building2 }
+                    ].map((s, i) => (
+                        <div key={i} onClick={() => setSheetOpen(true)} className="bg-[#131820] border border-white/8 rounded-2xl p-4 flex items-start gap-4 active:scale-[0.98] transition-transform cursor-pointer">
+                            <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                                <s.icon size={18} className="text-accent" />
+                            </div>
+                            <div>
+                                <p className="text-white font-bold text-sm leading-tight">{s.title}</p>
+                                <p className="text-gray-400 text-xs mt-1 leading-relaxed">{s.desc}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
             {/* ── Call to WhatsApp ── */}
             <div className="px-4 mt-5">
                 <a
@@ -323,109 +347,68 @@ const DriverView = ({ t }) => {
                             <span className="text-accent text-[11px] font-bold tracking-widest uppercase">Партнёрам</span>
                         </div>
                         <h1 className="text-2xl font-bold text-white mb-1 leading-snug">Работайте<br />в MAX Taxi Park</h1>
-                        <p className="text-gray-400 text-sm mb-4">Ежедневные выплаты, поддержка 24/7, свободный график</p>
+                        <p className="text-gray-400 text-sm mb-5">Ежедневные выплаты, поддержка 24/7, свободный график и эксклюзивные межгородние заказы</p>
                         <a
                             href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
                             target="_blank" rel="noreferrer"
                             className="inline-flex items-center gap-2 bg-accent text-black font-bold rounded-2xl py-3.5 px-6 text-sm active:scale-95 transition-transform"
                         >
                             <UserPlus size={16} />
-                            Подать заявку за 2 минуты
+                            Оставить заявку
                         </a>
                     </div>
                 </motion.div>
             </div>
 
-            {/* ── Earnings Estimator ── */}
-            <div className="px-4 mt-5">
-                <div className="bg-[#131820] border border-white/8 rounded-2xl p-4">
-                    <p className="text-[11px] text-gray-500 uppercase tracking-[0.15em] font-semibold mb-3">Примерный заработок</p>
-                    <div className="grid grid-cols-3 gap-2 text-center">
-                        {[
-                            { hours: '4 ч/день', earn: '~90 000 ₸' },
-                            { hours: '8 ч/день', earn: '~180 000 ₸' },
-                            { hours: '12 ч/день', earn: '~270 000 ₸' },
-                        ].map((e, i) => (
-                            <div key={i} className="bg-white/4 rounded-xl py-3 px-2">
-                                <p className="text-accent font-bold text-sm">{e.earn}</p>
-                                <p className="text-gray-500 text-[10px] mt-0.5">{e.hours}</p>
-                            </div>
-                        ))}
-                    </div>
-                    <p className="text-gray-600 text-[10px] mt-2 text-center">* При 26 рабочих днях в месяц</p>
-                </div>
-            </div>
-
-            {/* ── Benefits Swipe ── */}
-            <div className="mt-5">
-                <div className="px-4 mb-3">
-                    <p className="text-[11px] text-gray-500 uppercase tracking-[0.15em] font-semibold">Наши условия</p>
-                </div>
-                <div className="flex overflow-x-auto snap-x gap-3 px-4 pb-2 scrollbar-none">
+            {/* ── Benefits Grid ── */}
+            <div id="driver-benefits" className="mt-8 px-4 scroll-mt-20">
+                <h2 className="text-xl font-bold text-white mb-4">Почему мы лучше</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {benefits.map((b, i) => {
                         const Icon = b.icon;
                         return (
                             <motion.div
                                 key={i}
-                                initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.08 }}
-                                className="snap-center shrink-0 w-[58vw] bg-[#131820] border border-white/8 rounded-2xl p-4 flex flex-col gap-3"
+                                initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                                transition={{ delay: i * 0.05 }}
+                                className="bg-[#131820] border border-white/8 rounded-2xl p-4 flex items-start gap-4"
                             >
-                                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                                    <Icon size={18} className="text-accent" />
+                                <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                                    <Icon size={20} className="text-accent" />
                                 </div>
                                 <div>
-                                    <p className="text-white font-bold text-sm leading-tight">{b.title}</p>
-                                    <p className="text-gray-400 text-xs mt-1 leading-relaxed">{b.desc}</p>
+                                    <p className="text-white font-bold text-sm leading-tight mb-1.5">{b.title}</p>
+                                    <p className="text-gray-400 text-xs leading-relaxed">{b.desc}</p>
                                 </div>
                             </motion.div>
                         );
                     })}
-                    <div className="shrink-0 w-1" />
                 </div>
             </div>
 
             {/* ── Steps ── */}
-            <div className="px-4 mt-5">
-                <div className="bg-[#131820] border border-white/8 rounded-2xl p-4 space-y-3">
-                    <p className="text-[11px] text-gray-500 uppercase tracking-[0.15em] font-semibold mb-1">Как начать</p>
+            <div className="px-4 mt-8">
+                <h2 className="text-xl font-bold text-white mb-4">Как начать</h2>
+                <div className="bg-[#131820] border border-white/8 rounded-2xl p-4 pl-6 space-y-4 relative">
+                    {/* Vertical tracking line */}
+                    <div className="absolute top-8 bottom-8 left-9 w-px bg-white/10" />
                     {[
-                        { step: '1', text: 'Заполните анкету на Яндекс.Такси' },
-                        { step: '2', text: 'Мы подтвердим подключение за 10 минут' },
-                        { step: '3', text: 'Выходите на линию и зарабатывайте' },
+                        { step: '1', text: 'Заполните короткую анкету на Яндекс.Такси' },
+                        { step: '2', text: 'Мы подтвердим ваше подключение в течение 10 минут' },
+                        { step: '3', text: 'Выходите на линию, выполняйте заказы и получайте выплаты' },
                     ].map((s, i) => (
-                        <div key={i} className="flex items-center gap-3">
-                            <div className="w-7 h-7 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center shrink-0">
-                                <span className="text-accent text-xs font-bold">{s.step}</span>
+                        <div key={i} className="flex items-center gap-4 relative z-10">
+                            <div className="w-8 h-8 rounded-full bg-accent/15 border-[2px] border-accent/40 flex items-center justify-center shrink-0 shadow-lg bg-[#131820]">
+                                <span className="text-accent text-[13px] font-bold">{s.step}</span>
                             </div>
-                            <p className="text-gray-300 text-sm">{s.text}</p>
+                            <p className="text-gray-300 text-sm leading-snug">{s.text}</p>
                         </div>
                     ))}
-                </div>
-            </div>
-
-            {/* ── Reviews / Social Proof ── */}
-            <div className="px-4 mt-5">
-                <div className="flex overflow-x-auto gap-3 scrollbar-none pb-2">
-                    {[
-                        { name: 'Болат К.', text: 'Отличный парк, выплаты приходят каждый день!', stars: 5 },
-                        { name: 'Айдар С.', text: 'Поддержка решила все вопросы с Яндексом за 20 минут.', stars: 5 },
-                        { name: 'Нурлан Р.', text: 'Работаю уже 6 месяцев, доволен условиями.', stars: 5 },
-                    ].map((r, i) => (
-                        <div key={i} className="shrink-0 w-[70vw] bg-[#131820] border border-white/8 rounded-2xl p-4 flex flex-col gap-2">
-                            <div className="flex items-center gap-1">
-                                {Array(r.stars).fill(0).map((_, si) => <Star key={si} size={11} className="text-accent fill-accent" />)}
-                            </div>
-                            <p className="text-gray-300 text-xs leading-relaxed">"{r.text}"</p>
-                            <p className="text-gray-500 text-[11px] font-medium">— {r.name}</p>
-                        </div>
-                    ))}
-                    <div className="shrink-0 w-1" />
                 </div>
             </div>
 
             {/* ── Join CTA ── */}
-            <div className="px-4 mt-5">
+            <div className="px-4 mt-8">
                 <a
                     href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
                     target="_blank" rel="noreferrer"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Car, Calendar, UserPlus, MessageCircle } from 'lucide-react';
+import { Home, Car, Calendar, UserPlus, MessageCircle, ShieldCheck, MapPin } from 'lucide-react';
 import { whatsappNumber } from '../../constants/data';
 
 const MobileBottomMenu = ({ t, viewMode, setViewMode }) => {
@@ -29,28 +29,28 @@ const MobileBottomMenu = ({ t, viewMode, setViewMode }) => {
             <div className="flex justify-around items-center h-14">
                 {viewMode === 'client' ? (
                     <>
-                        <a href="#top" className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
+                        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
                             <Home size={19} className="mb-1" />
                             <span className="text-[9px] font-medium tracking-wide uppercase">{t.home || 'Главная'}</span>
-                        </a>
+                        </button>
 
-                        <a href="#fleet" className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
-                            <Car size={19} className="mb-1" />
-                            <span className="text-[9px] font-medium tracking-wide uppercase">Авто</span>
-                        </a>
+                        <button onClick={() => { document.getElementById('standards')?.scrollIntoView({ behavior: 'smooth' }) }} className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
+                            <ShieldCheck size={19} className="mb-1" />
+                            <span className="text-[9px] font-medium tracking-wide uppercase">Стандарты</span>
+                        </button>
 
                         {/* Center CTA — Booking */}
-                        <a href="#booking" className="flex flex-col items-center justify-center w-full h-full relative text-accent">
+                        <button onClick={() => { document.getElementById('fleet')?.scrollIntoView({ behavior: 'smooth' }) }} className="flex flex-col items-center justify-center w-full h-full relative text-accent">
                             <div className="absolute -top-5 bg-gradient-to-tr from-accent to-amber-400 w-13 h-13 w-[52px] h-[52px] rounded-full flex items-center justify-center shadow-lg shadow-accent/30 border-[3px] border-[#0a0d12]">
-                                <Calendar size={22} className="text-black" />
+                                <Car size={22} className="text-black" />
                             </div>
-                            <span className="text-[9px] font-bold tracking-wide uppercase mt-8">{t.booking || 'Заказать'}</span>
-                        </a>
+                            <span className="text-[9px] font-bold tracking-wide uppercase mt-8">Автопарк</span>
+                        </button>
 
-                        <a href="#services" className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
-                            <Car size={19} className="mb-1" />
+                        <button onClick={() => { document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) }} className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
+                            <MapPin size={19} className="mb-1" />
                             <span className="text-[9px] font-medium tracking-wide uppercase">Услуги</span>
-                        </a>
+                        </button>
 
                         <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer"
                             className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-green-400 transition-colors">
@@ -60,29 +60,29 @@ const MobileBottomMenu = ({ t, viewMode, setViewMode }) => {
                     </>
                 ) : (
                     <>
-                        <a href="#top" className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
+                        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
                             <Home size={19} className="mb-1" />
                             <span className="text-[9px] font-medium tracking-wide uppercase">Главная</span>
-                        </a>
+                        </button>
 
-                        <a href="#for-drivers" className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
-                            <Car size={19} className="mb-1" />
+                        <button onClick={() => { document.getElementById('driver-benefits')?.scrollIntoView({ behavior: 'smooth' }) }} className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
+                            <ShieldCheck size={19} className="mb-1" />
                             <span className="text-[9px] font-medium tracking-wide uppercase">Условия</span>
-                        </a>
+                        </button>
 
                         {/* Center CTA — Join */}
                         <a href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
                             target="_blank" rel="noreferrer"
                             className="flex flex-col items-center justify-center w-full h-full relative text-accent">
-                            <div className="absolute -top-5 bg-gradient-to-tr from-accent to-amber-400 w-[52px] h-[52px] rounded-full flex items-center justify-center shadow-lg shadow-accent/30 border-[3px] border-[#0a0d12]">
-                                <UserPlus size={22} className="text-black" />
+                            <div className="absolute -top-5 bg-gradient-to-tr from-[#1a1608] to-[#131820] w-[52px] h-[52px] rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(245,200,106,0.3)] border border-accent/20">
+                                <UserPlus size={22} className="text-accent" />
                             </div>
                             <span className="text-[9px] font-bold tracking-wide uppercase mt-8">Вступить</span>
                         </a>
 
-                        <a href="#faq" className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
-                            <MessageCircle size={19} className="mb-1" />
-                            <span className="text-[9px] font-medium tracking-wide uppercase">FAQ</span>
+                        <a href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer" className="flex flex-col items-center justify-center w-full h-full text-gray-400 active:text-accent transition-colors">
+                            <Car size={19} className="mb-1" />
+                            <span className="text-[9px] font-medium tracking-wide uppercase">Анкета</span>
                         </a>
 
                         <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer"
