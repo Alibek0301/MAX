@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getFaq } from '../../constants/data';
+import { getFaq, getDriverFaq } from '../../constants/data';
 import { ChevronDown } from 'lucide-react';
 
-const FAQ = ({ language, t }) => {
-    const faqList = getFaq(language);
+const FAQ = ({ language, t, viewMode }) => {
+    const faqList = viewMode === 'driver' ? getDriverFaq(language) : getFaq(language);
     const [openIndex, setOpenIndex] = useState(0); // First one open by default
 
     const toggleFaq = (index) => {

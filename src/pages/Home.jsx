@@ -25,13 +25,13 @@ const Home = ({ language, t, viewMode }) => {
                         <BookingForm language={language} t={t} />
                     </section>
 
-                    <FAQ language={language} t={t} />
+                    <FAQ language={language} t={t} viewMode={viewMode} />
                 </>
             ) : (
                 <>
                     <ForDrivers t={t} />
                     <Trust t={t} />
-                    <FAQ language={language} t={t} />
+                    <FAQ language={language} t={t} viewMode={viewMode} />
                 </>
             )}
             <div className="h-10"></div>

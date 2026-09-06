@@ -6,6 +6,7 @@ import {
     UserPlus, Star, Phone, MessageCircle, Crown, CheckCircle2
 } from 'lucide-react';
 import { whatsappNumber, getFleet, getServices } from '../constants/data';
+import FAQ from '../components/Sections/FAQ';
 
 /* ─────────────────────────────────────────────
    QUICK SERVICES (клиент)
@@ -421,8 +422,12 @@ const DriverView = ({ t }) => {
                 </div>
             </div>
 
+            <div className="mt-8 border-t border-white/5 pt-4">
+                <FAQ language="ru" t={t} viewMode="driver" />
+            </div>
+
             {/* ── Terms link ── */}
-            <div className="px-5 mt-8 pb-4">
+            <div className="px-5 pb-4">
                 <a href="./drivers-offer.html" target="_blank"
                     className="block text-center text-gray-500 text-[10px] underline uppercase tracking-widest">
                     Условия сотрудничества и инструкция
