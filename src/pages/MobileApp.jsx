@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Plane, Building2, MapPin, Car, Wallet, Clock,
     ShieldCheck, ArrowRight, X, ChevronRight,
-    UserPlus, Star, Phone, MessageCircle
+    UserPlus, Star, Phone, MessageCircle, Crown, CheckCircle2
 } from 'lucide-react';
 import { whatsappNumber, getFleet, getServices } from '../constants/data';
 
@@ -155,171 +155,145 @@ const BookingSheet = ({ open, onClose, t, language }) => {
 };
 
 /* ─────────────────────────────────────────────
-   CLIENT VIEW
+   CLIENT VIEW (Premium Landing Style)
 ───────────────────────────────────────────── */
 const ClientView = ({ t, language }) => {
     const [sheetOpen, setSheetOpen] = useState(false);
     const fleet = getFleet(language);
 
     return (
-        <div className="pb-[calc(6.5rem+env(safe-area-inset-bottom))] pt-16 bg-[#0a0d12] min-h-screen">
+        <div className="pb-[calc(6.5rem+env(safe-area-inset-bottom))] bg-[#050505] min-h-screen text-white selection:bg-accent selection:text-black">
 
-            {/* ── Hero Card ── */}
-            <div className="px-4 pt-4">
-                <motion.div
-                    initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                    className="relative bg-gradient-to-br from-[#161d28] to-[#0f1318] rounded-3xl p-5 border border-white/8 overflow-hidden"
-                >
-                    {/* Glow */}
-                    <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            {/* 1. HERO SECTION */}
+            <div className="relative min-h-[75vh] flex flex-col justify-end px-5 pb-12 pt-20 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-[#050505]/80 to-[#050505] pointer-events-none" />
+                <div className="absolute top-0 right-0 w-[80%] h-[50%] bg-accent/20 blur-[120px] rounded-full pointer-events-none translate-x-1/4 -translate-y-1/4" />
 
-                    <div className="relative z-10">
-                        <div className="flex items-center gap-2 mb-3">
-                            <span className="flex h-2 w-2 relative">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
-                            </span>
-                            <span className="text-green-400 text-xs font-bold tracking-widest uppercase">MAX · Astana</span>
-                        </div>
-
-                        <h1 className="text-2xl font-bold text-white mb-1 leading-snug">
-                            Куда едем?
-                        </h1>
-                        <p className="text-gray-400 text-sm mb-4">VIP-трансфер, аэропорт, бизнес</p>
-
-                        {/* Fake search bar as CTA */}
-                        <button
-                            onClick={() => setSheetOpen(true)}
-                            className="w-full flex items-center gap-3 bg-white/8 border border-white/10 rounded-2xl px-4 py-3.5 active:scale-[0.98] transition-transform"
-                        >
-                            <MapPin size={17} className="text-accent shrink-0" />
-                            <span className="text-gray-400 text-sm text-left">Куда, когда и с кем...</span>
-                            <span className="ml-auto bg-accent text-black text-xs font-bold px-3 py-1.5 rounded-full shrink-0">Заказать</span>
-                        </button>
+                <div className="relative z-10 space-y-6">
+                    <div className="inline-flex items-center gap-2 border border-accent/30 bg-accent/10 rounded-full px-3 py-1.5 backdrop-blur-md">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                        <span className="text-accent text-[10px] font-bold tracking-[0.2em] uppercase">Astana · NQZ</span>
                     </div>
-                </motion.div>
+
+                    <h1 className="text-[11vw] xs:text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-tighter">
+                        Ваш статус.<br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-amber-300 to-amber-100">
+                            Ваш комфорт.
+                        </span>
+                    </h1>
+
+                    <p className="text-gray-400 text-sm leading-relaxed max-w-[90%]">
+                        Персональный автопарк бизнес и VIP-класса. Идеально для важных встреч, бизнес-трансферов и тех, кто ценит абсолютный уровень.
+                    </p>
+
+                    <button
+                        onClick={() => setSheetOpen(true)}
+                        className="w-full bg-accent text-black font-extrabold uppercase tracking-widest rounded-2xl py-4 active:scale-[0.98] transition-transform shadow-[0_0_30px_rgba(245,200,106,0.25)] flex items-center justify-center gap-2"
+                    >
+                        Забронировать авто <ChevronRight size={16} strokeWidth={3} />
+                    </button>
+                </div>
             </div>
 
-            {/* ── Quick Services Grid ── */}
-            <div id="services" className="px-4 mt-5">
-                <p className="text-[11px] text-gray-500 uppercase tracking-[0.15em] font-semibold mb-3">Популярные услуги</p>
-                <div className="grid grid-cols-2 gap-2.5">
+            {/* 2. NUMBERS / TRUST */}
+            <div className="px-5 -mt-4 relative z-20">
+                <div className="flex bg-[#0f1115] border border-white/10 rounded-2xl shadow-xl backdrop-blur-xl divide-x divide-white/10">
+                    {[
+                        { val: '24/7', label: 'Подача авто' },
+                        { val: 'VIP', label: 'Протокол NDA' },
+                        { val: '4.9', label: 'Рейтинг парка' }
+                    ].map((b, i) => (
+                        <div key={i} className="flex-1 py-4 flex flex-col items-center justify-center text-center">
+                            <span className="text-white font-bold text-lg leading-none mb-1">{b.val}</span>
+                            <span className="text-gray-500 text-[9px] uppercase tracking-wider">{b.label}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* 3. SERVICES (ELEGANT GRID) */}
+            <div id="services" className="px-5 mt-10 scroll-mt-24">
+                <h2 className="text-2xl font-bold text-white mb-5 tracking-tight">Наши услуги</h2>
+                <div className="grid grid-cols-2 gap-3">
                     {quickServices.map((s, i) => {
                         const Icon = s.icon;
                         return (
-                            <motion.button
-                                key={s.id}
-                                initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: i * 0.07 }}
-                                onClick={() => setSheetOpen(true)}
-                                className={`relative flex flex-col items-start p-4 rounded-2xl bg-gradient-to-br ${s.color} border ${s.border} active:scale-[0.97] transition-transform text-left overflow-hidden`}
-                            >
-                                <div className="w-9 h-9 rounded-xl bg-white/8 flex items-center justify-center mb-2.5">
-                                    <Icon size={18} className="text-white" />
+                            <div key={s.id} onClick={() => setSheetOpen(true)} className="group relative bg-[#0f1115] border border-white/5 rounded-2xl p-4 overflow-hidden active:scale-[0.97] transition-all cursor-pointer min-h-[140px] flex flex-col justify-end">
+                                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${s.color} blur-[50px] opacity-20`} />
+                                <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                                    <Icon size={18} className="text-white relative z-10" />
                                 </div>
-                                <span className="text-white text-sm font-bold leading-tight">{s.label}</span>
-                                <span className="text-gray-400 text-[11px] mt-0.5 leading-tight">{s.desc}</span>
-                            </motion.button>
+                                <div className="relative z-10 mt-12">
+                                    <h3 className="text-white text-[15px] font-bold leading-tight mb-1">{s.label}</h3>
+                                    <p className="text-gray-400 text-[11px] leading-tight">{s.desc}</p>
+                                </div>
+                            </div>
                         );
                     })}
                 </div>
             </div>
 
-            {/* ── Fleet Carousel ── */}
-            <div id="fleet" className="mt-6 scroll-mt-20">
-                <div className="px-4 mb-3 flex items-center justify-between">
-                    <h2 className="text-xl font-bold text-white">Управляйте с комфортом</h2>
-                    <span className="text-[11px] text-accent">Premium</span>
+            {/* 4. PREMIUM FLEET CAROUSEL */}
+            <div id="fleet" className="mt-12 scroll-mt-24">
+                <div className="px-5 mb-5 flex items-center justify-between">
+                    <h2 className="text-2xl font-bold text-white tracking-tight">Элитный парк</h2>
+                    <div className="flex items-center gap-1.5 border border-accent/20 bg-accent/5 px-2.5 py-1 rounded-full text-accent text-[9px] font-bold uppercase tracking-widest">
+                        <Star size={10} className="fill-accent" /> Premium
+                    </div>
                 </div>
-                <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 px-4 pb-2 scrollbar-none">
+                <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-5 pb-4 scrollbar-none">
                     {fleet.map((car, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            className="snap-center shrink-0 w-[72vw] bg-[#131820] border border-white/8 rounded-2xl p-4 flex flex-col gap-2"
-                        >
-                            <div className="flex items-center gap-3 mb-1">
-                                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                                    <Car size={18} className="text-accent" />
-                                </div>
-                                <div>
-                                    <p className="text-white font-bold text-sm">{car.class}</p>
-                                    <p className="text-accent text-xs">{car.models}</p>
+                        <div key={i} className="snap-center shrink-0 w-[85vw] bg-[#0f1115] border border-white/5 rounded-3xl overflow-hidden flex flex-col relative group">
+                            {/* Overlay Glow */}
+                            <div className="absolute top-0 right-0 w-40 h-40 bg-accent/5 blur-[50px]" />
+
+                            {/* Top Photo Area (Abstract representation) */}
+                            <div className="h-32 bg-gradient-to-br from-white/5 to-transparent relative flex items-center justify-center border-b border-white/5">
+                                <Crown size={48} className="text-white/10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" strokeWidth={1} />
+                                <div className="absolute bottom-3 left-4 bg-[#0a0d12]/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                                    <span className="text-white text-[10px] font-bold tracking-[0.15em] uppercase">{car.class}</span>
                                 </div>
                             </div>
-                            <p className="text-gray-400 text-xs leading-relaxed line-clamp-3">{car.desc}</p>
-                            <div className="pt-2 mt-auto border-t border-white/5 flex items-center justify-between">
-                                <span className="text-white font-bold text-base">{car.price}</span>
-                                <button onClick={() => setSheetOpen(true)} className="text-[11px] text-accent font-bold flex items-center gap-1">
-                                    Заказать <ChevronRight size={12} />
-                                </button>
+
+                            <div className="p-5 flex flex-col grow relative z-10">
+                                <h3 className="text-accent font-bold text-lg mb-2">{car.models}</h3>
+                                <p className="text-gray-400 text-xs leading-relaxed line-clamp-3 mb-6">{car.desc}</p>
+                                <div className="mt-auto flex items-end justify-between">
+                                    <div>
+                                        <p className="text-gray-500 text-[9px] uppercase tracking-wider mb-1">Подача от</p>
+                                        <p className="text-white font-extrabold text-xl leading-none">{car.price}</p>
+                                    </div>
+                                    <button onClick={() => setSheetOpen(true)} className="w-11 h-11 rounded-full bg-accent flex items-center justify-center shadow-[0_0_20px_rgba(245,200,106,0.25)] active:scale-95 transition-transform">
+                                        <ChevronRight size={20} className="text-black" strokeWidth={3} />
+                                    </button>
+                                </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                     <div className="shrink-0 w-1" />
                 </div>
             </div>
 
-            {/* ── Trust Badges ── */}
-            <div className="px-4 mt-6">
-                <div className="flex overflow-x-auto gap-2.5 scrollbar-none pb-1">
+            {/* 5. STANDARDS / WHY US */}
+            <div id="standards" className="px-5 mt-8 pb-4 scroll-mt-24">
+                <h2 className="text-2xl font-bold text-white mb-5 tracking-tight">Безупречность в деталях</h2>
+                <div className="space-y-3">
                     {[
-                        { icon: '⭐', val: '4.9', label: 'Рейтинг' },
-                        { icon: '🕐', val: '24/7', label: 'Работаем' },
-                        { icon: '✈️', val: 'NQZ', label: 'Аэропорт' },
-                        { icon: '🔒', val: 'NDA', label: 'VIP протокол' },
-                        { icon: '🚗', val: 'S/E/V', label: 'Mercedes' },
-                    ].map((b, i) => (
-                        <div key={i} className="shrink-0 flex flex-col items-center gap-1 bg-white/4 border border-white/8 rounded-2xl px-4 py-3 min-w-[76px]">
-                            <span className="text-lg leading-none">{b.icon}</span>
-                            <span className="text-white font-bold text-sm">{b.val}</span>
-                            <span className="text-gray-500 text-[10px]">{b.label}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* ── Standards ── */}
-            <div id="standards" className="px-4 mt-8 scroll-mt-20">
-                <h2 className="text-xl font-bold text-white mb-4">Наши стандарты</h2>
-                <div className="grid grid-cols-1 gap-3">
-                    {[
-                        { title: 'Пунктуальность', desc: 'Автомобиль подается за 10-15 минут до назначенного времени. Мы бережем ваше время.', icon: Clock },
-                        { title: 'Безопасность', desc: 'Все водители проходят строгий отбор и регулярную проверку. Автомобили обслуживаются у официальных дилеров.', icon: ShieldCheck },
-                        { title: 'Конфиденциальность', desc: 'Мы соблюдаем NDA и обеспечиваем полную тайну ваших маршрутов и разговоров в салоне.', icon: Building2 }
+                        { title: 'Точность до минуты', desc: 'Автомобиль подается за 15 минут до старта. Никаких ожиданий.', icon: Clock },
+                        { title: 'Абсолютная безопасность', desc: 'Авторизованный сервис, профессиональные водители-телохранители.', icon: ShieldCheck },
+                        { title: 'Полная приватность', desc: 'Строгое соблюдение NDA. Скрытые маршруты и конфиденциальность.', icon: Building2 }
                     ].map((s, i) => (
-                        <div key={i} onClick={() => setSheetOpen(true)} className="bg-[#131820] border border-white/8 rounded-2xl p-4 flex items-start gap-4 active:scale-[0.98] transition-transform cursor-pointer">
-                            <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                                <s.icon size={18} className="text-accent" />
+                        <div key={i} className="bg-[#0f1115] border border-white/5 rounded-2xl p-5 flex items-start gap-4">
+                            <div className="w-12 h-12 rounded-full bg-accent/5 border border-accent/20 flex flex-col items-center justify-center shrink-0">
+                                <s.icon size={20} className="text-accent" />
                             </div>
                             <div>
-                                <p className="text-white font-bold text-sm leading-tight">{s.title}</p>
-                                <p className="text-gray-400 text-xs mt-1 leading-relaxed">{s.desc}</p>
+                                <h3 className="text-white font-bold text-[14px] leading-tight mb-1.5">{s.title}</h3>
+                                <p className="text-gray-400 text-xs leading-relaxed max-w-[95%]">{s.desc}</p>
                             </div>
                         </div>
                     ))}
                 </div>
-            </div>
-
-            {/* ── Call to WhatsApp ── */}
-            <div className="px-4 mt-5">
-                <a
-                    href={`https://wa.me/${whatsappNumber}`}
-                    target="_blank" rel="noreferrer"
-                    className="flex items-center justify-between bg-green-500/10 border border-green-500/20 rounded-2xl px-4 py-4 active:scale-[0.98] transition-transform"
-                >
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center shrink-0">
-                            <MessageCircle size={18} className="text-green-400" />
-                        </div>
-                        <div>
-                            <p className="text-white font-bold text-sm">Написать нам</p>
-                            <p className="text-gray-400 text-xs">WhatsApp — ответим за 2 минуты</p>
-                        </div>
-                    </div>
-                    <ChevronRight size={16} className="text-gray-500" />
-                </a>
             </div>
 
             <BookingSheet open={sheetOpen} onClose={() => setSheetOpen(false)} t={t} language={language} />
@@ -328,110 +302,98 @@ const ClientView = ({ t, language }) => {
 };
 
 /* ─────────────────────────────────────────────
-   DRIVER VIEW
+   DRIVER VIEW (Premium Recruitment Style)
 ───────────────────────────────────────────── */
 const DriverView = ({ t }) => {
     return (
-        <div className="pb-[calc(6.5rem+env(safe-area-inset-bottom))] pt-16 bg-[#0a0d12] min-h-screen">
+        <div className="pb-[calc(6.5rem+env(safe-area-bottom))] bg-[#050505] min-h-screen text-white selection:bg-accent selection:text-black">
 
-            {/* ── Driver Hero ── */}
-            <div className="px-4 pt-4">
-                <motion.div
-                    initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                    className="relative bg-gradient-to-br from-[#1a1608] to-[#0f1318] rounded-3xl p-5 border border-accent/15 overflow-hidden"
-                >
-                    <div className="absolute top-0 right-0 w-40 h-40 bg-accent/15 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-                    <div className="relative z-10">
-                        <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-3 py-1 mb-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                            <span className="text-accent text-[11px] font-bold tracking-widest uppercase">Партнёрам</span>
-                        </div>
-                        <h1 className="text-2xl font-bold text-white mb-1 leading-snug">Работайте<br />в MAX Taxi Park</h1>
-                        <p className="text-gray-400 text-sm mb-5">Ежедневные выплаты, поддержка 24/7, свободный график и эксклюзивные межгородние заказы</p>
-                        <a
-                            href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
-                            target="_blank" rel="noreferrer"
-                            className="inline-flex items-center gap-2 bg-accent text-black font-bold rounded-2xl py-3.5 px-6 text-sm active:scale-95 transition-transform"
-                        >
-                            <UserPlus size={16} />
-                            Оставить заявку
-                        </a>
+            {/* HERO DRIVER */}
+            <div className="relative min-h-[70vh] flex flex-col justify-end px-5 pb-12 pt-20 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 via-[#050505]/90 to-[#050505] pointer-events-none" />
+                <div className="absolute top-0 left-0 w-[80%] h-[50%] bg-white/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/4 -translate-y-1/4" />
+
+                <div className="relative z-10 space-y-6">
+                    <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 rounded-full px-3 py-1.5 backdrop-blur-md">
+                        <CheckCircle2 size={12} className="text-green-400" />
+                        <span className="text-gray-300 text-[10px] font-bold tracking-[0.2em] uppercase">Официальный партнер</span>
                     </div>
-                </motion.div>
+
+                    <h1 className="text-[11vw] xs:text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-tighter">
+                        Зарабатывай<br />
+                        <span className="text-white">больше.</span>
+                    </h1>
+
+                    <p className="text-gray-400 text-sm leading-relaxed max-w-[90%]">
+                        Элитный таксопарк MAX. Эксклюзивные клиенты Яндекс.Такси, абсолютный приоритет и выплаты день в день.
+                    </p>
+
+                    <a
+                        href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer"
+                        className="w-full bg-white text-black font-extrabold uppercase tracking-widest rounded-2xl py-4 active:scale-[0.98] transition-transform flex items-center justify-center gap-2"
+                    >
+                        <UserPlus size={18} /> Стать частью команды
+                    </a>
+                </div>
             </div>
 
-            {/* ── Benefits Grid ── */}
-            <div id="driver-benefits" className="mt-8 px-4 scroll-mt-20">
-                <h2 className="text-xl font-bold text-white mb-4">Почему мы лучше</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {/* BENEFITS FOCUS */}
+            <div id="driver-benefits" className="px-5 mt-4 scroll-mt-24">
+                <h2 className="text-2xl font-bold text-white mb-5 tracking-tight">Условия для своих</h2>
+                <div className="grid grid-cols-1 gap-3">
                     {benefits.map((b, i) => {
                         const Icon = b.icon;
                         return (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                                transition={{ delay: i * 0.05 }}
-                                className="bg-[#131820] border border-white/8 rounded-2xl p-4 flex items-start gap-4"
-                            >
-                                <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                                    <Icon size={20} className="text-accent" />
+                            <div key={i} className="bg-[#0f1115] border border-white/5 rounded-2xl p-5 flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                    <Icon size={20} className="text-white" />
                                 </div>
                                 <div>
-                                    <p className="text-white font-bold text-sm leading-tight mb-1.5">{b.title}</p>
+                                    <p className="text-white font-bold text-[14px] leading-tight mb-1.5">{b.title}</p>
                                     <p className="text-gray-400 text-xs leading-relaxed">{b.desc}</p>
                                 </div>
-                            </motion.div>
+                            </div>
                         );
                     })}
                 </div>
             </div>
 
-            {/* ── Steps ── */}
-            <div className="px-4 mt-8">
-                <h2 className="text-xl font-bold text-white mb-4">Как начать</h2>
-                <div className="bg-[#131820] border border-white/8 rounded-2xl p-4 pl-6 space-y-4 relative">
-                    {/* Vertical tracking line */}
-                    <div className="absolute top-8 bottom-8 left-9 w-px bg-white/10" />
-                    {[
-                        { step: '1', text: 'Заполните короткую анкету на Яндекс.Такси' },
-                        { step: '2', text: 'Мы подтвердим ваше подключение в течение 10 минут' },
-                        { step: '3', text: 'Выходите на линию, выполняйте заказы и получайте выплаты' },
-                    ].map((s, i) => (
-                        <div key={i} className="flex items-center gap-4 relative z-10">
-                            <div className="w-8 h-8 rounded-full bg-accent/15 border-[2px] border-accent/40 flex items-center justify-center shrink-0 shadow-lg bg-[#131820]">
-                                <span className="text-accent text-[13px] font-bold">{s.step}</span>
+            {/* STEPS PRESTIGE */}
+            <div className="px-5 mt-10 mb-6">
+                <div className="bg-gradient-to-br from-accent/10 to-transparent border border-accent/20 rounded-3xl p-6 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 blur-[50px] pointer-events-none" />
+                    <h2 className="text-xl font-bold text-white mb-6 relative z-10 tracking-tight">Простой старт</h2>
+
+                    <div className="space-y-4 relative z-10">
+                        <div className="absolute top-4 bottom-6 left-[18px] w-px bg-accent/20" />
+                        {[
+                            { step: '01', text: 'Заполните анкету по ссылке ниже' },
+                            { step: '02', text: 'Дождитесь быстрого подтверждения' },
+                            { step: '03', text: 'Получайте заказы VIP и Бизнес' },
+                        ].map((s, i) => (
+                            <div key={i} className="flex items-center gap-4 relative bg-[#050505]/50 backdrop-blur-sm p-3.5 rounded-2xl border border-white/5">
+                                <div className="bg-[#0f1115] border border-accent/30 w-9 h-9 rounded-full flex items-center justify-center shrink-0 shadow-lg z-10">
+                                    <span className="text-accent text-[11px] font-bold">{s.step}</span>
+                                </div>
+                                <p className="text-gray-300 text-[13px] font-medium leading-snug">{s.text}</p>
                             </div>
-                            <p className="text-gray-300 text-sm leading-snug">{s.text}</p>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
+
+                    <a
+                        href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer"
+                        className="w-full bg-accent text-black font-extrabold uppercase tracking-widest rounded-xl py-4 flex items-center justify-center mt-6 active:scale-[0.98] transition-transform text-[12px]"
+                    >
+                        Заполнить анкету
+                    </a>
                 </div>
             </div>
 
-            {/* ── Join CTA ── */}
-            <div className="px-4 mt-8">
-                <a
-                    href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
-                    target="_blank" rel="noreferrer"
-                    className="flex items-center justify-between bg-accent/10 border border-accent/20 rounded-2xl px-4 py-4 active:scale-[0.98] transition-transform"
-                >
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
-                            <UserPlus size={18} className="text-accent" />
-                        </div>
-                        <div>
-                            <p className="text-white font-bold text-sm">Подать заявку</p>
-                            <p className="text-gray-400 text-xs">Яндекс.Такси — займёт 2 мин</p>
-                        </div>
-                    </div>
-                    <ArrowRight size={16} className="text-accent" />
-                </a>
-            </div>
-
             {/* ── Terms link ── */}
-            <div className="px-4 mt-3 pb-2">
+            <div className="px-5 mt-8 pb-4">
                 <a href="./drivers-offer.html" target="_blank"
-                    className="block text-center text-gray-600 text-xs underline">
-                    Условия сотрудничества и инструкция по подключению
+                    className="block text-center text-gray-500 text-[10px] underline uppercase tracking-widest">
+                    Условия сотрудничества и инструкция
                 </a>
             </div>
         </div>
