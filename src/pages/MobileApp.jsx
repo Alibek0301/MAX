@@ -328,12 +328,28 @@ const DriverView = ({ t }) => {
                         Элитный таксопарк MAX. Эксклюзивные клиенты Яндекс.Такси, абсолютный приоритет и выплаты день в день.
                     </p>
 
-                    <a
-                        href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer"
-                        className="w-full bg-white text-black font-extrabold uppercase tracking-widest rounded-2xl py-4 active:scale-[0.98] transition-transform flex items-center justify-center gap-2"
-                    >
-                        <UserPlus size={18} /> Стать частью команды
-                    </a>
+                    <div className="flex flex-col gap-2 mt-4 w-full">
+                        <a
+                            href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer"
+                            className="w-full bg-white text-black font-extrabold uppercase tracking-widest rounded-xl py-3.5 active:scale-[0.98] transition-transform flex items-center justify-center gap-2 text-[12px]"
+                        >
+                            <UserPlus size={16} /> Форма Яндекс Pro
+                        </a>
+                        <div className="flex gap-2 w-full">
+                            <a
+                                href="https://t.me/Max_taxBot" target="_blank" rel="noreferrer"
+                                className="flex-1 bg-[#2AABEE] text-white bg-opacity-90 hover:bg-opacity-100 font-extrabold uppercase tracking-wider rounded-xl py-3 active:scale-[0.98] transition-transform flex items-center justify-center gap-2 text-[11px]"
+                            >
+                                <MessageCircle size={15} /> Telegram Bot
+                            </a>
+                            <a
+                                href={`https://wa.me/${whatsappNumber}?text=Здравствуйте,%20я%20хочу%20работать%20в%20MAX%20Taxi!`} target="_blank" rel="noreferrer"
+                                className="flex-1 bg-[#25D366] text-white bg-opacity-90 hover:bg-opacity-100 font-extrabold uppercase tracking-wider rounded-xl py-3 active:scale-[0.98] transition-transform flex items-center justify-center gap-2 text-[11px]"
+                            >
+                                <Phone size={15} /> WhatsApp
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -380,12 +396,28 @@ const DriverView = ({ t }) => {
                         ))}
                     </div>
 
-                    <a
-                        href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer"
-                        className="w-full bg-accent text-black font-extrabold uppercase tracking-widest rounded-xl py-4 flex items-center justify-center mt-6 active:scale-[0.98] transition-transform text-[12px]"
-                    >
-                        Заполнить анкету
-                    </a>
+                    <div className="flex flex-col gap-2 mt-6">
+                        <a
+                            href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer"
+                            className="w-full bg-accent text-black font-extrabold uppercase tracking-widest rounded-xl py-3.5 flex items-center justify-center active:scale-[0.98] transition-transform text-[11px]"
+                        >
+                            Заполнить анкету
+                        </a>
+                        <div className="flex gap-2">
+                            <a
+                                href="https://t.me/Max_taxBot" target="_blank" rel="noreferrer"
+                                className="flex-1 bg-white/10 border border-white/10 text-white font-extrabold uppercase tracking-wider rounded-xl py-2.5 flex items-center justify-center gap-1.5 active:scale-[0.98] transition-transform text-[10px]"
+                            >
+                                <MessageCircle size={14} className="text-[#2AABEE]" /> Telegram
+                            </a>
+                            <a
+                                href={`https://wa.me/${whatsappNumber}?text=Здравствуйте,%20я%20хочу%20работать%20в%20MAX%20Taxi!`} target="_blank" rel="noreferrer"
+                                className="flex-1 bg-white/10 border border-white/10 text-white font-extrabold uppercase tracking-wider rounded-xl py-2.5 flex items-center justify-center gap-1.5 active:scale-[0.98] transition-transform text-[10px]"
+                            >
+                                <Phone size={14} className="text-[#25D366]" /> WhatsApp
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
