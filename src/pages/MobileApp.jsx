@@ -166,7 +166,7 @@ const ClientView = ({ t, language }) => {
         <div className="pb-[calc(6.5rem+env(safe-area-inset-bottom))] bg-[#050505] min-h-screen text-white selection:bg-accent selection:text-black">
 
             {/* 1. HERO SECTION */}
-            <div className="relative min-h-[75vh] flex flex-col justify-end px-5 pb-12 pt-20 overflow-hidden">
+            <div id="booking" className="relative min-h-[75vh] flex flex-col justify-end px-5 pb-12 pt-20 overflow-hidden scroll-mt-20">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-[#050505]/80 to-[#050505] pointer-events-none" />
                 <div className="absolute top-0 right-0 w-[80%] h-[50%] bg-accent/20 blur-[120px] rounded-full pointer-events-none translate-x-1/4 -translate-y-1/4" />
 
@@ -197,7 +197,7 @@ const ClientView = ({ t, language }) => {
             </div>
 
             {/* 2. NUMBERS / TRUST */}
-            <div className="px-5 -mt-4 relative z-20">
+            <div className="px-5 -mt-4 relative z-20 scroll-mt-24">
                 <div className="flex bg-[#0f1115] border border-white/10 rounded-2xl shadow-xl backdrop-blur-xl divide-x divide-white/10">
                     {[
                         { val: '24/7', label: 'Подача авто' },
@@ -297,6 +297,10 @@ const ClientView = ({ t, language }) => {
                 </div>
             </div>
 
+            <div className="mt-8 border-t border-white/5 pt-4">
+                <FAQ language={language} t={t} viewMode="client" />
+            </div>
+
             <BookingSheet open={sheetOpen} onClose={() => setSheetOpen(false)} t={t} language={language} />
         </div>
     );
@@ -310,7 +314,7 @@ const DriverView = ({ t }) => {
         <div className="pb-[calc(6.5rem+env(safe-area-bottom))] bg-[#050505] min-h-screen text-white selection:bg-accent selection:text-black">
 
             {/* HERO DRIVER */}
-            <div className="relative min-h-[70vh] flex flex-col justify-end px-5 pb-12 pt-20 overflow-hidden">
+            <div id="for-drivers" className="relative min-h-[70vh] flex flex-col justify-end px-5 pb-12 pt-20 overflow-hidden scroll-mt-20">
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 via-[#050505]/90 to-[#050505] pointer-events-none" />
                 <div className="absolute top-0 left-0 w-[80%] h-[50%] bg-white/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/4 -translate-y-1/4" />
 
@@ -376,7 +380,7 @@ const DriverView = ({ t }) => {
             </div>
 
             {/* STEPS PRESTIGE */}
-            <div className="px-5 mt-10 mb-6">
+            <div id="trust" className="px-5 mt-10 mb-6 scroll-mt-24">
                 <div className="bg-gradient-to-br from-accent/10 to-transparent border border-accent/20 rounded-3xl p-6 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 blur-[50px] pointer-events-none" />
                     <h2 className="text-xl font-bold text-white mb-6 relative z-10 tracking-tight">Простой старт</h2>
