@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { whatsappNumber, getFleet, getServices } from '../constants/data';
 import FAQ from '../components/Sections/FAQ';
+import TeamCalculator from '../components/Sections/TeamCalculator';
 
 /* ─────────────────────────────────────────────
    QUICK SERVICES (клиент)
@@ -424,6 +425,10 @@ const DriverView = ({ t }) => {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className="mt-8 border-t border-white/5 px-5 pt-4">
+                <TeamCalculator />
             </div>
 
             <div className="mt-8 border-t border-white/5 pt-4">

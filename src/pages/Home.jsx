@@ -8,6 +8,7 @@ import ForDrivers from '../components/Sections/ForDrivers';
 import FAQ from '../components/Sections/FAQ';
 import Trust from '../components/Sections/Trust';
 import BookingForm from '../components/Forms/BookingForm';
+import TeamCalculator from '../components/Sections/TeamCalculator';
 
 const Home = ({ language, t, viewMode }) => {
     return (
@@ -30,6 +31,7 @@ const Home = ({ language, t, viewMode }) => {
             ) : (
                 <>
                     <ForDrivers t={t} />
+                    <TeamCalculator />
                     <Trust t={t} />
                     <FAQ language={language} t={t} viewMode={viewMode} />
                 </>
