@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Users, Coins, ChevronRight, X, MessageCircle } from 'lucide-react';
 import { whatsappNumber } from '../../constants/data';
 
-// Настройка процента вознаграждения администратором (например, 1.5% = 0.015)
-const TEAM_BONUS_PERCENT = 0.015;
+// Настройка процента вознаграждения администратором (например, 0.4% = 0.004)
+const TEAM_BONUS_PERCENT = 0.004;
 
 const TeamCalculator = () => {
     const [driversCount, setDriversCount] = useState(10);

@@ -359,6 +359,10 @@ const DriverView = ({ t }) => {
                 </div>
             </div>
 
+            <div className="border-b border-white/5 px-5 pb-8 mb-8">
+                <TeamCalculator />
+            </div>
+
             {/* BENEFITS FOCUS */}
             <div id="driver-benefits" className="px-5 mt-4 scroll-mt-24">
                 <h2 className="text-2xl font-bold text-white mb-5 tracking-tight">Условия для своих</h2>
@@ -427,9 +431,7 @@ const DriverView = ({ t }) => {
                 </div>
             </div>
 
-            <div className="mt-8 border-t border-white/5 px-5 pt-4">
-                <TeamCalculator />
-            </div>
+
 
             <div className="mt-8 border-t border-white/5 pt-4">
                 <FAQ language="ru" t={t} viewMode="driver" />
