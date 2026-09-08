@@ -166,7 +166,7 @@ const Hero = ({ t }) => {
 
                             <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
                                 <Shield size={15} className="text-accent shrink-0" />
-                                <span>Официальный партнёр Яндекс Такси в Астане</span>
+                                <span>Надежный и сертифицированный транспортный партнер</span>
                             </div>
 
                             <div className="flex items-center gap-2 text-gray-300 text-xs md:text-sm shrink-0">
