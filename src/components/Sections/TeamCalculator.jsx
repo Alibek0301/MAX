@@ -13,7 +13,9 @@ const TeamCalculator = () => {
     const [form, setForm] = useState({ name: '', phone: '', telegram: '', plannedDrivers: '' });
     const [submitSuccess, setSubmitSuccess] = useState(false);
 
-    const presetCounts = [10, 50, 100, 200, 500];
+    const presetCounts = [10, 25, 50, 100, 200, 500];
+
+    const sliderPercent = Math.min(100, Math.max(0, (driversCount / 500) * 100));
 
     const turnover = driversCount * avgIncome;
     const potentialIncome = turnover * TEAM_BONUS_PERCENT;
@@ -92,20 +94,27 @@ const TeamCalculator = () => {
                                 </div>
 
                                 {/* Custom Range Scale Visualizer */}
-                                <div className="relative pt-2 pb-6">
+                                <div className="relative pt-6 pb-6 mt-4">
+                                    {/* Dynamic Bubble */}
+                                    <div
+                                        className="absolute top-[-4px] -translate-x-1/2 bg-accent text-black font-extrabold text-[11px] px-2 py-0.5 rounded pointer-events-none shadow-lg whitespace-nowrap z-10 transition-all duration-75"
+                                        style={{ left: `calc(${sliderPercent}% + ${12 - sliderPercent * 0.24}px)` }}
+                                    >
+                                        {driversCount} вод.
+                                    </div>
                                     <input
                                         type="range"
-                                        min="1" max="500"
+                                        min="0" max="500" step="1"
                                         value={driversCount}
                                         onChange={e => setDriversCount(Number(e.target.value))}
-                                        className="w-full appearance-none bg-white/10 h-2 rounded-full outline-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-accent [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-[0_0_15px_rgba(245,200,106,0.6)]"
+                                        className="w-full appearance-none bg-white/10 h-2 rounded-full outline-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-accent [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-[0_0_15px_rgba(245,200,106,0.6)] [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-20"
+                                        style={{ background: `linear-gradient(to right, #F5C86A ${sliderPercent}%, rgba(255,255,255,0.05) ${sliderPercent}%)` }}
                                     />
-                                    <div className="flex justify-between absolute w-full top-6 text-gray-500 text-[10px] font-bold">
-                                        <span>10</span>
-                                        <span>50</span>
-                                        <span>100</span>
-                                        <span>200</span>
-                                        <span>500+</span>
+                                    <div className="absolute w-full top-10 text-gray-500 text-[10px] font-bold">
+                                        <span className="absolute left-0">0</span>
+                                        <span className="absolute -translate-x-1/2" style={{ left: '20%' }}>100</span>
+                                        <span className="absolute -translate-x-1/2" style={{ left: '50%' }}>250</span>
+                                        <span className="absolute right-0">500</span>
                                     </div>
                                 </div>
 
