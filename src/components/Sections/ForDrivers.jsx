@@ -86,9 +86,7 @@ const ForDrivers = ({ t }) => {
                                 <a href="./drivers-offer.html" target="_blank" className="text-gray-400 hover:text-white underline text-xs transition duration-300">
                                     {t.partnerDriversButton.includes('Қосылу')
                                         ? 'Жүргізушілермен ынтымақтастық шарттары'
-                                        : t.partnerDriversButton.includes('Join')
-                                            ? 'Driver Partnership Terms and Conditions'
-                                            : 'Условия сотрудничества и инструкция по подключению'
+                                        : 'Условия сотрудничества и инструкция по подключению'
                                     }
                                 </a>
                             </div>
@@ -128,10 +126,10 @@ const ForDrivers = ({ t }) => {
                     className="mt-16 pt-12 border-t border-white/5"
                 >
                     <motion.h3 variants={fadeIn} className="text-2xl md:text-3xl font-bold text-white mb-2 text-center lg:text-left">
-                        Приложения для работы
+                        {t.appsTitle || 'Приложения для работы'}
                     </motion.h3>
                     <motion.p variants={fadeIn} className="text-gray-400 mb-8 text-center lg:text-left">
-                        Скачайте нужные приложения для старта — всё в одном месте.
+                        {t.appsSubtitle || 'Скачайте нужные приложения для старта — всё в одном месте.'}
                     </motion.p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -144,11 +142,11 @@ const ForDrivers = ({ t }) => {
                                 </div>
                                 <div>
                                     <p className="text-white font-bold text-lg leading-tight">Яндекс Про</p>
-                                    <p className="text-gray-400 text-sm">Основное приложение водителя</p>
+                                    <p className="text-gray-400 text-sm">{t.yandexProSub || 'Основное приложение водителя'}</p>
                                 </div>
                             </div>
                             <p className="text-gray-400 text-sm leading-relaxed mb-5">
-                                Принимайте заказы через официальное приложение Яндекс Про — удобный интерфейс, встроенный навигатор и полная история поездок.
+                                {t.yandexProDesc || 'Принимайте заказы через официальное приложение Яндекс Про — удобный интерфейс, встроенный навигатор и полная история поездок.'}
                             </p>
                             <div className="flex gap-3">
                                 <a href="https://apps.apple.com/kz/app/yandex-pro/id1496904594" target="_blank" rel="noreferrer"
@@ -177,11 +175,11 @@ const ForDrivers = ({ t }) => {
                                 </div>
                                 <div>
                                     <p className="text-white font-bold text-lg leading-tight">Alaman</p>
-                                    <p className="text-gray-400 text-sm">Платформа мотивации водителей</p>
+                                    <p className="text-gray-400 text-sm">{t.alamanSub || 'Платформа мотивации водителей'}</p>
                                 </div>
                             </div>
                             <p className="text-gray-400 text-sm leading-relaxed mb-5">
-                                Платформа для управления доходом и мотивацией водителей. Отслеживайте заработок, бонусы и статистику прямо в приложении.
+                                {t.alamanDesc || 'Платформа для управления доходом и мотивацией водителей. Отслеживайте заработок, бонусы и статистику прямо в приложении.'}
                             </p>
                             <div className="flex gap-3">
                                 <a href="https://apps.apple.com/kz/app/alaman/id6804622782" target="_blank" rel="noreferrer"

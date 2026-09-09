@@ -17,8 +17,8 @@ const Header = ({ language, setLanguage, t }) => {
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
                     <nav className="flex gap-6 text-sm font-medium">
-                        <a href="#for-drivers" className="text-gray-200 hover:text-accent transition-colors">Работа в парке</a>
-                        <a href="#trust" className="text-gray-200 hover:text-accent transition-colors">Гарантии</a>
+                        <a href="#for-drivers" className="text-gray-200 hover:text-accent transition-colors">{t.navWork || 'Работа в парке'}</a>
+                        <a href="#trust" className="text-gray-200 hover:text-accent transition-colors">{t.navGuarantees || 'Гарантии'}</a>
                         <a href="#faq" className="text-gray-200 hover:text-accent transition-colors">{t.faqNav || 'FAQ'}</a>
                     </nav>
 
@@ -31,7 +31,6 @@ const Header = ({ language, setLanguage, t }) => {
                         >
                             <option value="ru" className="bg-surface text-white">РУ</option>
                             <option value="kk" className="bg-surface text-white">KK</option>
-                            <option value="en" className="bg-surface text-white">EN</option>
                         </select>
 
                         <a
@@ -40,7 +39,7 @@ const Header = ({ language, setLanguage, t }) => {
                             rel="noreferrer"
                             className="flex items-center gap-2 bg-accent hover:bg-amber-400 text-black px-4 py-2 rounded-full font-semibold transition shadow-lg text-sm"
                         >
-                            Стать партнёром
+                            {t.headerCta || 'Стать партнёром'}
                         </a>
                     </div>
                 </div>
@@ -55,7 +54,6 @@ const Header = ({ language, setLanguage, t }) => {
                     >
                         <option value="ru" className="bg-surface text-white">РУ</option>
                         <option value="kk" className="bg-surface text-white">KK</option>
-                        <option value="en" className="bg-surface text-white">EN</option>
                     </select>
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -77,13 +75,13 @@ const Header = ({ language, setLanguage, t }) => {
 
                     {/* Menu Panel */}
                     <div className="md:hidden absolute top-full left-0 right-0 bg-base/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl p-4 flex flex-col gap-3 animate-in slide-in-from-top-2 z-50 rounded-b-2xl">
-                        <a href="#for-drivers" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">Работа в парке</a>
-                        <a href="#trust" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">Гарантии</a>
+                        <a href="#for-drivers" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">{t.navWork || 'Работа в парке'}</a>
+                        <a href="#trust" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">{t.navGuarantees || 'Гарантии'}</a>
                         <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors border-t border-white/10 pt-3 mt-1 block px-2 py-1">{t.faqNav || 'FAQ'}</a>
 
                         <div className="flex gap-3 mt-3">
                             <a href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer" className="flex-1 bg-gradient-to-r from-accent to-amber-400 shadow-lg text-black font-bold rounded-xl py-2.5 flex items-center justify-center gap-1.5 transition-transform active:scale-95 text-sm">
-                                Заполнить анкету
+                                {t.headerMenuCta || 'Заполнить анкету'}
                             </a>
                             <a href={`https://wa.me/${whatsappNumber}?text=Здравствуйте,%20я%20хочу%20работать%20в%20MAX%20Taxi!`} className="flex-1 bg-green-500/90 hover:bg-green-500 text-white font-bold rounded-xl py-2.5 flex items-center justify-center gap-1.5 transition-transform active:scale-95 text-sm">
                                 <Phone size={16} /> WhatsApp

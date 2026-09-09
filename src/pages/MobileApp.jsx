@@ -20,7 +20,7 @@ const benefits = [
 /* ─────────────────────────────────────────────
    DRIVER VIEW (Premium Recruitment Style)
 ───────────────────────────────────────────── */
-const DriverView = ({ t }) => {
+const DriverView = ({ language, t }) => {
     return (
         <div className="pb-[calc(5rem+env(safe-area-bottom))] bg-[#050505] min-h-screen text-white selection:bg-accent selection:text-black">
 
@@ -244,14 +244,17 @@ const DriverView = ({ t }) => {
             </div>
 
             <div className="mt-8 border-t border-white/5 pt-4">
-                <FAQ language="ru" t={t} viewMode="driver" />
+                <FAQ language={language} t={t} viewMode="driver" />
             </div>
 
             {/* Terms link */}
             <div className="px-5 pb-4">
                 <a href="./drivers-offer.html" target="_blank"
                     className="block text-center text-gray-500 text-[10px] underline uppercase tracking-widest">
-                    Условия сотрудничества и инструкция
+                    {t.partnerDriversButton && t.partnerDriversButton.includes('Қосылу')
+                        ? 'Жүргізушілермен ынтымақтастық шарттары'
+                        : 'Условия сотрудничества и инструкция по подключению'
+                    }
                 </a>
             </div>
         </div>
@@ -262,7 +265,7 @@ const DriverView = ({ t }) => {
    ROOT EXPORT
 ───────────────────────────────────────────── */
 const MobileApp = ({ language, t }) => {
-    return <DriverView t={t} />;
+    return <DriverView language={language} t={t} />;
 };
 
 export default MobileApp;
