@@ -33,7 +33,7 @@ const DriverView = ({ t }) => {
                 <div className="relative z-10 space-y-6">
                     <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 rounded-full px-3 py-1.5 backdrop-blur-md">
                         <CheckCircle2 size={12} className="text-green-400" />
-                        <span className="text-gray-300 text-[10px] font-bold tracking-[0.2em] uppercase">Официальный партнер Яндекс Go</span>
+                        <span className="text-gray-300 text-[10px] font-bold tracking-[0.2em] uppercase">Официальный партнер Яндекс Такси</span>
                     </div>
 
                     <h1 className="text-[11vw] xs:text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-tighter">
@@ -132,16 +132,28 @@ const DriverView = ({ t }) => {
                     <p className="text-gray-400 text-xs leading-relaxed mb-4 relative z-10">
                         Принимайте заказы через официальное приложение Яндекс Про — удобный интерфейс, навигатор и история поездок.
                     </p>
-                    <a
-                        href="https://play.google.com/store/apps/details?id=ru.yandex.taximeter"
-                        target="_blank" rel="noreferrer"
-                        className="w-full bg-[#FF5C01]/15 border border-[#FF5C01]/30 text-[#FF5C01] font-extrabold uppercase tracking-widest rounded-xl py-3 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform text-[11px] relative z-10"
-                    >
-                        <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3.18 23.76c.37.2.8.22 1.19.04l12.44-6.53-2.67-2.68-10.96 9.17zM.5 1.52C.19 1.94 0 2.5 0 3.22v17.56c0 .72.19 1.28.5 1.7l.09.08 9.84-9.84v-.23L.59 1.44.5 1.52zM20.33 10.75l-2.67-1.4-2.99 3 2.99 2.99 2.68-1.4c.77-.42.77-1.11 0-1.52l-.01-.67zM4.37.2L16.81 6.73 14.14 9.4 3.18.25c.39-.19.83-.17 1.19-.05z" />
-                        </svg>
-                        Скачать на Android (Google Play)
-                    </a>
+                    <div className="flex gap-2 relative z-10">
+                        <a
+                            href="https://apps.apple.com/kz/app/yandex-pro/id1496904594"
+                            target="_blank" rel="noreferrer"
+                            className="flex-1 bg-white/5 border border-white/10 text-white font-extrabold uppercase tracking-wider rounded-xl py-3 flex items-center justify-center gap-1.5 active:scale-[0.98] transition-transform text-[10px]"
+                        >
+                            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                            </svg>
+                            App Store
+                        </a>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=ru.yandex.taximeter"
+                            target="_blank" rel="noreferrer"
+                            className="flex-1 bg-[#FF5C01]/15 border border-[#FF5C01]/30 text-[#FF5C01] font-extrabold uppercase tracking-wider rounded-xl py-3 flex items-center justify-center gap-1.5 active:scale-[0.98] transition-transform text-[10px]"
+                        >
+                            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.18 23.76c.37.2.8.22 1.19.04l12.44-6.53-2.67-2.68-10.96 9.17zM.5 1.52C.19 1.94 0 2.5 0 3.22v17.56c0 .72.19 1.28.5 1.7l.09.08 9.84-9.84v-.23L.59 1.44.5 1.52zM20.33 10.75l-2.67-1.4-2.99 3 2.99 2.99 2.68-1.4c.77-.42.77-1.11 0-1.52l-.01-.67zM4.37.2L16.81 6.73 14.14 9.4 3.18.25c.39-.19.83-.17 1.19-.05z" />
+                            </svg>
+                            Google Play
+                        </a>
+                    </div>
                 </div>
 
                 {/* Alaman */}
@@ -157,7 +169,7 @@ const DriverView = ({ t }) => {
                         </div>
                     </div>
                     <p className="text-gray-400 text-xs leading-relaxed mb-4 relative z-10">
-                        Дополнительные заказы через приложение Alaman — доступно на Android и iPhone. Расширьте поток заказов.
+                        Платформа для управления доходом и мотивацией водителей. Отслеживайте заработок, бонусы и статистику прямо в приложении.
                     </p>
                     <div className="flex gap-2 relative z-10">
                         <a

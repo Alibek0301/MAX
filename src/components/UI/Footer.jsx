@@ -49,7 +49,7 @@ const Footer = ({ t }) => {
                 {/* Brand */}
                 <div>
                     <h3 className="font-serif text-2xl text-accent mb-4 tracking-widest drop-shadow-glow">MAX</h3>
-                    <p className="text-gray-300 max-w-xs mb-5">Официальный партнёр Яндекс Go в Астане. Присоединяйтесь к команде MAX и зарабатывайте больше.</p>
+                    <p className="text-gray-300 max-w-xs mb-5">Официальный партнёр Яндекс Такси в Астане. Присоединяйтесь к команде MAX и зарабатывайте больше.</p>
 
                     {/* Social icons */}
                     <div className="flex items-center gap-3 mb-5">
