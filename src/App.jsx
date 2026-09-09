@@ -8,7 +8,6 @@ import MobileApp from './pages/MobileApp';
 import { translations } from './constants/data';
 
 function App() {
-  const [viewMode, setViewMode] = useState('client'); // 'client' or 'driver'
   const [language, setLanguage] = useState(() => {
     // 1. Check URL parameters (?lang=kk)
     const params = new URLSearchParams(window.location.search);
@@ -49,25 +48,25 @@ function App() {
   return (
     <div className="min-h-screen bg-base text-white font-sans selection:bg-accent selection:text-black">
 
-      {/* Shared Header (desktop uses it for full nav; mobile uses it as a slim top bar) */}
-      <Header language={language} setLanguage={setLanguage} t={t} viewMode={viewMode} setViewMode={setViewMode} />
+      {/* Shared Header */}
+      <Header language={language} setLanguage={setLanguage} t={t} />
 
       {/* ── Mobile App Layout (hidden on desktop) ── */}
       <div className="md:hidden">
-        <MobileApp language={language} t={t} viewMode={viewMode} setViewMode={setViewMode} />
+        <MobileApp language={language} t={t} />
       </div>
 
       {/* ── Desktop Layout (hidden on mobile) ── */}
       <div className="hidden md:block">
-        <main className="pt-40">
-          <Home language={language} t={t} viewMode={viewMode} setViewMode={setViewMode} />
+        <main className="pt-24">
+          <Home language={language} t={t} />
         </main>
         <Footer t={t} />
         <FloatingButtons />
       </div>
 
       {/* Mobile Bottom Navigation */}
-      <MobileBottomMenu t={t} viewMode={viewMode} setViewMode={setViewMode} />
+      <MobileBottomMenu t={t} />
 
     </div>
   );

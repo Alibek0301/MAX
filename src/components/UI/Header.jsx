@@ -3,33 +3,22 @@ import { Phone, Menu, X } from 'lucide-react';
 import { whatsappNumber } from '../../constants/data';
 import WeatherWidget from './WeatherWidget';
 
-const Header = ({ language, setLanguage, t, viewMode, setViewMode }) => {
+const Header = ({ language, setLanguage, t }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-base/70 backdrop-blur-2xl">
             <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
                 <a href="#top" className="flex items-center gap-2 group hover:opacity-90 transition-opacity">
-                    <img src={`${import.meta.env.BASE_URL}logo.png`} alt="MAX Logo" className="h-10 md:h-20 w-auto object-contain drop-shadow-2xl" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+                    <img src={`${import.meta.env.BASE_URL}logo.png`} alt="MAX Logo" className="h-10 md:h-16 w-auto object-contain drop-shadow-2xl" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
                     <span className="font-serif text-3xl tracking-[0.2em] text-accent drop-shadow-glow" style={{ display: 'none' }}> MAX</span>
                 </a>
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
                     <nav className="flex gap-6 text-sm font-medium">
-                        {viewMode === 'client' ? (
-                            <>
-                                <a href="#fleet" className="text-gray-200 hover:text-accent transition-colors">{t.fleet || 'Автопарк'}</a>
-                                <a href="#services" className="text-gray-200 hover:text-accent transition-colors">{t.services}</a>
-                                <a href="#standards" className="text-gray-200 hover:text-accent transition-colors">{t.standards}</a>
-                                <a href="#booking" className="text-gray-200 hover:text-accent transition-colors">{t.booking}</a>
-                            </>
-                        ) : (
-                            <>
-                                <a href="#for-drivers" className="text-gray-200 hover:text-accent transition-colors">Работа в парке</a>
-                                <a href="#trust" className="text-gray-200 hover:text-accent transition-colors">Гарантии</a>
-                            </>
-                        )}
+                        <a href="#for-drivers" className="text-gray-200 hover:text-accent transition-colors">Работа в парке</a>
+                        <a href="#trust" className="text-gray-200 hover:text-accent transition-colors">Гарантии</a>
                         <a href="#faq" className="text-gray-200 hover:text-accent transition-colors">{t.faqNav || 'FAQ'}</a>
                     </nav>
 
@@ -46,12 +35,12 @@ const Header = ({ language, setLanguage, t, viewMode, setViewMode }) => {
                         </select>
 
                         <a
-                            href={`https://wa.me/${whatsappNumber}`}
+                            href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62"
                             target="_blank"
                             rel="noreferrer"
-                            className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full font-semibold transition shadow-lg text-sm"
+                            className="flex items-center gap-2 bg-accent hover:bg-amber-400 text-black px-4 py-2 rounded-full font-semibold transition shadow-lg text-sm"
                         >
-                            WhatsApp
+                            Стать партнёром
                         </a>
                     </div>
                 </div>
@@ -77,31 +66,6 @@ const Header = ({ language, setLanguage, t, viewMode, setViewMode }) => {
                 </div>
             </div>
 
-            {/* View Mode Toggle — Desktop only, hidden on mobile (lives in MobileBottomMenu) */}
-            <div className="hidden md:flex w-full bg-base/50 backdrop-blur-md border-t border-b border-white/5 py-2 justify-center px-4">
-                <div className="flex bg-black/40 rounded-full p-1 border border-white/10 w-full max-w-sm relative shadow-inner">
-                    <button
-                        onClick={() => { setViewMode('client'); window.scrollTo(0, 0); }}
-                        className={`flex-1 text-xs sm:text-sm py-1.5 rounded-full z-10 transition-colors font-semibold ${viewMode === 'client' ? 'text-black' : 'text-gray-400 hover:text-white'
-                            }`}
-                    >
-                        Заказ трансфера
-                    </button>
-                    <button
-                        onClick={() => { setViewMode('driver'); window.scrollTo(0, 0); }}
-                        className={`flex-1 text-xs sm:text-sm py-1.5 rounded-full z-10 transition-colors font-semibold ${viewMode === 'driver' ? 'text-black' : 'text-gray-400 hover:text-white'
-                            }`}
-                    >
-                        Работа в парке
-                    </button>
-                    {/* Animated Sliding Background */}
-                    <div
-                        className={`absolute top-1 bottom-1 w-[calc(50%-4px)] bg-accent rounded-full shadow-lg transition-transform duration-300 ease-in-out ${viewMode === 'driver' ? 'translate-x-[calc(100%+0px)]' : 'translate-x-0'
-                            }`}
-                    ></div>
-                </div>
-            </div>
-
             {/* Mobile Menu Content */}
             {mobileMenuOpen && (
                 <>
@@ -113,26 +77,16 @@ const Header = ({ language, setLanguage, t, viewMode, setViewMode }) => {
 
                     {/* Menu Panel */}
                     <div className="md:hidden absolute top-full left-0 right-0 bg-base/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl p-4 flex flex-col gap-3 animate-in slide-in-from-top-2 z-50 rounded-b-2xl">
-                        {viewMode === 'client' ? (
-                            <>
-                                <a href="#fleet" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">{t.fleet || 'Автопарк'}</a>
-                                <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">{t.services}</a>
-                                <a href="#booking" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">{t.booking}</a>
-                            </>
-                        ) : (
-                            <>
-                                <a href="#for-drivers" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">Работа в парке</a>
-                                <a href="#trust" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">Гарантии</a>
-                            </>
-                        )}
+                        <a href="#for-drivers" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">Работа в парке</a>
+                        <a href="#trust" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors block px-2 py-1">Гарантии</a>
                         <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium text-white hover:text-accent transition-colors border-t border-white/10 pt-3 mt-1 block px-2 py-1">{t.faqNav || 'FAQ'}</a>
 
                         <div className="flex gap-3 mt-3">
-                            <a href={`https://wa.me/${whatsappNumber}`} className="flex-1 bg-gradient-to-r from-green-500 to-green-600 shadow-lg text-white font-bold rounded-xl py-2.5 flex items-center justify-center gap-1.5 transition-transform active:scale-95 text-sm">
-                                WhatsApp
+                            <a href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer" className="flex-1 bg-gradient-to-r from-accent to-amber-400 shadow-lg text-black font-bold rounded-xl py-2.5 flex items-center justify-center gap-1.5 transition-transform active:scale-95 text-sm">
+                                Заполнить анкету
                             </a>
-                            <a href={`tel:+${whatsappNumber}`} className="flex-1 bg-accent/90 hover:bg-accent text-black font-bold rounded-xl py-2.5 flex items-center justify-center gap-1.5 transition-transform active:scale-95 text-sm">
-                                <Phone size={16} /> Позвонить
+                            <a href={`https://wa.me/${whatsappNumber}?text=Здравствуйте,%20я%20хочу%20работать%20в%20MAX%20Taxi!`} className="flex-1 bg-green-500/90 hover:bg-green-500 text-white font-bold rounded-xl py-2.5 flex items-center justify-center gap-1.5 transition-transform active:scale-95 text-sm">
+                                <Phone size={16} /> WhatsApp
                             </a>
                         </div>
                     </div>

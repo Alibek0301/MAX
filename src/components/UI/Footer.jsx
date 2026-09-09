@@ -49,7 +49,7 @@ const Footer = ({ t }) => {
                 {/* Brand */}
                 <div>
                     <h3 className="font-serif text-2xl text-accent mb-4 tracking-widest drop-shadow-glow">MAX</h3>
-                    <p className="text-gray-300 max-w-xs mb-5">{t.footerTagline}</p>
+                    <p className="text-gray-300 max-w-xs mb-5">Официальный партнёр Яндекс Go в Астане. Присоединяйтесь к команде MAX и зарабатывайте больше.</p>
 
                     {/* Social icons */}
                     <div className="flex items-center gap-3 mb-5">
@@ -79,13 +79,13 @@ const Footer = ({ t }) => {
 
                 {/* Nav */}
                 <div>
-                    <h4 className="font-bold text-white mb-4 uppercase tracking-wider">{t.menu}</h4>
+                    <h4 className="font-bold text-white mb-4 uppercase tracking-wider">Навигация</h4>
                     <nav className="flex flex-col gap-3 text-gray-300">
-                        <a href="#services" className="hover:text-white transition w-max">{t.services}</a>
-                        <a href="#standards" className="hover:text-white transition w-max">{t.standards}</a>
-                        <a href="#booking" className="hover:text-white transition w-max">{t.booking}</a>
+                        <a href="#for-drivers" className="hover:text-white transition w-max">Работа в парке</a>
+                        <a href="#driver-benefits" className="hover:text-white transition w-max">Условия и бонусы</a>
+                        <a href="#trust" className="hover:text-white transition w-max">Как начать</a>
                         <a href="#faq" className="hover:text-white transition w-max">FAQ</a>
-                        <a href="#for-drivers" className="hover:text-white transition w-max">Партнёрам</a>
+                        <a href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer" className="hover:text-accent text-accent transition w-max font-semibold">Заполнить анкету →</a>
                     </nav>
                 </div>
 
