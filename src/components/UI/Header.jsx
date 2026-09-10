@@ -83,7 +83,7 @@ const Header = ({ language, setLanguage, t }) => {
                             <a href="https://forms.fleet.yandex.kz/forms?ref_id=5648b43bf6d8468dbace31f458ae8d62" target="_blank" rel="noreferrer" className="flex-1 bg-gradient-to-r from-accent to-amber-400 shadow-lg text-black font-bold rounded-xl py-2.5 flex items-center justify-center gap-1.5 transition-transform active:scale-95 text-sm">
                                 {t.headerMenuCta || 'Заполнить анкету'}
                             </a>
-                            <a href={`https://wa.me/${whatsappNumber}?text=Здравствуйте,%20я%20хочу%20работать%20в%20MAX%20Taxi!`} className="flex-1 bg-green-500/90 hover:bg-green-500 text-white font-bold rounded-xl py-2.5 flex items-center justify-center gap-1.5 transition-transform active:scale-95 text-sm">
+                            <a href={`https://wa.me/${whatsappNumber}?text=Здравствуйте!%20Я%20хочу%20зарегистрироваться%20в%20таксопарке%20MAX.`} className="flex-1 bg-green-500/90 hover:bg-green-500 text-white font-bold rounded-xl py-2.5 flex items-center justify-center gap-1.5 transition-transform active:scale-95 text-sm">
                                 <Phone size={16} /> WhatsApp
                             </a>
                         </div>

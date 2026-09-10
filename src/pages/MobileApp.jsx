@@ -33,7 +33,7 @@ const DriverView = ({ language, t }) => {
                 <div className="relative z-10 space-y-6">
                     <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 rounded-full px-3 py-1.5 backdrop-blur-md">
                         <CheckCircle2 size={12} className="text-green-400" />
-                        <span className="text-gray-300 text-[10px] font-bold tracking-[0.2em] uppercase">Официальный партнер Яндекс Такси</span>
+                        <span className="text-gray-300 text-[10px] font-bold tracking-[0.2em] uppercase">Таксопарк MAX • Партнер Яндекс</span>
                     </div>
 
                     <h1 className="text-[11vw] xs:text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-tighter">
@@ -60,7 +60,7 @@ const DriverView = ({ language, t }) => {
                                 <MessageCircle size={15} /> Telegram Bot
                             </a>
                             <a
-                                href={`https://wa.me/${whatsappNumber}?text=Здравствуйте,%20я%20хочу%20работать%20в%20MAX%20Taxi!`} target="_blank" rel="noreferrer"
+                                href={`https://wa.me/${whatsappNumber}?text=Здравствуйте!%20Я%20хочу%20зарегистрироваться%20в%20таксопарке%20MAX.`} target="_blank" rel="noreferrer"
                                 className="flex-1 bg-[#25D366] text-white font-extrabold uppercase tracking-wider rounded-xl py-3 active:scale-[0.98] transition-transform flex items-center justify-center gap-2 text-[11px]"
                             >
                                 <Phone size={15} /> WhatsApp
@@ -233,7 +233,7 @@ const DriverView = ({ language, t }) => {
                                 <MessageCircle size={14} className="text-[#2AABEE]" /> Telegram
                             </a>
                             <a
-                                href={`https://wa.me/${whatsappNumber}?text=Здравствуйте,%20я%20хочу%20работать%20в%20MAX%20Taxi!`} target="_blank" rel="noreferrer"
+                                href={`https://wa.me/${whatsappNumber}?text=Здравствуйте!%20Я%20хочу%20зарегистрироваться%20в%20таксопарке%20MAX.`} target="_blank" rel="noreferrer"
                                 className="flex-1 bg-white/10 border border-white/10 text-white font-extrabold uppercase tracking-wider rounded-xl py-2.5 flex items-center justify-center gap-1.5 active:scale-[0.98] transition-transform text-[10px]"
                             >
                                 <Phone size={14} className="text-[#25D366]" /> WhatsApp

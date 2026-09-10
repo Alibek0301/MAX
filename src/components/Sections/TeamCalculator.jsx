@@ -180,12 +180,6 @@ const TeamCalculator = () => {
                                 >
                                     Стать командиром <ChevronRight size={18} />
                                 </button>
-                                <button
-                                    onClick={() => setModalOpen(true)}
-                                    className="w-full bg-transparent border border-white/20 text-white font-bold uppercase tracking-widest rounded-xl py-4 flex items-center justify-center gap-2 hover:bg-white/5 active:scale-[0.98] transition-all text-xs"
-                                >
-                                    Получить ссылку для приглашения
-                                </button>
                             </div>
                         </div>
 
